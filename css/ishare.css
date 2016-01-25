@@ -1,0 +1,398 @@
+#icSocialShare { position:absolute; top:50%;left:50%; width:300px;height:80px;padding:10px;margin:-40px 0 0 -150px;border-radius:5px;border:1px solid rgba(255,255,255,0.25);box-shadow: 0 0 2px rgba(0,0,0,0.15);
+overflow:hidden; z-index:2!important;
+background: rgba(255,255,255,0.35);
+-webkit-transition: background 0.3s ease-in;
+-moz-transition: background 0.3s ease-in;
+-ms-transition: background 0.3s ease-in;
+-o-transition: background 0.3s ease-in;
+transition: background 0.3s ease-in;
+opacity:0!important;}
+
+
+body .iconnect-photo-wrap:hover #icSocialShare {opacity:1!important;}
+
+
+.ishare a { display: block; }
+.ishare  a { text-decoration: none; }
+ul.ishare {display: block!important;width:100%;} 
+ul.ishare  li { float: left; display: inline; margin-right:10px}
+[class^="socicon-"], [class*=" socicon-"] { background-position: 0 50%!important;}
+.socicon-facebook-1 {
+background-image:url('../img/socialshare/iconset1/fb_1.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-twitter-1 {
+background-image:url('../img/socialshare/iconset1/twitter_1.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-pinterest-1 {
+background-image:url('../img/socialshare/iconset1/pinterest.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-google-plus-1 {
+background-image:url('../img/socialshare/iconset1/google_plus.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-linkedin-1 {
+background-image:url('../img/socialshare/iconset1/linkedin.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-stumbleupon-1 {
+background-image:url('../img/socialshare/iconset1/stumble_upon.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-reddit-1 {
+background-image:url('../img/socialshare/iconset1/reddit.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-tumblr-1 {
+background-image:url('../img/socialshare/iconset1/tumblr.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-email-1 {
+background-image:url('../img/socialshare/iconset1/email.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-facebook-2 {
+background-image:url('../img/socialshare/iconset2/facebook_dark.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-twitter-2 {
+background-image:url('../img/socialshare/iconset2/twitter_dark.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-pinterest-2 {
+background-image:url('../img/socialshare/iconset2/pinterest_dark.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-google-plus-2 {
+background-image:url('../img/socialshare/iconset2/google_dark.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-linkedin-2 {
+background-image:url('../img/socialshare/iconset2/in_dark.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-stumbleupon-2 {
+background-image:url('../img/socialshare/iconset2/stumbleupon_dark.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-reddit-2 {
+background-image:url('../img/socialshare/iconset2/reddit_dark.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-tumblr-2 {
+background-image:url('../img/socialshare/iconset2/tumblr_dark.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-email-2 {
+background-image:url('../img/socialshare/iconset2/blog_dark.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-facebook-3 {
+background-image:url('../img/socialshare/iconset3/facebook_active.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-twitter-3 {
+background-image:url('../img/socialshare/iconset3/twitter_active.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-pinterest-3 {
+background-image:url('../img/socialshare/iconset3/pinterest_active.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-google-plus-3 {
+background-image:url('../img/socialshare/iconset3/google_active.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-linkedin-3 {
+background-image:url('../img/socialshare/iconset3/in_active.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-stumbleupon-3 {
+background-image:url('../img/socialshare/iconset3/stumbleupon_active.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-reddit-3 {
+background-image:url('../img/socialshare/iconset3/reddit_active.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-tumblr-3 {
+background-image:url('../img/socialshare/iconset3/tumblr_active.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-email-3 {
+background-image:url('../img/socialshare/iconset3/blog_active.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-facebook-4 {
+background-image:url('../img/socialshare/iconset4/facebook.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-twitter-4 {
+background-image:url('../img/socialshare/iconset4/twitter.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-pinterest-4 {
+background-image:url('../img/socialshare/iconset4/pinterest.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-google-plus-4 {
+background-image:url('../img/socialshare/iconset4/googleplus.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-linkedin-4 {
+background-image:url('../img/socialshare/iconset4/linkedin.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-stumbleupon-4 {
+background-image:url('../img/socialshare/iconset4/stumbleupon.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-reddit-4 {
+background-image:url('../img/socialshare/iconset4/reddit.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-tumblr-4 {
+background-image:url('../img/socialshare/iconset4/tumblr.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-email-4 {
+background-image:url('../img/socialshare/iconset4/email.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-facebook-5 {
+background-image:url('../img/socialshare/iconset5/facebook.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-twitter-5 {
+background-image:url('../img/socialshare/iconset5/twitter.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-pinterest-5 {
+background-image:url('../img/socialshare/iconset5/pinterest.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-google-plus-5 {
+background-image:url('../img/socialshare/iconset5/googleplus.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-linkedin-5 {
+background-image:url('../img/socialshare/iconset5/linkedin.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-stumbleupon-5 {
+background-image:url('../img/socialshare/iconset5/stumbleupon.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-reddit-5 {
+background-image:url('../img/socialshare/iconset5/reddit.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-tumblr-5 {
+background-image:url('../img/socialshare/iconset5/tumblr.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-email-5 {
+background-image:url('../img/socialshare/iconset5/email.png');
+background-repeat: no-repeat;
+height:32px;
+width:32px;
+}
+.socicon-facebook-6 {
+background-image:url('../img/socialshare/iconset6/facebook.png');
+background-repeat: no-repeat;
+height:16px;
+width:16px;
+}
+.socicon-twitter-6 {
+background-image:url('../img/socialshare/iconset6/twitter.png');
+background-repeat: no-repeat;
+height:16px;
+width:16px;
+}
+.socicon-pinterest-6 {
+background-image:url('../img/socialshare/iconset6/pinterest.png');
+background-repeat: no-repeat;
+height:16px;
+width:16px;
+}
+.socicon-google-plus-6 {
+background-image:url('../img/socialshare/iconset6/google-plus.png');
+background-repeat: no-repeat;
+height:16px;
+width:16px;
+}
+.socicon-linkedin-6 {
+background-image:url('../img/socialshare/iconset6/linkedin.png');
+background-repeat: no-repeat;
+height:16px;
+width:16px;
+}
+.socicon-stumbleupon-6 {
+background-image:url('../img/socialshare/iconset6/stumbleupon.png');
+background-repeat: no-repeat;
+height:16px;
+width:16px;
+}
+.socicon-reddit-6 {
+background-image:url('../img/socialshare/iconset6/reddit.png');
+background-repeat: no-repeat;
+height:16px;
+width:16px;
+}
+.socicon-tumblr-6 {
+background-image:url('../img/socialshare/iconset6/tumblr.png');
+background-repeat: no-repeat;
+height:16px;
+width:16px;
+}
+.socicon-email-6 {
+background-image:url('../img/socialshare/iconset6/social-email.png');
+background-repeat: no-repeat;
+height:16px;
+width:16px;
+}
+.socicon-facebook-7 {
+background-image:url('../img/socialshare/iconset7/facebook.png');
+background-repeat: no-repeat;
+height:24px;
+width:24px;
+}
+.socicon-twitter-7 {
+background-image:url('../img/socialshare/iconset7/twitter.png');
+background-repeat: no-repeat;
+height:24px;
+width:24px;
+}
+.socicon-pinterest-7 {
+background-image:url('../img/socialshare/iconset7/pinterest.png');
+background-repeat: no-repeat;
+height:24px;
+width:24px;
+}
+.socicon-google-plus-7 {
+background-image:url('../img/socialshare/iconset7/google-plus.png');
+background-repeat: no-repeat;
+height:24px;
+width:24px;
+}
+.socicon-linkedin-7 {
+background-image:url('../img/socialshare/iconset7/linkedin.png');
+background-repeat: no-repeat;
+height:24px;
+width:24px;
+}
+.socicon-stumbleupon-7 {
+background-image:url('../img/socialshare/iconset7/stumbleupon.png');
+background-repeat: no-repeat;
+height:24px;
+width:24px;
+}
+.socicon-reddit-7 {
+background-image:url('../img/socialshare/iconset7/reddit.png');
+background-repeat: no-repeat;
+height:24px;
+width:24px;
+}
+.socicon-tumblr-7 {
+background-image:url('../img/socialshare/iconset7/tumblr.png');
+background-repeat: no-repeat;
+height:24px;
+width:24px;
+}
+.socicon-email-7 {
+background-image:url('../img/socialshare/iconset7/social-email.png');
+background-repeat: no-repeat;
+height:24px;
+width:24px;
+}
+

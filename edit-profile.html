@@ -1,0 +1,488 @@
+
+<html class="uk-notouch" dir="ltr" data-config="{&quot;twitter&quot;:0,&quot;plusone&quot;:0,&quot;facebook&quot;:0,&quot;style&quot;:&quot;default&quot;}" lang="en-gb">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- base href="http://qeneqt.us/my-timeline" -->
+		<meta name="generator" content="Joomla! - Open Source Content Management">
+		<title>Edit Profile</title>
+		<link href="http://qeneqt.us/templates/yoo_master2/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+		<link rel="stylesheet" href="css/timelinefile.css" type="text/css">
+		<link rel="stylesheet" href="css/public.css" type="text/css">
+		<link rel="stylesheet" href="css/members.css" type="text/css">
+		<link rel="stylesheet" href="css/navcustom.css" type="text/css">		
+		<link rel="stylesheet" href="css/profileedit.css">
+		<link rel="stylesheet" href="css/iconnect.css" type="text/css">
+		<link rel="stylesheet" href="css/font-icesome.css" type="text/css">
+		<link rel="stylesheet" href="css/hint.css" type="text/css">
+		<link rel="stylesheet" href="css/animate.css" type="text/css">
+		<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+		<link rel="stylesheet" href="css/front.css" type="text/css">
+		<link rel="stylesheet" href="css/slider.css" type="text/css">
+		<link rel="stylesheet" href="css/frontediting.css" type="text/css">
+		<link rel="stylesheet" href="css/itab.css" type="text/css">
+
+		<script src="js/tquery.js" type="text/javascript"></script>
+		<script src="js/tmigrate.js" type="text/javascript"></script>
+		<script src="js/slider.js" type="text/javascript"></script>
+		<script src="js/itabs.js" type="text/javascript"></script>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/jquery-noconflict.js" type="text/javascript"></script>
+		<script src="js/jquery-migrate.js" type="text/javascript"></script>
+		<script src="js/bootstrap.js" type="text/javascript"></script>
+		<script src="js/frontediting.js" type="text/javascript"></script>
+		<!--script type="text/javascript" src="cordova.js"></script-->
+        <!--script type="text/javascript" src="js/facebookConnectPlugin.js"></script-->
+        <script type="text/javascript" src="js/qq_function.js"></script>
+        <script type="text/javascript" src="js/profileedit_function.js"></script>
+		<script type="text/javascript">
+			window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")}catch(e){}if(r){r.open("GET","/index.php?option=com_ajax&format=json",true);r.send(null)}},840000);
+			jQuery(document).ready(function(){
+				jQuery('.hasTooltip').tooltip({"html": true,"container": "body"});
+			});
+			jQuery(document).ready(function() {
+					jQuery('.hasPopover').popover({"html": true,"trigger": "hover focus","container": "body"});
+				});
+		</script>
+		<link rel="apple-touch-icon-precomposed" href="http://qeneqt.us/templates/yoo_master2/apple_touch_icon.png">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="editfilecss.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<script src="js/uikit.js"></script>
+		<script src="js/autocomplete.js"></script>
+		<script src="js/search.js"></script>
+		<script src="js/tooltip.js"></script>
+		<script src="js/social.js"></script>
+		<script src="js/theme.js"></script>		
+		<meta property="fb:app_id" content="944743515562092">
+		<meta property="fb:admins" content="Will Torres"> 
+		<meta property="og:title" content="Qeneqt">
+		<meta property="og:url" content="http://www.qeneqt.us ">
+		<meta property="og:image" content="http://www.qeneqt.us/images/fblogo.jpg">
+		<meta property="og:description" content="Next Gen Social Network">
+		<!--script src="js/common.js" charset="UTF-8" type="text/javascript"></script>
+		<script src="js/util.js" charset="UTF-8" type="text/javascript"></script>
+		<script src="js/stats.js" charset="UTF-8" type="text/javascript"></script-->
+	</head>
+	<body class="tm-noblog" onload="profileEditMainFunction()">
+		<div id="tm-middle" class="tm-middle uk-grid" data-uk-grid-match="" data-uk-grid-margin="">
+			<div class="tm-main uk-width-medium-1-1">
+				<main id="tm-content" class="tm-content">
+					<div id="system-message-container"></div>
+					<script src="js/icmenu.js"></script>
+					<div id="iconnect" class="iconnect-wrap lite  editingon isprofile ismember">
+						<div class="ic-nav-top">
+							<div class="iconn-row">
+								<div id="noti-window" class="iconn-animated zoomOutUp ihidden lite">
+									<div id="notictr" class="icNotifNone">No new notifications</div>
+									<div class="icNotifAll">
+										<a href="http://qeneqt.us/notifications" class="ic-btn ic-btn-sm ic-btn-default allnoti">
+											<i class="icicon-bullhorn"></i>
+											NOTIFICATIONS
+										</a>
+										<a href="http://qeneqt.us/mailbox" class="ic-btn ic-btn-sm ic-btn-default allmail">
+											<i class="icicon-envelope"></i>
+											INBOX
+										</a>
+									</div>
+								</div>
+								<div id="icnav">
+									<ul class="iconnect-menu  ">
+										<!-- <li style="display: none;" class="showhide"><span class="icon"></span></li> -->
+										<li style="" class="item-739 iccurrent icactive icdeeper icparent">
+											<a href="timeline.html">
+												<img src="img/ic-timeline.png" alt="Timeline">
+												<span class="ititle">Timeline</span> 
+											</a>
+										</li>
+										<li style="" class="item-741 icdeeper icparent">
+											<a href="profile.html">
+												<img src="img/ic-profile.png" alt="Profile">
+												<span class="ititle">Profile</span>
+											</a>
+											<a href="JavaScript:void(0)" class="ictrigger">
+												<span class="indicator">+</span>
+											</a>
+											<ul style="">
+												<li class="logout"><a href="http://qeneqt.us/mailbox" onclick="appLogout();">
+													<!--img src="img/logout.png" alt="Logout" style="height: 39px; left: 5px; width: 39px;"-->
+													<i class="icicon-lock"></i>
+													<span class="ititle">Logout</span> </a>
+												</li>
+											</ul>
+
+										</li>
+										<li class="item-887">
+											<a href="http://qeneqt.us/mailbox">
+												<img src="img/ic-mailbox.png" alt="Mailbox">
+												<span class="ititle">Mailbox</span> 
+											</a>
+										</li>
+										<li class="item-888">
+											<a href="http://qeneqt.us/notifications">
+												<img src="img/ic-notifications.png" alt="Notifications">
+												<span class="ititle">Notifications</span> 
+											</a>
+										</li>
+										<li class="item-997">
+											<a href="http://qeneqt.us/my-profile/edit-profile">
+												<img src="img/ic-editprofile.png" alt="Edit profile">
+												<span class="ititle">Edit profile</span> 
+											</a>
+										</li>
+										<li style="" class="item-759 icdeeper icparent">
+											<a href="http://qeneqt.us/members">
+												<img src="img/ic-profiles.png" alt="Members">
+												<span class="ititle">Members</span> 
+											</a>
+										</li>
+										<li class="item-878">
+											<a href="http://qeneqt.us/circles">
+												<img src="img/ic-circles.png" alt="Circles">
+												<span class="ititle">Circles</span> 
+											</a>
+										</li>
+										<li style="" class="item-1023">
+											<a href="http://qeneqt.us/matchups">
+												<img src="img/ic-matchups.png" alt="MatchUps">
+												<span class="ititle">MatchUps</span> 
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div class="profileDiv">
+									<a href="profile.html" class="ic-btn hint--right" data-hint="PROFILE" >
+										<img src="img/ic-profile.png" />
+									</a>
+								</div>
+								<div class="membersDiv">
+									<a href="#" class="ic-btn hint--right" data-hint="USERS" >
+										<img src="img/ic-profiles.png" />
+									</a>
+								</div>
+								<div class="notificationDiv">								
+									<a id="icNotibtn" class="ic-btn  imargin5 hint--left hint--success" data-hint="NOTIFICATIONS" href="#">
+										<i class="icicon-bell"></i>
+									</a>
+								</div>
+								<div class="matchupDiv">
+									<a href="#" class="ic-btn hint--left" data-hint="MATCHUPS" >
+										<img src="img/ic-matchups.png" />
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="page-content" style="width:98%;">
+							<div id="ic-form" class="iconnect-forms" style="display:block;">
+								<div class="iconn-row">
+									<div id="icPreviewItem" class="iconn-col-sm-12 iconn-col-md-4 iconn-col-md-push-8">
+										<div class="statsoff ic-panel ic-panel-box ic-panel-lite">
+											<div class="padding10">
+												<div id="setavatar" class="iconnect-forms" style="display:block;">
+													<div class="spacer-t30 spacer-b20">
+													    <div class="tagline"><span> UPLOAD AVATAR </span></div>
+													</div>
+													<div class="padding10" id="editavtr">
+														<div id="currentimage">
+															
+														</div>
+														<p>
+															<a data-ip-modal="#avatarModal" class="edit-avatar ic-btn ic-btn-blue">UPLOAD NEW</a>
+														</p>
+													</div>
+													<div class="spacer-t40 spacer-b20">
+													    <div class="tagline"><span> UPLOAD NEW PROFILE COVER </span></div>
+													</div>
+													<div class="padding10" id="editcov">
+														<div id="currentcover">
+															
+														</div>
+														<p>
+															<a data-ip-modal="#headerModal" class="edit-avatar ic-btn ic-btn-blue">UPLOAD NEW</a>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="iconn-col-sm-12 iconn-col-md-8 iconn-col-md-pull-4">
+										<div class="statsoff ic-panel ic-panel-box ic-panel-lite" style="display:block">
+											<div id="edit-item" class="iconn-row">
+												<div class="iconn-col-sm-12">
+													<div class="spacer-t40 spacer-b40">
+														<div class="tagline">
+															<div class="sqicon">
+																<i class="icicon-user"></i>
+															</div>
+															<span> EDIT PROFILE </span>
+														</div>
+													</div>
+													<form class="iconnect-forms" role="form" id="edit-item-form" novalidate="novalidate">
+														<div class="form-body">
+															<div class="padding15">
+																<div class="iconn-row" id="editProfileFields">
+																	
+								            					</div>
+								  							</div>
+								  							<div class="iconn-row">		
+								  								<div class="iconn-col-sm-12">
+								  									<div class="spacer-t20 spacer-b40">
+								  										<div class="tagline">
+								  											<span> Edit your Motto </span>
+																		</div>
+																	</div>	
+																	<label class="ifield fillme prepend-icon">
+																		<textarea name="motto" id="motto" class="taggable" style="height: 38px;"></textarea>
+																		<div class="textntags-tag-list"></div>
+
+																		<span class="input-hint"> 
+												                            <strong>
+												                            	<i class="icicon-comments"></i>
+												                            	ADD TAGS
+												                        	</strong> 
+												                        	by entering hashtag as #... or create own
+												                    	</span>
+												                	</label>
+																</div>
+															</div>
+														</div>
+														<div style="" class="form-footer iconn-row" id="aclf">
+															<div class="iconn-col-sm-12 iconn-col-md-9">
+																<div class="iconn-control-group">
+									                                <div class="controls" id="isacl">
+									                                	<div class="input-group">
+									                                	    <span data-hint="CHANGE YOUR WALL PERMISSION" class="input-group-element hint--right hint--info">
+									                                	    	<i class="icicon-share-alt"></i>
+								                                	    	</span>
+								                            	    		<div class="select2-container profileshareacl select2-allowclear" id="s2id_autogen1">
+								                            	    			<a tabindex="-1" class="select2-choice" href="javascript:void(0)">   
+								                            	    				<span class="select2-chosen" id="select2-chosen-2">Public</span>
+								                        	    					<abbr class="select2-search-choice-close"></abbr>   
+								                        	    					<span role="presentation" class="select2-arrow">
+								                        	    						<b role="presentation"></b>
+								                        	    					</span>
+								                    	    					</a>
+								                    	    					<label class="select2-offscreen" for="s2id_autogen2"></label>
+								                    	    					<input type="text" role="button" aria-haspopup="true" class="select2-focusser select2-offscreen" aria-labelledby="select2-chosen-2" id="s2id_autogen2">
+								                    	    					<div class="select2-drop select2-display-none select2-with-searchbox">   
+								                    	    						<div class="select2-search">       
+								                    	    							<label class="select2-offscreen" for="s2id_autogen2_search"></label>
+								                	    								<input type="text" aria-autocomplete="list" aria-expanded="true" role="combobox" class="select2-input" spellcheck="false" autocapitalize="off" autocorrect="off" autocomplete="off" aria-owns="select2-results-2" id="s2id_autogen2_search" placeholder="">   
+								            	    								</div>   
+								        	    									<ul role="listbox" class="select2-results" id="select2-results-2">   </ul>
+								    	    									</div>
+									    									</div>	
+									    									<select class="profileshareacl" name="preacl" tabindex="-1" title="" style="display: none;">
+								                                                <option value=""></option>
+								                                                <optgroup label="CONNECTIONS">
+								                                                    <option selected="selected" value="f0">Public</option>
+								                                                    <option value="f1">Site Members</option>
+								                                                    <option value="f2">My Friends</option>
+								                                                    <option value="f3">My Followers</option>
+								                                                    <option value="f4">People I Follow</option>
+								                                                    <option value="f5">Just Me</option>
+								                                                </optgroup>
+								                                            </select>  
+								                                        </div>
+								                                    </div>          
+								                                </div> 
+								                            </div>             
+															<div class="iconn-col-sm-12 iconn-col-md-3">
+																<input type="button" name="update" value="UPDATE" class="ic-btn ic-btn-blue ic-btn-md subbtn" id="editbtn" onclick="profileEditsave();" />
+								              					<!--button class="ic-btn ic-btn-blue ic-btn-md subbtn" type="submit" name="sbtn" id="editbtn" onclick="profileEditsave()">UPDATE</button-->
+								              				</div>
+								              			</div>
+														<input type="hidden" value="updated" id="actaction" name="actaction">
+														<input type="hidden" value="1004" id="isid" name="isid">
+														<input type="hidden" value="" id="acttagtext" name="acttagtext">
+														<input type="hidden" value="" id="iname" name="iname"> 
+														<input type="hidden" value="" id="fullname" name="fullname"> 
+														<input type="hidden" value="" id="wallacl" name="wallacl"> 
+													</form>
+
+												</div>
+											</div>
+										</div>
+										<div id="editBox">
+											<a href="#" data-hint="Request Profile Deletion" class="icreqdel ic-btn ic-btn-red hint--top" id="icDelme"><i class="icicon-trash"></i></a>
+											<a href="#" data-hint="Unpublish Item" class="icunpublish ic-btn ic-btn-orange hint--top" id="icUnpublishMe"><i class="icicon-eye-slash"></i></a>
+											<a href="#" data-hint="OPEN PROFILE DETAILS PANEL" class="icprdetails ic-btn ic-btn-blue hint--top" id="icDetailsPanel"><i class="icicon-edit"></i></a>
+										</div>
+										<div class="isdouble isrelative isinlineblock floatright" id="previewBox">
+											<a href="#" data-hint="VIEW VISIT STATISTICS" class="ic-btn ic-btn-default hint--left" id="icOpenStats"><i class="icicon-bar-chart"></i></a>
+											<a data-hint="PREVIEW PROFILE" href="http://qeneqt.us/index.php?option=com_iconnect&amp;view=profile&amp;id=1004" target="_blank" class="isrelative isblock ic-btn ic-btn-default hint--left"><i class="icicon-link"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="avatarModal" class="ip-modal">
+								<div class="ip-modal-dialog">
+									<div class="ip-modal-content">
+										<div class="ip-modal-header">
+											<a title="close" class="ip-close">×</a>
+											<h4 class="ip-modal-title">Change Avatar</h4>
+										</div>
+										<div class="ip-modal-body">
+											<div class="iconn-row hideonload" id="avloadr">
+												<div class="iconn-col-xs-6">
+													<div class="avatar-img isrelative padding5">
+														<div class="iconn-photoload">
+															<p class="ihdr">UPLOAD IMAGE</p>
+															<p class="center">to use as avatar</p>
+															<div class="ic-btn ic-btn-blue ip-upload iuploadbtn">
+																BROWSE
+																<input type="file" class="ip-file" name="file">
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="iconn-col-xs-6">
+													<div class="avatar-webcam isrelative padding5">
+														<div class="iconn-camload">
+															<p class="ihdr">SNAP A PHOTO</p>
+															<p class="center">with your web/mobile camera</p>
+															<button class="ic-btn ic-btn-green ip-webcam">SNAP IT</button>
+														</div>
+													</div>
+												</div>
+											</div>
+											<button style="display:none;" class="ic-btn ic-btn-blue ip-edit" type="button">Edit</button>
+											<button style="display:none;" class="ic-btn ic-btn-red ip-delete" type="button">delete</button>
+											
+											<div style="display:none" class="alert ip-alert"></div>
+											<div style="display:none" class="ip-info">To crop image, drag a region below or use auto-generated option and click 'SAVE' </div>
+											<div style="display:none" class="ip-preview"></div>
+											<div style="display:none" class="ip-rotate">
+												<button title="Rotate counter-clockwise" class="ic-btn ic-btn-default ip-rotate-ccw" type="button"><i class="icicon-chevron-left"></i></button>
+												<button title="Rotate clockwise" class="ic-btn ic-btn-default ip-rotate-cw" type="button"><i class="icicon-chevron-right"></i></button>
+											</div>
+											<div style="display:none" class="ip-progress">
+												<div class="text">... UPLOADING ...</div>
+												<div class="progress progress-striped active"><div class="progress-bar progress-bar-info"></div></div>
+											</div>
+											<div class="ip-actions">
+												<button style="display:none" class="ic-btn ic-btn-green ip-save">SAVE</button>
+												<button style="display:none" class="ic-btn ic-btn-blue ip-capture">CAPTURE IMAGE</button>
+												<button style="display:none" class="ic-btn ic-btn-red ip-cancel">CANCEL</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="headerModal" class="ip-modal">
+							<div class="ip-modal-dialog">
+								<div class="ip-modal-content">
+									<div class="ip-modal-header">
+										<a title="close" class="ip-close">×</a>
+										<h4 class="ip-modal-title">Change Profile Cover</h4>
+									</div>
+									<div class="ip-modal-body">
+										<div class="iconn-row hideonload" id="cloadr">
+											<div class="header-img isrelative padding5">
+												<div class="iconn-photoload">
+													<p class="ihdr">UPLOAD IMAGE</p>
+													<p class="center">as your Profile Cover</p>
+													<div class="ic-btn ic-btn-blue ip-upload iuploadbtn">
+														BROWSE
+														<input type="file" class="ip-file" name="file">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div style="display:none;" class="alert ip-alert"></div>
+										<div style="display:none;" class="ip-info">
+											IMPORTANT: in order to save cover with correct dimensions, drag a region below to crop and then click 'SAVE' 
+										</div>
+										<div style="display:none;" class="ip-preview"></div>
+										<div style="display:none" class="ip-rotate">
+											<button title="Rotate counter-clockwise" class="ic-btn ic-btn-default ip-rotate-ccw" type="button">
+												<i class="icicon-chevron-left"></i>
+											</button>
+											<button title="Rotate clockwise" class="ic-btn ic-btn-default ip-rotate-cw" type="button">
+												<i class="icicon-chevron-right"></i>
+											</button>
+										</div>
+										<div style="display:none" class="ip-progress">
+											<div class="text">... UPLOADING ...</div>
+											<div class="progress progress-striped active">
+												<div class="progress-bar progress-bar-info"></div>
+											</div>
+										</div>
+										<div class="ip-actions">
+											<button style="display:none" class="ic-btn ic-btn-green ip-save">SAVE</button>
+											<button style="display:none" class="ic-btn ic-btn-red ip-cancel">CANCEL</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<script src="js/editfilejs.js"></script>
+					<script src="js/iniload.js"></script>
+					<script src="js/istream.js"></script>
+					<script src="js/iniloadsub.js"></script>	
+					<script src="js/inimemload.js"></script>
+					<script src="js/filefunctions.js"></script>
+					<link rel="stylesheet" href="css/icommBox.css">
+					<link rel="stylesheet" href="css/sweet-alert.css">
+					<link rel="stylesheet" href="css/prettyPhoto.css">
+					<link rel="stylesheet" href="css/mapper.css">
+					<link rel="stylesheet" href="css/ishare.css">
+					<link rel="stylesheet" href="css/urldata.css">
+					<link rel="stylesheet" href="css/imgpicker.css">
+					<link rel="stylesheet" href="css/dragdrop.css">
+					<link rel="stylesheet" href="css/toastmessages.css">
+					<link rel="stylesheet" href="css/emoticons.css">
+					<link rel="stylesheet" href="css/dropzone.css">
+					<link rel="stylesheet" href="css/joooidcontent.css">
+
+					<script src="js/charts.js"></script>
+					<script src="js/dropzone.js"></script>
+					<script src="js/flexy-menu.js"></script>
+					<!--script src="js/maskinput.js"></script-->
+					<script src="js/scrollto.js"></script>
+					<script src="js/select2.js"></script>
+					<script src="js/statschart.js"></script>
+					<script src="js/sweetalert.js"></script>
+					<!--script src="js/tags.js"></script-->
+					<script src="js/toastmessage.js"></script>
+					<script src="js/tquery_002.js"></script>
+					<script src="js/tscrollbar.js"></script>
+					<script src="js/underscore.js"></script>
+					<script src="js/endloader.js"></script>
+					<script src="js/validate.js"></script>	
+					<script src="js/tcrop.js"></script>
+					<script src="js/timgpicker.js"></script>
+					<script async="" defer="defer" src="js/endloaderasync.js"></script>
+					<script src="js/urldata.js"></script>
+					<script src="js/viddata.js"></script>
+					<script src="js/tquery-ui.js"></script>	
+					<script async="" defer="defer" src="js/timepicker.js"></script>	
+					<script src="js/mapper.js"></script>	
+
+					<!--script src="js/controls.js" type="text/javascript"></script>
+					<script src="js/geocoder.js" type="text/javascript"></script-->
+					<script src="js/library.js" type="text/javascript"></script>
+					<!--script src="js/map.js" type="text/javascript"></script>
+					<script src="js/marker.js" type="text/javascript"></script-->
+					<script src="js/mediaStreamRecorder.js" type="text/javascript"></script>
+					<!--script src="js/onion.js" type="text/javascript"></script>
+					<script src="js/places_impl.js" type="text/javascript"></script-->  
+
+				</main>
+			</div>  		
+		</div>             	
+		<footer id="tm-footer" class="tm-footer">
+			<div class="uk-panel jmoddiv" data-jmodediturl="http://qeneqt.us/index.php?option=com_config&amp;controller=config.display.modules&amp;id=200&amp;return=aHR0cDovL3FlbmVxdC51cy9teS10aW1lbGluZQ%3D%3D" data-target="_self" data-jmodtip="&lt;strong&gt;Edit module&lt;/strong&gt;&lt;br /&gt;Footer 2&lt;br /&gt;Position: footer">
+				<p>
+					<img style="display: block; margin-left: auto; margin-right: auto;" src="img/qeneqt3.png" alt="" height="40" width="110">
+				</p>
+				<p style="text-align: center;">&nbsp; &nbsp; Copyright&nbsp;Â© 2015 Qeneqt. All Rights Reserved.</p>
+			</div>
+		</footer>
+	</body>
+</html>

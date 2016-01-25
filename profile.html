@@ -1,0 +1,539 @@
+<html class="uk-notouch" dir="ltr" data-config="{&quot;twitter&quot;:0,&quot;plusone&quot;:0,&quot;facebook&quot;:0,&quot;style&quot;:&quot;default&quot;}" lang="en-gb">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- base href="http://qeneqt.us/my-timeline" -->
+		<meta name="generator" content="Joomla! - Open Source Content Management">
+		<title>Profile</title>
+		<link href="http://qeneqt.us/templates/yoo_master2/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+		<link rel="stylesheet" href="css/timelinefile.css" type="text/css">
+		<link rel="stylesheet" href="css/public.css" type="text/css">
+		<link rel="stylesheet" href="css/members.css" type="text/css">
+		<link rel="stylesheet" href="css/navcustom.css" type="text/css">
+		<link rel="stylesheet" href="css/iconnect.css" type="text/css">
+		<link rel="stylesheet" href="css/font-icesome.css" type="text/css">
+		<link rel="stylesheet" href="css/hint.css" type="text/css">
+		<link rel="stylesheet" href="css/animate.css" type="text/css">
+		<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+		<link rel="stylesheet" href="css/front.css" type="text/css">
+		<link rel="stylesheet" href="css/slider.css" type="text/css">
+		<link rel="stylesheet" href="css/frontediting.css" type="text/css">
+		<link rel="stylesheet" href="css/itab.css" type="text/css">
+		<link rel="stylesheet" href="css/profile.css" type="text/css">
+
+		<script src="js/tquery.js" type="text/javascript"></script>
+		<script src="js/tmigrate.js" type="text/javascript"></script>
+		<script src="js/slider.js" type="text/javascript"></script>
+		<script src="js/itabs.js" type="text/javascript"></script>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/jquery-noconflict.js" type="text/javascript"></script>
+		<script src="js/jquery-migrate.js" type="text/javascript"></script>
+		<script src="js/bootstrap.js" type="text/javascript"></script>
+		<script src="js/frontediting.js" type="text/javascript"></script>
+		<!--script type="text/javascript" src="cordova.js"></script-->
+        <!--script type="text/javascript" src="js/facebookConnectPlugin.js"></script-->
+        <script type="text/javascript" src="js/qq_function.js"></script>
+        <script type="text/javascript" src="js/profile_function.js"></script>
+		<script type="text/javascript">
+			window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")}catch(e){}if(r){r.open("GET","/index.php?option=com_ajax&format=json",true);r.send(null)}},840000);
+			jQuery(document).ready(function(){
+				jQuery('.hasTooltip').tooltip({"html": true,"container": "body"});
+			});
+			jQuery(document).ready(function() {
+					jQuery('.hasPopover').popover({"html": true,"trigger": "hover focus","container": "body"});
+				});
+		</script>
+		<link rel="apple-touch-icon-precomposed" href="http://qeneqt.us/templates/yoo_master2/apple_touch_icon.png">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<script src="js/uikit.js"></script>
+		<script src="js/autocomplete.js"></script>
+		<script src="js/search.js"></script>
+		<script src="js/tooltip.js"></script>
+		<script src="js/social.js"></script>
+		<script src="js/theme.js"></script>		
+		<meta property="fb:app_id" content="944743515562092">
+		<meta property="fb:admins" content="Will Torres"> 
+		<meta property="og:title" content="Qeneqt">
+		<meta property="og:url" content="http://www.qeneqt.us ">
+		<meta property="og:image" content="http://www.qeneqt.us/images/fblogo.jpg">
+		<meta property="og:description" content="Next Gen Social Network">
+		<!--script src="js/common.js" charset="UTF-8" type="text/javascript"></script>
+		<script src="js/util.js" charset="UTF-8" type="text/javascript"></script>
+		<script src="js/stats.js" charset="UTF-8" type="text/javascript"></script-->
+	</head>
+	<body class="tm-noblog" onload="profileMainFunction()">
+		<div id="tm-middle" class="tm-middle uk-grid" data-uk-grid-match="" data-uk-grid-margin="">
+			<div class="tm-main uk-width-medium-1-1">
+				<main id="tm-content" class="tm-content">
+					<div id="system-message-container"></div>
+					<script src="js/icmenu.js"></script>
+					<div id="iconnect" class="iconnect-wrap lite  isfrontpage ismember">
+						<div class="ic-nav-top">
+							<div class="iconn-row">
+								<div id="noti-window" class="iconn-animated zoomOutUp ihidden lite">
+									<div id="notictr" class="icNotifNone">No new notifications</div>
+									<div class="icNotifAll">
+										<a href="http://qeneqt.us/notifications" class="ic-btn ic-btn-sm ic-btn-default allnoti">
+											<i class="icicon-bullhorn"></i>
+											NOTIFICATIONS
+										</a>
+										<a href="http://qeneqt.us/mailbox" class="ic-btn ic-btn-sm ic-btn-default allmail">
+											<i class="icicon-envelope"></i>
+											INBOX
+										</a>
+									</div>
+								</div>
+								<div id="icnav">
+									<ul class="iconnect-menu  ">
+										<!-- <li style="display: none;" class="showhide"><span class="icon"></span></li> -->
+										<li style="" class="item-739 iccurrent icactive icdeeper icparent">
+											<a href="timeline.html">
+												<img src="img/ic-timeline.png" alt="Timeline">
+												<span class="ititle">Timeline</span> 
+											</a>
+										</li>
+										<li style="" class="item-741 icdeeper icparent">
+											<a href="profile.html">
+												<img src="img/ic-profile.png" alt="Profile">
+												<span class="ititle">Profile</span>
+											</a>
+											<a href="JavaScript:void(0)" class="ictrigger">
+												<span class="indicator">+</span>
+											</a>
+											<ul style="">
+												<li class="logout"><a href="http://qeneqt.us/mailbox" onclick="appLogout();">
+													<!--img src="img/logout.png" alt="Logout" style="height: 39px; left: 5px; width: 39px;"-->
+													<i class="icicon-lock"></i>
+													<span class="ititle">Logout</span> </a>
+												</li>
+											</ul>
+
+										</li>
+										<li class="item-887">
+											<a href="http://qeneqt.us/mailbox">
+												<img src="img/ic-mailbox.png" alt="Mailbox">
+												<span class="ititle">Mailbox</span> 
+											</a>
+										</li>
+										<li class="item-888">
+											<a href="http://qeneqt.us/notifications">
+												<img src="img/ic-notifications.png" alt="Notifications">
+												<span class="ititle">Notifications</span> 
+											</a>
+										</li>
+										<li class="item-997">
+											<a href="http://qeneqt.us/my-profile/edit-profile">
+												<img src="img/ic-editprofile.png" alt="Edit profile">
+												<span class="ititle">Edit profile</span> 
+											</a>
+										</li>
+										<li style="" class="item-759 icdeeper icparent">
+											<a href="http://qeneqt.us/members">
+												<img src="img/ic-profiles.png" alt="Members">
+												<span class="ititle">Members</span> 
+											</a>
+										</li>
+										<li class="item-878">
+											<a href="http://qeneqt.us/circles">
+												<img src="img/ic-circles.png" alt="Circles">
+												<span class="ititle">Circles</span> 
+											</a>
+										</li>
+										<li style="" class="item-1023">
+											<a href="http://qeneqt.us/matchups">
+												<img src="img/ic-matchups.png" alt="MatchUps">
+												<span class="ititle">MatchUps</span> 
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div class="profileDiv">
+									<a href="profile.html" class="ic-btn hint--right" data-hint="PROFILE" >
+										<img src="img/ic-profile.png" />
+									</a>
+								</div>
+								<div class="membersDiv">
+									<a href="#" class="ic-btn hint--right" data-hint="USERS" >
+										<img src="img/ic-profiles.png" />
+									</a>
+								</div>
+								<div class="notificationDiv">								
+									<a id="icNotibtn" class="ic-btn  imargin5 hint--left hint--success" data-hint="NOTIFICATIONS" href="#">
+										<i class="icicon-bell"></i>
+									</a>
+								</div>
+								<div class="matchupDiv">
+									<a href="#" class="ic-btn hint--left" data-hint="MATCHUPS" >
+										<img src="img/ic-matchups.png" />
+									</a>
+								</div>
+							</div>
+						</div>
+						<div id="iprofile" class="page-content">
+							<div class="iconn-row left">
+								<div class="isOwner" id="editme">
+									<a href="#" data-hint="Profile Elements Privacy" class="ic-btn ic-btn-blue hint hint--left" id="icProfileOpts">
+										<i class="icicon-cogs"></i>
+									</a>
+									<a href="edit-profile.html" data-hint="Edit Item" class="ic-btn ic-btn-default hint hint--left" id="icOpenEditbox">
+										<i class="icicon-pencil"></i>
+									</a>
+								</div>
+							</div>
+							<section class="iconn-section fixheight" style="">
+								<div class="iconn-row">
+								<script>
+									jQuery('#icProfileOpts').click(function(){
+
+										jQuery('.profile-element-opts').slideToggle();
+
+										return false;
+									});
+								</script>
+									<div class="iconn-col-sm-4">
+										<div style="" class="iconn-element-container">
+											<div class="oniprofile ic-panel ic-panel-box ic-panel-lite icProfileBox" id="icProfileTabs">
+												<div style="display:none" class="profile-element-opts" id="on1004-icprofiletabs">
+													<div class="header-opts  isrelative isblock"> Set privacy for this element </div>	
+													<div class="inner-opts isrelative isblock">
+														<div class="iconn-col-xs-2">
+															<a data-hint="Public" class="aclsetter ic-btn ic-btn-blue ic-btn-sm ic-ispublic hint--top hint--success" href="#" data-elacl="f0" data-elementid="1004-icprofiletabs">
+																<i class="icicon-unlock-alt"></i>
+															</a>
+														</div>	
+														<div class="iconn-col-xs-2">
+															<a data-hint="Site members" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-ismembers hint--top hint--success" href="#" data-elacl="f1" data-elementid="1004-icprofiletabs">
+																<i class="icicon-unlock-alt"></i>
+															</a>
+														</div>	
+														<div class="iconn-col-xs-2">
+															<a data-hint="My friends" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isfriends hint--top hint--info" href="#" data-elacl="f2" data-elementid="1004-icprofiletabs">
+																<i class="icicon-unlock-alt"></i>
+															</a>
+														</div>	
+														<div class="iconn-col-xs-2">
+															<a data-hint="My followers" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isfollowers hint--top hint--info" href="#" data-elacl="f3" data-elementid="1004-icprofiletabs">
+																<i class="icicon-unlock-alt"></i>
+															</a>
+														</div>	
+														<div class="iconn-col-xs-2">
+															<a data-hint="People I follow" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isifollow hint--top hint--info" href="#" data-elacl="f4" data-elementid="1004-icprofiletabs">
+																<i class="icicon-unlock-alt"></i>
+															</a>
+														</div>	
+														<div class="iconn-col-xs-2">
+															<a data-hint="Only me" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isionly hint--top hint--danger" href="#" data-elacl="f5" data-elementid="1004-icprofiletabs">  
+																<i class="icicon-lock"></i>
+															</a>
+														</div>	
+													</div>	
+												</div>	
+												<div class="ct ct-underline ma-b-100 lite  ct-firefox ct-dot ct-height-auto ct-pag-hor ct-pag-top ct-ready">
+													<div class="ct-pag ct-tab ct-pag-hor ct-pag-top ct-swipe-on">
+														<div class="ct-paginner ct-wfit ct-hfit" style=" height: 35px; margin-left: 15px; width: 85px;">
+															<div class="profile-tab-title ct-pagitem" style="transform: translate3d(0px, 0px, 0px);">About Me</div>
+															<div class="profile-tab-title ct-pagitem" style="transform: translate3d(102px, 0px, 0px);">Interests</div>
+															<div class="profile-tab-title ct-pagitem ct-cur" style="transform: translate3d(204px, 0px, 0px);">Social</div>
+														</div>
+													</div>
+													<div class="ct-viewport ct-hNative" style="height: 0px;">
+														<div class="ct-canvas" style="width: 298px;">
+															<div style="" class="profile-tab  ct-slide ct-ready">
+																<div class="profile-tab-content">
+																	<section style="" class="iconn-section ">
+																		<div class="iconn-row">
+																			<div class="iconn-col-sm-6">
+																				<div style="" class="iconn-element-container"></div>
+																			</div>
+																			<div class="iconn-col-sm-6">
+																				<div style="" class="iconn-element-container"></div>
+																			</div>
+																		</div>
+																	</section>
+																	<section style="" class="iconn-section ">
+																		<div class="iconn-row">
+																			<div class="iconn-col-sm-12">
+																				<div style="" class="iconn-element-container"></div>
+																			</div>
+																		</div>
+																	</section>
+																</div>
+															</div>
+															<div style="" class="profile-tab  ct-slide ct-ready">
+																<div class="profile-tab-content">
+																	<section style="" class="iconn-section ">
+																		<div class="iconn-row">
+																			<div class="iconn-col-sm-6">
+																				<div style="" class="iconn-element-container"></div>
+																			</div>
+																			<div class="iconn-col-sm-6">
+																				<div style="" class="iconn-element-container"></div>
+																			</div>
+																		</div>
+																	</section>
+																</div>
+															</div>
+															<div style="" class="profile-tab  ct-slide ct-ready ct-cur">
+																<div class="profile-tab-content"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="oniprofile  ic-panel ic-panel-box ic-panel-lite" id="profilemembers">
+												<div style="display:none" class="profile-element-opts" id="on1004-icmemberslist">
+													<div class="header-opts  isrelative isblock"> Set privacy for this element </div>	
+													<div class="inner-opts isrelative isblock">
+														<div class="iconn-col-xs-2">
+															<a data-hint="Public" class="aclsetter ic-btn ic-btn-blue ic-btn-sm ic-ispublic hint--top hint--success" href="#" data-elacl="f0" data-elementid="1004-icmemberslist">
+																<i class="icicon-unlock-alt"></i>
+															</a>
+														</div>	
+														<div class="iconn-col-xs-2">
+															<a data-hint="Site members" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-ismembers hint--top hint--success" href="#" data-elacl="f1" data-elementid="1004-icmemberslist">
+																<i class="icicon-unlock-alt"></i>
+															</a>
+														</div>	
+														<div class="iconn-col-xs-2">
+															<a data-hint="My friends" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isfriends hint--top hint--info" href="#" data-elacl="f2" data-elementid="1004-icmemberslist">
+																<i class="icicon-unlock-alt"></i>
+															</a>
+														</div>	
+														<div class="iconn-col-xs-2">
+															<a data-hint="My followers" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isfollowers hint--top hint--info" href="#" data-elacl="f3" data-elementid="1004-icmemberslist">
+																<i class="icicon-unlock-alt"></i>
+															</a>
+														</div>	
+														<div class="iconn-col-xs-2">
+															<a data-hint="People I follow" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isifollow hint--top hint--info" href="#" data-elacl="f4" data-elementid="1004-icmemberslist">
+																<i class="icicon-unlock-alt"></i>
+															</a>
+														</div>	
+														<div class="iconn-col-xs-2">
+															<a data-hint="Only me" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isionly hint--top hint--danger" href="#" data-elacl="f5" data-elementid="1004-icmemberslist">
+																<i class="icicon-lock"></i>
+															</a>
+														</div>	
+													</div>
+												</div>	
+												<div class="itabs lite itabs-amount-3 itabs-pos-top-justify itabs-anim-slide-right " id="iutabs">
+													<input type="radio" class="iculatest" checked="" id="iculatest" name="iutabs">
+													<label for="iculatest">
+														<span><span>FRIENDS</span></span>
+													</label>
+
+													<input type="radio" class="icupopular" id="icupopular" name="iutabs">
+													<label for="icupopular">
+														<span><span>FOLLOWERS</span></span>
+													</label>
+
+													<input type="radio" class="icuonline" id="icuonline" name="iutabs">
+													<label for="icuonline">
+														<span><span>FOLLOWING</span></span>
+													</label>
+													<ul>
+														<li class="iculatest">
+															<div class="ms-staff-carousel" id="usersbox-friends">
+															<div id="icfriends" class="master-slider"> </div>	
+															</div>		
+														</li>				
+														<li class="icupopular">
+															<div class="ms-staff-carousel" id="usersbox-followers">
+																<div id="icfollowers" class="master-slider"> </div>	
+															</div>
+														</li>	
+														<li class="icuonline">
+															<div class="ms-staff-carousel" id="usersbox-following">
+																<div id="icfollowing" class="master-slider"> </div>	
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="iconn-col-sm-8">
+										<div class="iconn-element-container" style="">
+											<div id="iConnectProfile">
+
+
+											</div>
+											<div id="iprofile" class="isrelative isblock">
+												<div id="ifront" class="lite fbarisleft igrid">
+													<div id="iconsearchtags" class="ic-box padded0">
+														<div id="searchfilters" class="isfront">
+															<div class="searchinner">
+																<div id="s2id_icsearch" class="select2-container">
+																	<a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">   
+																		<span id="select2-chosen-1" class="select2-chosen">Filter by ...</span>
+																		<abbr class="select2-search-choice-close"></abbr>   
+																		<span class="select2-arrow" role="presentation">
+																			<b role="presentation"></b>
+																		</span>
+																	</a>
+																	<label for="s2id_autogen1" class="select2-offscreen"></label>
+																	<input id="s2id_autogen1" aria-labelledby="select2-chosen-1" class="select2-focusser select2-offscreen" aria-haspopup="true" role="button" type="text">
+																	<div class="select2-drop select2-display-none select2-with-searchbox">   
+																		<div class="select2-search">       
+																			<label for="s2id_autogen1_search" class="select2-offscreen"></label>       
+																			<input placeholder="" id="s2id_autogen1_search" aria-owns="select2-results-1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" type="text">   
+																		</div>   
+																		<div style="position: relative;" class="scroll-wrapper select2-results">
+																			<ul style="margin-bottom: -17px; margin-right: -17px;" id="select2-results-1" class="select2-results scroll-content" role="listbox">   </ul>
+																			<div class="scroll-element scroll-x">
+																				<div class="scroll-element_outer">    
+																					<div class="scroll-element_size"></div>    
+																					<div class="scroll-element_track"></div>    
+																					<div style="" class="scroll-bar"></div>
+																				</div>
+																			</div>
+																			<div class="scroll-element scroll-y">
+																				<div class="scroll-element_outer">    
+																					<div class="scroll-element_size"></div>    
+																					<div class="scroll-element_track"></div>    
+																					<div style="" class="scroll-bar"></div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<select style="display: none;" title="" tabindex="-1" name="icsearch" id="icsearch">
+																	<option selected="selected" value=""></option>
+																	<optgroup label="CONNECTIONS">
+																		<option value="f0">Public</option>
+																		<option value="f1">Site Members</option>
+																		<option value="f2">My Friends</option>
+																		<option value="f3">My Followers</option>
+																		<option value="f4">People I Follow</option>
+																		<option value="f5">Just Me</option>
+																	</optgroup>
+																	<optgroup label="MY CIRCLES"></optgroup>
+																	<optgroup label="MY FRIENDS"></optgroup>
+																</select>
+																<div id="s2id_icsearchtags" class="select2-container">
+																	<a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">   
+																		<span id="select2-chosen-2" class="select2-chosen">Filter by Hashtags</span>
+																		<abbr class="select2-search-choice-close"></abbr>   
+																		<span class="select2-arrow" role="presentation">
+																			<b role="presentation"></b>
+																		</span>
+																	</a>
+																	<label for="s2id_autogen2" class="select2-offscreen"></label>
+																	<input id="s2id_autogen2" aria-labelledby="select2-chosen-2" class="select2-focusser select2-offscreen" aria-haspopup="true" role="button" type="text">
+																	<div class="select2-drop select2-display-none select2-with-searchbox">   
+																		<div class="select2-search">       
+																			<label for="s2id_autogen2_search" class="select2-offscreen"></label>       
+																			<input placeholder="" id="s2id_autogen2_search" aria-owns="select2-results-2" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" type="text">   
+																		</div>   
+																		<div style="position: relative;" class="scroll-wrapper select2-results">
+																			<ul style="margin-bottom: -17px; margin-right: -17px;" id="select2-results-2" class="select2-results scroll-content" role="listbox">   </ul>
+																			<div class="scroll-element scroll-x">
+																				<div class="scroll-element_outer">    
+																					<div class="scroll-element_size"></div>    
+																					<div class="scroll-element_track"></div>    
+																					<div style="" class="scroll-bar"></div>
+																				</div>
+																			</div>
+																			<div class="scroll-element scroll-y">
+																				<div class="scroll-element_outer">    
+																					<div class="scroll-element_size"></div>    
+																					<div class="scroll-element_track"></div>    
+																					<div style="" class="scroll-bar"></div>
+																				</div>
+																			</div>
+																		</div>	
+																	</div>
+																</div>
+																<select style="display: none;" title="" tabindex="-1" name="icsearchtags" id="icsearchtags">
+																	<option selected="selected" value=""></option>
+																	<option value="tag-1">grinding</option>
+																	<option value="tag-14">onthamove</option>
+																	<option value="tag-10">newyearsresolution</option>
+																	<option value="tag-9">bodygoals</option>
+																	<option value="tag-8">IMB</option>
+																	<option value="tag-7">cosplay</option>
+																	<option value="tag-6">BeEmpowered</option>
+																	<option value="tag-5">jaysonmyfeet</option>
+																	<option value="tag-4">exclusive</option>
+																	<option value="tag-3">fire</option>
+																	<option value="tag-2">crossfit</option>
+																	<option value="tag-15">fitnessgoals</option>
+																	<option value="tag-11">naturegirl</option>
+																	<option value="tag-12">earthchild</option>
+																	<option value="tag-13">hugatree</option>
+																</select>
+															</div>
+														</div>
+														<a class="ipostnow ic-btn float-right hint--left" data-hint="POST HERE" href="#">
+															<i class="icicon-pencil"></i>
+														</a>
+													</div>
+													<div id="grid" class="lite media-boxes-container lazy-load-ready" data-inicols="2" data-filtertype="*" data-filter="*" data-limit="12" style="position: relative; height: 1673px; margin-left: -20px;">
+														<div class="media-boxes-grid-sizer" style="width: 264px;"></div>
+														<div class="media-boxes-grid-sizer" style="width: 264px;"></div>
+														
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div id="comwrapr" class="lite"></div>
+					</div>
+					<script src="js/iniload.js"></script>
+					<script src="js/istream.js"></script>
+					<script src="js/iniloadsub.js"></script>	
+					<script src="js/inimemload.js"></script>
+					
+					<script src="js/filefunctions.js"></script>
+					
+					<link rel="stylesheet" href="css/icommBox.css">
+					<link rel="stylesheet" href="css/sweet-alert.css">
+					<link rel="stylesheet" href="css/prettyPhoto.css">
+					<link rel="stylesheet" href="css/mapper.css">
+					<link rel="stylesheet" href="css/ishare.css">
+					<link rel="stylesheet" href="css/urldata.css">
+					<link rel="stylesheet" href="css/imgpicker.css">
+					<link rel="stylesheet" href="css/dragdrop.css">
+					<link rel="stylesheet" href="css/toastmessages.css">
+					<link rel="stylesheet" href="css/emoticons.css">
+
+					<script src="js/endloader.js"></script>
+					<script src="js/validate.js"></script>	
+					<script src="js/tcrop.js"></script>
+					<script src="js/timgpicker.js"></script>
+					<script async="" defer="defer" src="js/endloaderasync.js"></script>
+					<script src="js/urldata.js"></script>
+					<script src="js/viddata.js"></script>
+					<script src="js/tquery-ui.js"></script>	
+					<script async="" defer="defer" src="js/timepicker.js"></script>	
+					<script src="js/mapper.js"></script>	
+
+					<!--script src="js/controls.js" type="text/javascript"></script>
+					<script src="js/geocoder.js" type="text/javascript"></script-->
+					<script src="js/library.js" type="text/javascript"></script>
+					<!--script src="js/map.js" type="text/javascript"></script>
+					<script src="js/marker.js" type="text/javascript"></script-->
+					<script src="js/mediaStreamRecorder.js" type="text/javascript"></script>
+					<!--script src="js/onion.js" type="text/javascript"></script>
+					<script src="js/places_impl.js" type="text/javascript"></script-->  
+
+				</main>
+			</div>  		
+		</div>             	
+		<footer id="tm-footer" class="tm-footer">
+			<div class="uk-panel jmoddiv" data-jmodediturl="http://qeneqt.us/index.php?option=com_config&amp;controller=config.display.modules&amp;id=200&amp;return=aHR0cDovL3FlbmVxdC51cy9teS10aW1lbGluZQ%3D%3D" data-target="_self" data-jmodtip="&lt;strong&gt;Edit module&lt;/strong&gt;&lt;br /&gt;Footer 2&lt;br /&gt;Position: footer">
+				<p>
+					<img style="display: block; margin-left: auto; margin-right: auto;" src="img/qeneqt3.png" alt="" height="40" width="110">
+				</p>
+				<p style="text-align: center;">&nbsp; &nbsp; Copyright&nbsp;Â© 2015 Qeneqt. All Rights Reserved.</p>
+			</div>
+		</footer>
+	</body>
+</html>
