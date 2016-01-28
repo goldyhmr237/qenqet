@@ -9,8 +9,8 @@ var timelineMainFunction = function() {
         {	            	
         	//var count = Object.keys(response).length
         //	console.log(response);
-        	//var total = response.total['id'];
-        	var total= 5;
+        	var total = response.total['id'];
+        	// var total= 10;
 			var userdata = "";
 			for(var i=total; i>0; i--) {
 				//console.log(i +") type=" + response[i].type +"\naction=" + response[i].action);
@@ -23,8 +23,6 @@ var timelineMainFunction = function() {
 					var cid = response[i].cid;
 					var fullname = response[i].fullname;
 					var iname = response[i].iname;
-					var avatar = response[i].avatar;
-					var avatarm = response[i].avatarm;
 					var text = response[i].text; 
 					var vtype = response[i].vtype;
 					var title = response[i].title;
@@ -42,6 +40,20 @@ var timelineMainFunction = function() {
 					}
 					else {
 						var header = userid + "/" + response[i].header;
+					}
+
+					if(response[i].avatarm == "" || response[i].avatarm == null ){
+						var avatarm = "../default-avatar.gif";
+					}
+					else {
+						var avatarm = response[i].avatarm;
+					}
+
+					if(response[i].avatar == "" || response[i].avatar == null ){
+						var avatar = "../default-avatar.gif";
+					}
+					else {
+					var avatar = response[i].avatar;
 					}
 
             		// alert("type=" + type +"\naction=" + action);
@@ -94,11 +106,13 @@ var timelineMainFunction = function() {
     });
 }
 
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
 
-
-
-var capturePhoto =function() {
-	//alert("capturePhoto");
+function capturePhoto() {
+	jQuery('.ic-btn.ic-btn-md.ic-btn-round.ic-btn-green.customButtons.getsnapit').css('display', 'none');
+    jQuery('.ajax-loader-img.getsnapit').css('display', 'block');
     // Take picture using device camera and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoURISuccess, onFail, {
         quality: 100,
@@ -108,10 +122,10 @@ var capturePhoto =function() {
     });
 }
 
-//var imageURI = "http://qeneqt.us/images/icprofiles/955/header.5790ee8454f3a6763b28fd3a92a58a8c-header.jpg";
-
-var getPhoto = function(source) {
-	//alert("getPhoto");
+function getPhoto(source) {
+	jQuery('.ic-btn.ic-btn-md.ic-btn-round.ic-btn-blue.customButtons.getphoto').css('display', 'none');
+    jQuery('.ajax-loader-img.getphoto').css('display', 'block');
+	//var source = "file:///C:/Users/Soft%20Win/Pictures/tv-smith-icon.png";
     // Retrieve image file location from specified source
     navigator.camera.getPicture(onPhotoURISuccess, onFail, {
         quality: 50,
@@ -121,8 +135,9 @@ var getPhoto = function(source) {
 }
 
 // Called when a photo is successfully retrieved
-var onPhotoURISuccess = function(imageURI) {
-	alert(imageURI);
+function onPhotoURISuccess(imageURI) {
+	var loginid = localStorage.getItem('id');
+	//alert(loginid);
     var imageData = imageURI;
     var photo_ur = imageData;
     var options = new FileUploadOptions();
@@ -137,26 +152,30 @@ var onPhotoURISuccess = function(imageURI) {
     //alert(newfname);
     options.mimeType = "image/jpeg";
     var params = new Object();
+    params.loginid =loginid;
+
     options.params = params;
     //options.headers = "Content-Type: multipart/form-data; boundary=38516d25820c4a9aad05f1e42cb442f4";
     options.chunkedMode = false;
     var ft = new FileTransfer();
-    //alert(imageURI);
+   // alert(imageURI);
     ft.upload(imageURI, encodeURI("http://qeneqt.us/index2.php?option=com_content&view=appcode&task=imageupload"), win, fail, options);
 
-    var win = function(r) {
-        alert("Code = " + r.responseCode.toString());
-        alert("Response = " + r.response.message);
+    function win(r) {
+    	//alert("ImageData: " + JSON.stringify(r));
+    	// alert("ImageData: " + r.response.);
+        // alert("Code = " + r.responseCode.toString());
+        // alert("Response = " + r.response.message);
         var resp = JSON.parse(r.response);
+        window.location.reload();
         
     }
 
-    var fail = function(error) {
-        alert("An error has occurred: Code = " + error.code);
-        alert("upload error source " + error.source);
-        alert("upload error target " + error.target);
+    function fail(error) {
+    	alert("An error has occurred: Code = " + error.code + "upload error source " + error.source + "upload error target " + error.target);
     }
 }
+
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
 

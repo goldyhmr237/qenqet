@@ -52,7 +52,6 @@ var fbData = function () {
         	var fbId2 = JSON.stringify(response["id"]);
         	fbId1 = fbId2.replace('"', "");
         	fbId = fbId1.replace('"', "");
-        	localStorage.setItem('id', fbId);
         	var fbName2 = JSON.stringify(response["name"]);
         	fbName1 = fbName2.replace('"', "");
         	fbName = fbName1.replace('"', "");
@@ -117,9 +116,18 @@ var fbData = function () {
 }
 
 var appLogout = function () { 
-	var  localStorageId = localStorage.getItem('id');
-	localStorage.setItem('id', "");
-	window.location.assign("index.html");
+    var  localStorageId = localStorage.getItem('id');
+    jQuery.ajax({
+        type: "POST",
+        url: "http://qeneqt.us/index2.php?option=com_content&view=appcode&task=applogout&loginid=" + localStorageId,
+        data: "appLogout",
+        success: function(response) {
+        	
+        	localStorage.setItem('id', "");
+        	window.location.assign("index.html");
+         }
+
+    });
 }
 
 var appRegistration = function() {

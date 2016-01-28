@@ -21,8 +21,6 @@ var  profileMainFunction = function() {
 					var cid = response[i].cid;
 					var fullname = response[i].fullname;
 					var iname = response[i].iname;
-					var avatar = response[i].avatar;
-					var avatarm = response[i].avatarm;
 					var text = response[i].text; 
 					var vtype = response[i].vtype;
 					var title = response[i].title;
@@ -40,6 +38,20 @@ var  profileMainFunction = function() {
 					}
 					else {
 						var header = loginid + "/" + response[i].header;
+					}
+
+					if(response[i].avatarm == "" || response[i].avatarm == null ){
+						var avatarm = "../default-avatar.gif";
+					}
+					else {
+						var avatarm = response[i].avatarm;
+					}
+
+					if(response[i].avatar == "" || response[i].avatar == null ){
+						var avatar = "../default-avatar.gif";
+					}
+					else {
+					var avatar = response[i].avatar;
 					}
 
             		// alert("type=" + type +"\naction=" + action);
@@ -127,4 +139,89 @@ var profileCover = function () {
           
         }
     });        
+}
+
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
+
+function capturePhoto() {
+	jQuery('.ic-btn.ic-btn-md.ic-btn-round.ic-btn-green.customButtons.getsnapit').css('display', 'none');
+    jQuery('.ajax-loader-img.getsnapit').css('display', 'block');
+    // Take picture using device camera and retrieve image as base64-encoded string
+    navigator.camera.getPicture(onPhotoURISuccess, onFail, {
+        quality: 100,
+        allowEdit: true,
+        destinationType: destinationType.FILE_URI,
+        saveToPhotoAlbum: false
+    });
+}
+
+function getPhoto(source) {
+	jQuery('.ic-btn.ic-btn-md.ic-btn-round.ic-btn-blue.customButtons.getphoto').css('display', 'none');
+    jQuery('.ajax-loader-img.getphoto').css('display', 'block');
+	//var source = "file:///C:/Users/Soft%20Win/Pictures/tv-smith-icon.png";
+    // Retrieve image file location from specified source
+    navigator.camera.getPicture(onPhotoURISuccess, onFail, {
+        quality: 50,
+        destinationType: destinationType.NATIVE_URI,
+        sourceType: source
+    });
+}
+
+// Called when a photo is successfully retrieved
+function onPhotoURISuccess(imageURI) {
+	var loginid = localStorage.getItem('id');
+	//alert(loginid);
+    var imageData = imageURI;
+    var photo_ur = imageData;
+    var options = new FileUploadOptions();
+    var imageURI = photo_ur;
+    options.fileKey = "image";
+    if (imageURI.substr(imageURI.lastIndexOf('/') + 1).indexOf(".") >= 0) {
+        var newfname = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+    } else {
+        var newfname = jQuery.trim(imageURI.substr(imageURI.lastIndexOf('/') + 1)) + '.jpg';
+    }
+    options.fileName = newfname;
+    //alert(newfname);
+    options.mimeType = "image/jpeg";
+    var params = new Object();
+    params.loginid =loginid;
+
+    options.params = params;
+    //options.headers = "Content-Type: multipart/form-data; boundary=38516d25820c4a9aad05f1e42cb442f4";
+    options.chunkedMode = false;
+    var ft = new FileTransfer();
+   // alert(imageURI);
+    ft.upload(imageURI, encodeURI("http://qeneqt.us/index2.php?option=com_content&view=appcode&task=imageupload"), win, fail, options);
+
+    function win(r) {
+    	//alert("ImageData: " + JSON.stringify(r));
+    	// alert("ImageData: " + r.response.);
+        // alert("Code = " + r.responseCode.toString());
+        // alert("Response = " + r.response.message);
+        var resp = JSON.parse(r.response);
+        window.location.reload();
+        
+    }
+
+    function fail(error) {
+    	alert("An error has occurred: Code = " + error.code + "upload error source " + error.source + "upload error target " + error.target);
+    }
+}
+
+var pictureSource;   // picture source
+var destinationType; // sets the format of returned value
+
+// Wait for device API libraries to load
+//
+document.addEventListener("deviceready",onDeviceReady,false);
+
+// device APIs are available
+//
+function onDeviceReady() {
+    pictureSource=navigator.camera.PictureSourceType;
+    destinationType=navigator.camera.DestinationType;
 }

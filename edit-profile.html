@@ -33,19 +33,12 @@
 		<script src="js/jquery-migrate.js" type="text/javascript"></script>
 		<script src="js/bootstrap.js" type="text/javascript"></script>
 		<script src="js/frontediting.js" type="text/javascript"></script>
-		<!--script type="text/javascript" src="cordova.js"></script-->
-        <!--script type="text/javascript" src="js/facebookConnectPlugin.js"></script-->
+		<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/facebookConnectPlugin.js"></script>
         <script type="text/javascript" src="js/qq_function.js"></script>
+        <script type="text/javascript" src="js/painlessfs.js"></script>
         <script type="text/javascript" src="js/profileedit_function.js"></script>
-		<script type="text/javascript">
-			window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")}catch(e){}if(r){r.open("GET","/index.php?option=com_ajax&format=json",true);r.send(null)}},840000);
-			jQuery(document).ready(function(){
-				jQuery('.hasTooltip').tooltip({"html": true,"container": "body"});
-			});
-			jQuery(document).ready(function() {
-					jQuery('.hasPopover').popover({"html": true,"trigger": "hover focus","container": "body"});
-				});
-		</script>
+		
 		<link rel="apple-touch-icon-precomposed" href="http://qeneqt.us/templates/yoo_master2/apple_touch_icon.png">
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/theme.css">
@@ -107,7 +100,7 @@
 												<span class="indicator">+</span>
 											</a>
 											<ul style="">
-												<li class="logout"><a href="http://qeneqt.us/mailbox" onclick="appLogout();">
+												<li class="logout"><a href="#" onclick="appLogout();">
 													<!--img src="img/logout.png" alt="Logout" style="height: 39px; left: 5px; width: 39px;"-->
 													<i class="icicon-lock"></i>
 													<span class="ititle">Logout</span> </a>
@@ -160,7 +153,7 @@
 								</div>
 								<div class="membersDiv">
 									<a href="#" class="ic-btn hint--right" data-hint="USERS" >
-										<img src="img/ic-profiles.png" />
+										<img src="img/members.png" />
 									</a>
 								</div>
 								<div class="notificationDiv">								
@@ -332,10 +325,8 @@
 														<div class="iconn-photoload">
 															<p class="ihdr">UPLOAD IMAGE</p>
 															<p class="center">to use as avatar</p>
-															<div class="ic-btn ic-btn-blue ip-upload iuploadbtn">
-																BROWSE
-																<input type="file" class="ip-file" name="file">
-															</div>
+															<input class="ic-btn ic-btn-md ic-btn-round ic-btn-blue customButtons browse" type="button" value="BROWSE"  onclick="getAvatar(pictureSource.PHOTOLIBRARY);">
+															<img class="ajax-loader-img browse" src="img/ajax-loader.gif" style="display:none;">
 														</div>
 													</div>
 												</div>
@@ -344,7 +335,8 @@
 														<div class="iconn-camload">
 															<p class="ihdr">SNAP A PHOTO</p>
 															<p class="center">with your web/mobile camera</p>
-															<button class="ic-btn ic-btn-green ip-webcam">SNAP IT</button>
+															<input class="ic-btn ic-btn-md ic-btn-round ic-btn-green customButtons snapit" type="button" value="SNAP IT"  onclick="captureAvatar();">
+															<img class="ajax-loader-img snapit" src="img/ajax-loader.gif" style="display:none;">
 														</div>
 													</div>
 												</div>
@@ -386,10 +378,8 @@
 												<div class="iconn-photoload">
 													<p class="ihdr">UPLOAD IMAGE</p>
 													<p class="center">as your Profile Cover</p>
-													<div class="ic-btn ic-btn-blue ip-upload iuploadbtn">
-														BROWSE
-														<input type="file" class="ip-file" name="file">
-													</div>
+													<input class="ic-btn ic-btn-md ic-btn-round ic-btn-blue customButtons browsecover" type="button" value="BROWSE"  onclick="getHeader(pictureSource.PHOTOLIBRARY);">
+													<img class="ajax-loader-img browsecover" src="img/ajax-loader.gif" style="display:none;">
 												</div>
 											</div>
 										</div>
