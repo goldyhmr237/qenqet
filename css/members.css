@@ -1648,14 +1648,14 @@ body #searchfilters .searchinnerpub {position:absolute;height:40px;min-height:40
 
 body #searchfilters .searchinnerpub #s2id_icsearchtags.select2-container {position:absolute;right:0;left:0;top:-1px;bottom:0; padding-left:30px!important;padding-right:5px!important;width:100%!important;max-width:100%!important;min-width:100%!important; }
 
-body #searchfilters .select2-container {width:49%!important;max-width:49%!important;min-width:49%!important; display:block;height:40px;margin:0!important;}
+body #searchfilters .select2-container {width:49%!important;max-width:49%!important;min-width:49%!important; display:block !important;height:40px;margin:0!important;}
 
 
 body #searchfilters #s2id_icsearch.select2-container {position:absolute;left:0;top:-1px;bottom:0;padding:0 5px 0 40px!important;}
 
 body #searchfilters #s2id_icsearchtags.select2-container {position:absolute;right:0;top:-1px;bottom:0; padding:0 5px 0 30px!important;}
-body #icsearch,
-body #icsearchtags {display:none!important}
+/*body #icsearch,
+body #icsearchtags {display:none!important}*/
 
 body #searchfilters #s2id_icsearch.select2-container {border:none!important;box-shadow:none!important;background: url(../img/iusers.png) no-repeat 7px 5px !important; outline: none!important; }
 body #searchfilters #s2id_icsearchtags.select2-container {border:none!important;box-shadow:none!important;background: url(../img/itags.png) no-repeat 0 5px !important; outline: none!important;}
