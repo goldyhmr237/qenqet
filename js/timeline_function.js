@@ -20,12 +20,12 @@ var timelineContentFunction = function(url) {
         dataType:"json",
         success: function(response) 
         {	            	
-        	//var count = Object.keys(response).length
-        //	console.log(response);
+			//var count = Object.keys(response).length
+			//	console.log(response);
         	var total = response.total['id'];
-        	// var total= 5;
+    
 			var userdata = "";
-			for(var i=total; i>360; i--) {
+			for(var i=total; i>375; i--) {
 				//console.log(i +") type=" + response[i].type +"\naction=" + response[i].action);
 				if (response[i]) 
 				{
@@ -200,15 +200,6 @@ function onPhotoURISuccess(imageURI) {
     }
 }
 
-function getVideo(source, type) {
-	navigator.camera.getPicture(onVideoURISuccess, onFail, { 
-		quality: 50, 
-		destinationType: destinationType.NATIVE_URI, 
-		sourceType: source, 
-		mediaType: 1
-	});
-}
-
 function fetchVideo(source, type) {
 	var loginid = localStorage.getItem('id');
 	var imageURI = jQuery('#target_url_input').val();
@@ -233,10 +224,29 @@ function fetchVideo(source, type) {
     });
 }
 
-function onVideoURISuccess(imageURI) {
-	var loginid = localStorage.getItem('id');
-	var imageURI = jQuery('#target_url_input').val();
-	alert("imageURI " + imageURI);
+/*{ 
+		*quality: 50, 
+		destinationType: destinationType.FILE_URI, 
+		//sourceType: source, 
+		sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+		mediaType: 1
+		destinationType: destinationType.FILE_URI,
+    mediaType: mediaType.VIDEO,
+    sourceType: source
+	}*/
+function getVideo(source) {
+	//alert(source)
+	var options = { quality: 80 };
+    options["sourceType"] = 0 | 2; 
+    options["mediaType"] = 1;
+	navigator.camera.getPicture(onVideoURISuccess, onFail,options );
+}
+
+
+function onVideoURISuccess(mediaFiles) {
+	alert(mediaFiles);
+	/*var loginid = localStorage.getItem('id');
+	
     var options = new FileUploadOptions();
     options.fileKey = "document";
     if (imageURI.substr(imageURI.lastIndexOf('/') + 1).indexOf(".") >= 0) {
@@ -251,8 +261,8 @@ function onVideoURISuccess(imageURI) {
     options.params = params;
     options.chunkedMode = false;
     var ft = new FileTransfer();
-    alert(imageURI);
-    //ft.upload(imageURI, encodeURI("http://qeneqt.us/index2.php?option=com_content&view=appcode&task=videoupload"), win, fail, options);
+    // alert(imageURI);
+    ft.upload(imageURI, encodeURI("http://qeneqt.us/index2.php?option=com_content&view=appcode&task=videoupload"), win, fail, options);
 
     function win(r) {
     	alert("VideoData: " + JSON.stringify(r));
@@ -266,7 +276,7 @@ function onVideoURISuccess(imageURI) {
 
     function fail(error) {
     	alert("An error has occurred: Code = " + error.code + "upload error source " + error.source + "upload error target " + error.target);
-    }
+    }*/
 }
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
@@ -278,6 +288,9 @@ document.addEventListener("deviceready",onDeviceReady,false);
 // device APIs are available
 //
 function onDeviceReady() {
-    pictureSource=navigator.camera.PictureSourceType;
-    destinationType=navigator.camera.DestinationType;
+    /*pictureSource=navigator.camera.PictureSourceType;
+    destinationType=navigator.camera.DestinationType;*/
+    pictureSource = navigator.camera.PictureSourceType;
+    destinationType = navigator.camera.DestinationType;
+    mediaType = navigator.camera.MediaType;
 }

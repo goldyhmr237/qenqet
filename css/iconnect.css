@@ -80,3 +80,6 @@ body.bodyapp .isfront {
 #iconnect .page-content, #iprofile.page-content {
     top: 50px;
 }
+#grid {
+    z-index: 0;
+}
