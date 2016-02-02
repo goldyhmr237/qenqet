@@ -83,21 +83,25 @@ var fbData = function () {
                         jQuery("#system-message-container").html("<h1 class='error'>Registration Success</h1>");
                     }
                     else if (strshortened == "Already Exists") {
-                        jQuery("#system-message-container").html("<h1 class='error'>Already Exists</h1>");
+                        alert("Already Exists");
+                        //jQuery("#system-message-container").html("<h1 class='error'>Already Exists</h1>");
                     }
                     else if (strshortened == "Registration Error") {
-                        jQuery("#system-message-container").html("<h1 class='error'>Registration Error.</h1>");
+                        alert("Registration Error.");
+                        //jQuery("#system-message-container").html("<h1 class='error'>Registration Error.</h1>");
                     }
                     else if (strshortened == "Login Success") {
                         localStorage.setItem('id', strvalue);
                         window.location.assign("timeline.html");
-                        jQuery("#system-message-container").html("<h1 class='error'>Login Success.</h1>");
+                        jQuery("#system-message-container").html("<h1 class='error'>Login Successful.</h1>");
                     }
                     else if (strshortened == "Login Error") {
-                        jQuery("#system-message-container").html("<h1 class='error'>Login Error.</h1>");
+                        alert("Login Error.");
+                        //jQuery("#system-message-container").html("<h1 class='error'>Login Error.</h1>");
                     }
                     else {
-                        jQuery("#system-message-container").html("<h1 class='error'>Response Error.</h1>");
+                        alert("Response Error.");
+                        //jQuery("#system-message-container").html("<h1 class='error'>Response Error.</h1>");
                     }
                 }
 
@@ -169,11 +173,13 @@ var appRegistration = function() {
                     jQuery("#system-message-container").html("<h1 class='error'>Registration Successfull. Please Login</h1>");
                 }
                 if (response == "Already Exists") {
+                    alert("This Email ID Already Exists");
                     //window.location.assign("login.html");
-                    jQuery("#system-message-container").html("<h1 class='error'>This Email ID Already Exists. Please Login</h1>");
+                    //jQuery("#system-message-container").html("<h1 class='error'>This Email ID Already Exists. Please Login</h1>");
                 }
                 if (response == "Registration Error") {
-                    jQuery("#system-message-container").html("<h1 class='error'>Registration Unsuccessfull. Please Try Again.</h1>");
+                    alert("Registration Unsuccessfull. Please Try Again.");
+                    //jQuery("#system-message-container").html("<h1 class='error'>Registration Unsuccessfull. Please Try Again.</h1>");
                 }
             }
         });
@@ -214,7 +220,8 @@ var appLogin = function() {
             else {
                 jQuery('#icModloginbtn').css('display', 'block');
                 jQuery('.ajax-loader-img').css('display', 'none');
-                jQuery("#system-message-container").html("<h1 class='error'>Incorrect Username & Password.</h1>");
+                alert("Incorrect Username & Password");
+                //jQuery("#system-message-container").html("<h1 class='error'>Incorrect Username & Password.</h1>");
             }
         }
     });

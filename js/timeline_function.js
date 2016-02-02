@@ -224,38 +224,38 @@ function fetchVideo(source, type) {
     });
 }
 
+
 function getVideo(source) {
-	navigator.camera.getPicture(onVideoURISuccess, onFail, { 
-		quality: 50, 
-	    destinationType: destinationType.FILE_URI,
-	    sourceType: source,
-	    mediaType: 1 
-	});
+	navigator.camera.getPicture(onVideoURISuccess, onFail, { quality: 50, 
+    destinationType: destinationType.FILE_URI,
+    sourceType: source,
+    mediaType: 1 });
 }
 
-
 function onVideoURISuccess(videoURI) {
-	//alert(videoURI);
+	//alert("video url= " + videoURI);
 	var loginid = localStorage.getItem('id');	
     var options = new FileUploadOptions();
-    options.fileKey = "document";
-   
-    var newfname = videoURI.substr(videoURI.lastIndexOf('/') + 1);
-
-    alert(newfname);
- 
+    options.fileKey = "video";
+    if (videoURI.substr(videoURI.lastIndexOf('/') + 1).indexOf(".") >= 0) {
+        var newfname = videoURI.substr(videoURI.lastIndexOf('/') + 1);
+    } else {
+        var newfname = jQuery.trim(videoURI.substr(videoURI.lastIndexOf('/') + 1)) + '.mp4';
+    }
+   // alert("new name= " + newfname);
     options.fileName = newfname;
+    options.mimeType="video/mp4";
     var params = new Object();
     params.loginid =loginid;
 
     options.params = params;
     options.chunkedMode = false;
     var ft = new FileTransfer();
-
+    // alert(videoURI);
     ft.upload(videoURI, encodeURI("http://qeneqt.us/index2.php?option=com_content&view=appcode&task=videoupload"), win, fail, options);
 
     function win(r) {
-    	alert("VideoData: " + JSON.stringify(r));
+    	//alert("VideoData: " + JSON.stringify(r));
     	// alert("VideoData: " + r.response.);
         // alert("Code = " + r.responseCode.toString());
         // alert("Response = " + r.response.message);
@@ -271,16 +271,8 @@ function onVideoURISuccess(videoURI) {
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
 
-// Wait for device API libraries to load
-//
 document.addEventListener("deviceready",onDeviceReady,false);
-
-// device APIs are available
-//
 function onDeviceReady() {
-    /*pictureSource=navigator.camera.PictureSourceType;
-    destinationType=navigator.camera.DestinationType;*/
     pictureSource = navigator.camera.PictureSourceType;
     destinationType = navigator.camera.DestinationType;
-    mediaType = navigator.camera.MediaType;
 }
