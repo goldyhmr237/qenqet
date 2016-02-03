@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- base href="http://qeneqt.us/my-timeline" -->
 		<meta name="generator" content="Joomla! - Open Source Content Management">
-		<title>Profile</title>
+		<title>Circles</title>
 		<link href="http://qeneqt.us/templates/yoo_master2/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
 		<link rel="stylesheet" href="css/timelinefile.css" type="text/css">
 		<link rel="stylesheet" href="css/public.css" type="text/css">
@@ -37,7 +37,7 @@
         <script type="text/javascript" src="js/qq_function.js"></script>
         <script type="text/javascript" src="js/painlessfs.js"></script>
         <script type="text/javascript" src="js/timeline_function.js"></script>
-        <script type="text/javascript" src="js/profile_function.js"></script>
+        <script type="text/javascript" src="js/circles_function.js"></script>
 		
 		<link rel="apple-touch-icon-precomposed" href="http://qeneqt.us/templates/yoo_master2/apple_touch_icon.png">
 		<link rel="stylesheet" href="css/bootstrap.css">
@@ -58,8 +58,11 @@
 		<!--script src="js/common.js" charset="UTF-8" type="text/javascript"></script>
 		<script src="js/util.js" charset="UTF-8" type="text/javascript"></script>
 		<script src="js/stats.js" charset="UTF-8" type="text/javascript"></script-->
+		<style>
+		body .iconn-actions-circle-mini > .icopencircle.ic-btn, body .iconn-actions-circle-mini > .action-leavecc.ic-btn { padding-top: 7px !important; }
+		</style>
 	</head>
-	<body class="tm-noblog" onload="profileMainFunction()">
+	<body class="tm-noblog" onload="circlesMainFunction()">
 		<div id="tm-middle" class="tm-middle uk-grid" data-uk-grid-match="" data-uk-grid-margin="">
 			<div class="tm-main uk-width-medium-1-1">
 				<main id="tm-content" class="tm-content">
@@ -155,194 +158,10 @@
 							</div>
 						</div>
 						<div id="iprofile" class="page-content">
-							<div class="iconn-row left">
-								<div class="isOwner" id="editme">
-									<a href="#" data-hint="Profile Elements Privacy" class="ic-btn ic-btn-blue hint hint--left" id="icProfileOpts">
-										<i class="icicon-cogs"></i>
-									</a>
-									<a href="edit-profile.html" data-hint="Edit Item" class="ic-btn ic-btn-default hint hint--left" id="icOpenEditbox">
-										<i class="icicon-pencil"></i>
-									</a>
-								</div>
-							</div>
 							<section class="iconn-section fixheight" style="">
 								<div class="iconn-row">
-								<script>
-									jQuery('#icProfileOpts').click(function(){
-
-										jQuery('.profile-element-opts').slideToggle();
-
-										return false;
-									});
-								</script>
-									<div class="iconn-col-sm-4">
-										<div style="" class="iconn-element-container">
-											<div class="oniprofile ic-panel ic-panel-box ic-panel-lite icProfileBox" id="icProfileTabs">
-												<div style="display:none" class="profile-element-opts" id="on1004-icprofiletabs">
-													<div class="header-opts  isrelative isblock"> Set privacy for this element </div>	
-													<div class="inner-opts isrelative isblock">
-														<div class="iconn-col-xs-2">
-															<a data-hint="Public" class="aclsetter ic-btn ic-btn-blue ic-btn-sm ic-ispublic hint--top hint--success" href="#" data-elacl="f0" data-elementid="1004-icprofiletabs">
-																<i class="icicon-unlock-alt"></i>
-															</a>
-														</div>	
-														<div class="iconn-col-xs-2">
-															<a data-hint="Site members" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-ismembers hint--top hint--success" href="#" data-elacl="f1" data-elementid="1004-icprofiletabs">
-																<i class="icicon-unlock-alt"></i>
-															</a>
-														</div>	
-														<div class="iconn-col-xs-2">
-															<a data-hint="My friends" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isfriends hint--top hint--info" href="#" data-elacl="f2" data-elementid="1004-icprofiletabs">
-																<i class="icicon-unlock-alt"></i>
-															</a>
-														</div>	
-														<div class="iconn-col-xs-2">
-															<a data-hint="My followers" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isfollowers hint--top hint--info" href="#" data-elacl="f3" data-elementid="1004-icprofiletabs">
-																<i class="icicon-unlock-alt"></i>
-															</a>
-														</div>	
-														<div class="iconn-col-xs-2">
-															<a data-hint="People I follow" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isifollow hint--top hint--info" href="#" data-elacl="f4" data-elementid="1004-icprofiletabs">
-																<i class="icicon-unlock-alt"></i>
-															</a>
-														</div>	
-														<div class="iconn-col-xs-2">
-															<a data-hint="Only me" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isionly hint--top hint--danger" href="#" data-elacl="f5" data-elementid="1004-icprofiletabs">  
-																<i class="icicon-lock"></i>
-															</a>
-														</div>	
-													</div>	
-												</div>	
-												<div class="ct ct-underline ma-b-100 lite  ct-firefox ct-dot ct-height-auto ct-pag-hor ct-pag-top ct-ready">
-													<div class="ct-pag ct-tab ct-pag-hor ct-pag-top ct-swipe-on">
-														<div class="ct-paginner ct-wfit ct-hfit" style=" height: 35px; width: 85px;">
-															<div class="profile-tab-title ct-pagitem" style="transform: translate3d(0px, 0px, 0px);">About Me</div>
-															<div class="profile-tab-title ct-pagitem" style="transform: translate3d(102px, 0px, 0px);">Interests</div>
-															<div class="profile-tab-title ct-pagitem ct-cur" style="transform: translate3d(204px, 0px, 0px);">Social</div>
-														</div>
-													</div>
-													<div class="ct-viewport ct-hNative" style="height: 0px;">
-														<div class="ct-canvas" style="width: 298px;">
-															<div style="" class="profile-tab  ct-slide ct-ready">
-																<div class="profile-tab-content">
-																	<section style="" class="iconn-section ">
-																		<div class="iconn-row">
-																			<div class="iconn-col-sm-6">
-																				<div style="" class="iconn-element-container"></div>
-																			</div>
-																			<div class="iconn-col-sm-6">
-																				<div style="" class="iconn-element-container"></div>
-																			</div>
-																		</div>
-																	</section>
-																	<section style="" class="iconn-section ">
-																		<div class="iconn-row">
-																			<div class="iconn-col-sm-12">
-																				<div style="" class="iconn-element-container"></div>
-																			</div>
-																		</div>
-																	</section>
-																</div>
-															</div>
-															<div style="" class="profile-tab  ct-slide ct-ready">
-																<div class="profile-tab-content">
-																	<section style="" class="iconn-section ">
-																		<div class="iconn-row">
-																			<div class="iconn-col-sm-6">
-																				<div style="" class="iconn-element-container"></div>
-																			</div>
-																			<div class="iconn-col-sm-6">
-																				<div style="" class="iconn-element-container"></div>
-																			</div>
-																		</div>
-																	</section>
-																</div>
-															</div>
-															<div style="" class="profile-tab  ct-slide ct-ready ct-cur">
-																<div class="profile-tab-content"></div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="oniprofile  ic-panel ic-panel-box ic-panel-lite" id="profilemembers">
-												<div style="display:none" class="profile-element-opts" id="on1004-icmemberslist">
-													<div class="header-opts  isrelative isblock"> Set privacy for this element </div>	
-													<div class="inner-opts isrelative isblock">
-														<div class="iconn-col-xs-2">
-															<a data-hint="Public" class="aclsetter ic-btn ic-btn-blue ic-btn-sm ic-ispublic hint--top hint--success" href="#" data-elacl="f0" data-elementid="1004-icmemberslist">
-																<i class="icicon-unlock-alt"></i>
-															</a>
-														</div>	
-														<div class="iconn-col-xs-2">
-															<a data-hint="Site members" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-ismembers hint--top hint--success" href="#" data-elacl="f1" data-elementid="1004-icmemberslist">
-																<i class="icicon-unlock-alt"></i>
-															</a>
-														</div>	
-														<div class="iconn-col-xs-2">
-															<a data-hint="My friends" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isfriends hint--top hint--info" href="#" data-elacl="f2" data-elementid="1004-icmemberslist">
-																<i class="icicon-unlock-alt"></i>
-															</a>
-														</div>	
-														<div class="iconn-col-xs-2">
-															<a data-hint="My followers" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isfollowers hint--top hint--info" href="#" data-elacl="f3" data-elementid="1004-icmemberslist">
-																<i class="icicon-unlock-alt"></i>
-															</a>
-														</div>	
-														<div class="iconn-col-xs-2">
-															<a data-hint="People I follow" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isifollow hint--top hint--info" href="#" data-elacl="f4" data-elementid="1004-icmemberslist">
-																<i class="icicon-unlock-alt"></i>
-															</a>
-														</div>	
-														<div class="iconn-col-xs-2">
-															<a data-hint="Only me" class="aclsetter ic-btn ic-btn-default ic-btn-sm ic-isionly hint--top hint--danger" href="#" data-elacl="f5" data-elementid="1004-icmemberslist">
-																<i class="icicon-lock"></i>
-															</a>
-														</div>	
-													</div>
-												</div>	
-												<div class="itabs lite itabs-amount-3 itabs-pos-top-justify itabs-anim-slide-right " id="iutabs">
-													<input type="radio" class="iculatest" checked="" id="iculatest" name="iutabs">
-													<label for="iculatest">
-														<span><span>FRIENDS</span></span>
-													</label>
-
-													<input type="radio" class="icupopular" id="icupopular" name="iutabs">
-													<label for="icupopular">
-														<span><span>FOLLOWERS</span></span>
-													</label>
-
-													<input type="radio" class="icuonline" id="icuonline" name="iutabs">
-													<label for="icuonline">
-														<span><span>FOLLOWING</span></span>
-													</label>
-													<ul>
-														<li class="iculatest">
-															<div class="ms-staff-carousel" id="usersbox-friends">
-															<div id="icfriends" class="master-slider"> </div>	
-															</div>		
-														</li>				
-														<li class="icupopular">
-															<div class="ms-staff-carousel" id="usersbox-followers">
-																<div id="icfollowers" class="master-slider"> </div>	
-															</div>
-														</li>	
-														<li class="icuonline">
-															<div class="ms-staff-carousel" id="usersbox-following">
-																<div id="icfollowing" class="master-slider"> </div>	
-															</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
 									<div class="iconn-col-sm-8">
 										<div class="iconn-element-container" style="">
-											<div id="iConnectProfile">
-
-
-											</div>
 											<div id="iprofile" class="isrelative isblock">
 												<div id="ifront" class="lite fbarisleft igrid">
 													<div class="ic-box padded0" id="iconsearchtags"><div class="isfront" id="searchfilters" style="display: block;"><div class="searchinner"><div class="select2-container" id="s2id_icsearch"><a tabindex="-1" class="select2-choice select2-default" href="javascript:void(0)"><span class="select2-chosen" id="select2-chosen-1">Filter by ...</span><abbr class="select2-search-choice-close"></abbr><span role="presentation" class="select2-arrow"><b role="presentation"></b></span></a><label class="select2-offscreen" for="s2id_autogen1"></label><input type="text" role="button" aria-haspopup="true" class="select2-focusser select2-offscreen" aria-labelledby="select2-chosen-1" id="s2id_autogen1"><div class="select2-drop select2-display-none select2-with-searchbox"><div class="select2-search"><label class="select2-offscreen" for="s2id_autogen1_search"></label><input type="text" aria-autocomplete="list" aria-expanded="true" role="combobox" class="select2-input" spellcheck="false" autocapitalize="off" autocorrect="off" autocomplete="off" aria-owns="select2-results-1" id="s2id_autogen1_search" placeholder=""></div><div class="scroll-wrapper select2-results" style="position: relative;"><ul role="listbox" class="select2-results scroll-content" id="select2-results-1" style="margin-bottom: -17px; margin-right: -17px;"></ul><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style=""></div></div></div><div class="scroll-element scroll-y"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style=""></div></div></div></div></div></div>
@@ -351,8 +170,10 @@
 														<optgroup label="CONNECTIONS">
 															<option value="f0">Public</option>
 															<option value="f1">Site Members</option>
-															<option value="f2">My Friends</option><option value="f3">My Followers</option>
-															<option value="f4">People I Follow</option><option value="f5">Just Me</option>
+															<option value="f2">My Friends</option>
+															<option value="f3">My Followers</option>
+															<option value="f4">People I Follow</option>
+															<option value="f5">Just Me</option>
 														</optgroup>
 													</select>
 													<div class="select2-container" id="s2id_icsearchtags"><a tabindex="-1" class="select2-choice select2-default" href="javascript:void(0)"><span class="select2-chosen" id="select2-chosen-2">Filter by Hashtags</span><abbr class="select2-search-choice-close"></abbr><span role="presentation" class="select2-arrow"><b role="presentation"></b></span></a><label class="select2-offscreen" for="s2id_autogen2"></label><input type="text" role="button" aria-haspopup="true" class="select2-focusser select2-offscreen" aria-labelledby="select2-chosen-2" id="s2id_autogen2"><div class="select2-drop select2-display-none select2-with-searchbox"><div class="select2-search"><label class="select2-offscreen" for="s2id_autogen2_search"></label><input type="text" aria-autocomplete="list" aria-expanded="true" role="combobox" class="select2-input" spellcheck="false" autocapitalize="off" autocorrect="off" autocomplete="off" aria-owns="select2-results-2" id="s2id_autogen2_search" placeholder=""></div><div class="scroll-wrapper select2-results" style="position: relative;"><ul role="listbox" class="select2-results scroll-content" id="select2-results-2" style="margin-bottom: -17px; margin-right: -17px;"></ul><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div>    <div class="scroll-element_track"></div><div class="scroll-bar" style=""></div></div></div><div class="scroll-element scroll-y"><div class="scroll-element_outer"><div class="scroll-element_size"></div>    <div class="scroll-element_track"></div><div class="scroll-bar" style=""></div></div></div></div></div></div>
@@ -409,7 +230,7 @@
 													<div id="grid" class="lite media-boxes-container lazy-load-ready" data-inicols="2" data-filtertype="*" data-filter="*" data-limit="12" style="position: relative; height: 1673px; margin-left: -20px;">
 														<div class="ajax-loader" style="width:100%; text-align: center;">
 														<img class="ajax-loader-img" src="img/ajax-loader.gif">
-														<p> Loading Profile...</p>
+														<p> Loading Circles...</p>
 													</div>
 														
 													</div>
