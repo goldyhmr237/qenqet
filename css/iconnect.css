@@ -60,9 +60,9 @@ input.customButtons {
     margin: 2% auto;
     width: 100% !important;
 }
-#grid div.aligment > a {
+/*#grid div.aligment > a {
     display: none !important;
-}
+}*/
 .media-box-thumbnail-container > img {
     height: 100%;
 }
