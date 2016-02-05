@@ -83,3 +83,6 @@ body.bodyapp .isfront {
 #grid {
     z-index: 0;
 }
+.uk-panel.jmoddiv {
+    margin-top: 17em !important;
+}
