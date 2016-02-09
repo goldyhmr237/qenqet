@@ -1435,3 +1435,45 @@ var viewcircleMainFunction = function() {
     });
 
 }
+
+var mymatchupsMainFunction = function(){
+    var loginid = localStorage.getItem('id');
+    var formData = {
+        task: "mymatchups",
+        loginid : loginid
+    }; 
+    jQuery.ajax({
+        type: "POST",
+        url: "http://qeneqt.us/index2.php?option=com_content&view=appcode",
+        data: formData,
+        dataType:"json",
+        success: function(response) 
+        {   
+            var userdata = "";
+            console.log(response);
+            var total = response.total;
+
+            for(var i=total; i>0; i--) {
+                if (response.matchup[i] && response.matchupqas[i] && response.matchups[i]) 
+                {
+                    var matchupacl = response.matchup[i].matchupresultacl;
+                    var matchupcatids = response.matchup[i].matchupresultcatids;
+                    var matchupcover = response.matchup[i].matchupresultcover;
+                    var matchupdescription = response.matchup[i].matchupresultdescription;
+                    var matchupthumb = response.matchup[i].matchupresultthumb;
+                    var matchuptitle = response.matchup[i].matchupresulttitle;
+                    var matchupqascover = response.matchupqas[i].matchupqascover;
+                    var matchupqasdescription = response.matchupqas[i].matchupqasdescription;
+                    var matchupqasqid = response.matchupqas[i].matchupqasqid;
+                    var matchupqastitle = response.matchupqas[i].matchupqastitle;
+                    var matchupscid = response.matchups[i].matchupscid;
+                    var matchupsid = response.matchups[i].matchupsid;
+                    var matchupsuid = response.matchups[i].matchupsuid;
+
+                    userdata += "<div class='answer visible-media-boxes-by-filter media-box media-box-loaded' data-streamid='55' id='answered55' style='margin: 0px;' data-wrapper-added='yes' data-set-overlay-for-hover-effect='yes'><div class='media-box-container' style='margin-left: 20px; margin-bottom: 20px; margin-right: 20px;'><div class='media-box-image' data-popuptrigger='yes' data-imageconverted='yes' style='height: 113px;'><div data-thumbnail='http://qeneqt.us/images/icmatchups/" + matchupsid + "/" + matchupcover + "' data-height='150' data-width='200' style='height: 232px;' class='media-box-thumbnail-container'><img src='http://qeneqt.us/images/icmatchups/" + matchupsid + "/" + matchupcover + "' title='http://qeneqt.us/images/icmatchups/" + matchupsid + "/" + matchupqascover + "' data-dont-wait-for-me='yes' style=''></div><div class='thumbnail-overlay' style='display: none; height: 100%; top: 0px; left: 0px; opacity: 1;'><div class='aligment'><div class='aligment'></div></div></div></div><div class='media-box-content'><div class='media-box-title'>Totally.</div><div class='media-box-text'>I love everything hair and makeup!!!</div></div><div class='theq'><div class='isquestion'><div class='isqname'><a href='/index.php?option=com_iconnect&amp;view=matchup&amp;id=17' title='Hair &amp; Makeup'>Hair &amp; Makeup</a></div><div class='isqabout'>Are you into hair and makeup?</div><div class='isqicon'><i class='icicon-question-circle'></i></div></div></div></div></div>";
+                }
+            }
+            jQuery("#grid").html(userdata);
+        }
+    });
+}
