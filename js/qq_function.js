@@ -1456,12 +1456,12 @@ var mymatchupsMainFunction = function(){
             for(var i=total; i>0; i--) {
                 if (response.matchup[i] && response.matchupqas[i] && response.matchups[i]) 
                 {
-                    var matchupacl = response.matchup[i].matchupresultacl;
-                    var matchupcatids = response.matchup[i].matchupresultcatids;
-                    var matchupcover = response.matchup[i].matchupresultcover;
-                    var matchupdescription = response.matchup[i].matchupresultdescription;
-                    var matchupthumb = response.matchup[i].matchupresultthumb;
-                    var matchuptitle = response.matchup[i].matchupresulttitle;
+                    var matchupacl = response.matchup[i].matchupacl;
+                    var matchupcatids = response.matchup[i].matchupcatids;
+                    var matchupcover = response.matchup[i].matchupcover;
+                    var matchupdescription = response.matchup[i].matchupdescription;
+                    var matchupthumb = response.matchup[i].matchupthumb;
+                    var matchuptitle = response.matchup[i].matchuptitle;
                     var matchupqascover = response.matchupqas[i].matchupqascover;
                     var matchupqasdescription = response.matchupqas[i].matchupqasdescription;
                     var matchupqasqid = response.matchupqas[i].matchupqasqid;
@@ -1469,8 +1469,9 @@ var mymatchupsMainFunction = function(){
                     var matchupscid = response.matchups[i].matchupscid;
                     var matchupsid = response.matchups[i].matchupsid;
                     var matchupsuid = response.matchups[i].matchupsuid;
+                    var matchupqasuserid = response.matchupqas[i].matchupqasuserid
 
-                    userdata += "<div class='answer visible-media-boxes-by-filter media-box media-box-loaded' data-streamid='55' id='answered55' style='margin: 0px;' data-wrapper-added='yes' data-set-overlay-for-hover-effect='yes'><div class='media-box-container' style='margin-left: 20px; margin-bottom: 20px; margin-right: 20px;'><div class='media-box-image' data-popuptrigger='yes' data-imageconverted='yes' style='height: 113px;'><div data-thumbnail='http://qeneqt.us/images/icmatchups/" + matchupsid + "/" + matchupcover + "' data-height='150' data-width='200' style='height: 232px;' class='media-box-thumbnail-container'><img src='http://qeneqt.us/images/icmatchups/" + matchupsid + "/" + matchupcover + "' title='http://qeneqt.us/images/icmatchups/" + matchupsid + "/" + matchupqascover + "' data-dont-wait-for-me='yes' style=''></div><div class='thumbnail-overlay' style='display: none; height: 100%; top: 0px; left: 0px; opacity: 1;'><div class='aligment'><div class='aligment'></div></div></div></div><div class='media-box-content'><div class='media-box-title'>Totally.</div><div class='media-box-text'>I love everything hair and makeup!!!</div></div><div class='theq'><div class='isquestion'><div class='isqname'><a href='/index.php?option=com_iconnect&amp;view=matchup&amp;id=17' title='Hair &amp; Makeup'>Hair &amp; Makeup</a></div><div class='isqabout'>Are you into hair and makeup?</div><div class='isqicon'><i class='icicon-question-circle'></i></div></div></div></div></div>";
+                    userdata += "<div class='answer visible-media-boxes-by-filter media-box media-box-loaded' data-streamid='55' id='answered55' style='margin: 0px;' data-wrapper-added='yes' data-set-overlay-for-hover-effect='yes'><div class='media-box-container' style='margin-left: 20px; margin-bottom: 20px; margin-right: 20px;'><div class='media-box-image' data-popuptrigger='yes' data-imageconverted='yes' style='height: 113px;'><div data-thumbnail='http://qeneqt.us/images/icmatchups/" + matchupqasuserid + "/" + matchupqascover + "' data-height='150' data-width='200' style='height: 232px;' class='media-box-thumbnail-container'><img src='http://qeneqt.us/images/icmatchups/" + matchupqasuserid + "/" + matchupqascover + "' title='http://qeneqt.us/images/icmatchups/" + matchupqasuserid + "/" + matchupcover + "' data-dont-wait-for-me='yes' style=''></div><div class='thumbnail-overlay' style='display: none; height: 100%; top: 0px; left: 0px; opacity: 1;'><div class='aligment'><div class='aligment'></div></div></div></div><div class='media-box-content'><div class='media-box-title'>" + matchupqastitle + "</div><div class='media-box-text'>" + matchupqasdescription + "</div></div><div class='theq'><div class='isquestion'><div class='isqname'><a href='/index.php?option=com_iconnect&amp;view=matchup&amp;id=17' title='" + matchuptitle + "'>" + matchuptitle + "</a></div><div class='isqabout'>" + matchupdescription + "</div><div class='isqicon'><i class='icicon-question-circle'></i></div></div></div></div></div>";
                 }
             }
             jQuery("#grid").html(userdata);
