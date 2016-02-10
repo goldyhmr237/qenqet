@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- base href="http://qeneqt.us/my-timeline" -->
 		<meta name="generator" content="Joomla! - Open Source Content Management">
-		<title>Profile</title>
+		<title>View Profile</title>
 		<link href="http://qeneqt.us/templates/yoo_master2/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
 		<link rel="stylesheet" href="css/timelinefile.css" type="text/css">
 		<link rel="stylesheet" href="css/public.css" type="text/css">
@@ -58,7 +58,7 @@
 		<script src="js/util.js" charset="UTF-8" type="text/javascript"></script>
 		<script src="js/stats.js" charset="UTF-8" type="text/javascript"></script-->
 	</head>
-	<body class="tm-noblog" onload="profileMainFunction()">
+	<body class="tm-noblog" onload="viewprofileMainFunction()">
 		<div id="tm-middle" class="tm-middle uk-grid" data-uk-grid-match="" data-uk-grid-margin="">
 			<div class="tm-main uk-width-medium-1-1">
 				<main id="tm-content" class="tm-content">
@@ -92,7 +92,6 @@
 													</a>
 												</li>	
 												<li class="logout"><a href="#" onclick="appLogout();">
-													<!--img src="img/logout.png" alt="Logout" style="height: 39px; left: 5px; width: 39px;"-->
 													<i class="icicon-lock"></i>
 													<span class="ititle">Logout</span> </a>
 												</li>
@@ -154,16 +153,6 @@
 							</div>
 						</div>
 						<div id="iprofile" class="page-content">
-							<div class="iconn-row left">
-								<div class="isOwner" id="editme">
-									<a href="#" data-hint="Profile Elements Privacy" class="ic-btn ic-btn-blue hint hint--left" id="icProfileOpts">
-										<i class="icicon-cogs"></i>
-									</a>
-									<a href="edit-profile.html" data-hint="Edit Item" class="ic-btn ic-btn-default hint hint--left" id="icOpenEditbox">
-										<i class="icicon-pencil"></i>
-									</a>
-								</div>
-							</div>
 							<section class="iconn-section fixheight" style="">
 								<div class="iconn-row">
 								<script>
