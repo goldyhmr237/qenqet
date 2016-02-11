@@ -284,14 +284,14 @@ var timelineContentFunction = function(url) {
                     }
 
                     if(response[i].avatarm == "" || response[i].avatarm == null ){
-                        var avatarm = "../default-avatar.gif";
+                        var avatarm = "../default-avatar.png";
                     }
                     else {
                         var avatarm = response[i].avatarm;
                     }
 
                     if(response[i].avatar == "" || response[i].avatar == null ){
-                        var avatar = "../default-avatar.gif";
+                        var avatar = "../default-avatar.png";
                     }
                     else {
                     var avatar = response[i].avatar;
@@ -542,14 +542,14 @@ var  profileMainFunction = function() {
                     }
 
                     if(response[i].avatarm == "" || response[i].avatarm == null ){
-                        var avatarm = "../default-avatar.gif";
+                        var avatarm = "../default-avatar.png";
                     }
                     else {
                         var avatarm = response[i].avatarm;
                     }
 
                     if(response[i].avatar == "" || response[i].avatar == null ){
-                        var avatar = "../default-avatar.gif";
+                        var avatar = "../default-avatar.png";
                     }
                     else {
                     var avatar = response[i].avatar;
@@ -730,7 +730,7 @@ var  profileEditMainFunction = function() {
             }
             
             if(response.avatar == "" || response.avatar == null ){
-                var profileavatar = "default-avatar.gif";
+                var profileavatar = "default-avatar.png";
             }
             else {
                 var profileavatar = loginid + "/" + response.avatar;
@@ -1365,14 +1365,14 @@ var viewcircleMainFunction = function() {
                     }
 
                     if(response.activity[i].avatarm == "" || response.activity[i].avatarm == null ){
-                        var avatarm = "../default-avatar.gif";
+                        var avatarm = "../default-avatar.png";
                     }
                     else {
                         var avatarm = response.activity[i].avatarm;
                     }
 
                     if(response.activity[i].avatar == "" || response.activity[i].avatar == null ){
-                        var avatar = "../default-avatar.gif";
+                        var avatar = "../default-avatar.png";
                     }
                     else {
                     var avatar = response.activity[i].avatar;
@@ -1576,7 +1576,7 @@ var viewprofileMainFunction = function() {
         dataType:"json",
         success: function(response) 
         {             
-           var total = response.total['id']
+            var total = response.total['id']
             var userdata = "";
             for(var i=total; i>0; i--) {
                 if (response[i]) 
@@ -1607,14 +1607,14 @@ var viewprofileMainFunction = function() {
                     }
 
                     if(response[i].avatarm == "" || response[i].avatarm == null ){
-                        var avatarm = "../default-avatar.gif";
+                        var avatarm = "../default-avatar.png";
                     }
                     else {
                         var avatarm = response[i].avatarm;
                     }
 
                     if(response[i].avatar == "" || response[i].avatar == null ){
-                        var avatar = "../default-avatar.gif";
+                        var avatar = "../default-avatar.png";
                     }
                     else {
                     var avatar = response[i].avatar;
@@ -1726,6 +1726,143 @@ var countnoti = function() {
                 var userdata = "<a href='notifications.html' data-hint='NOTIFICATIONS' class='ic-btn hint--left '><i class='icicon-bell'></i></a>";
             }
             jQuery(".notificationDiv").html(userdata);
+        }
+    });
+}
+
+var mailboxMainFunction = function() {
+    var loginid = localStorage.getItem('id');
+    var formData = {
+        task: "mailbox",
+        loginid : loginid
+    }; 
+    jQuery.ajax({
+        type: "POST",
+        url: "http://qeneqt.us/index2.php?option=com_content&view=appcode",
+        data: formData,
+        dataType:"json",
+        success: function(response) 
+        {   
+            var total = response.total['id']   
+            var userdata = "";
+            for(var i=total; i>0; i--) {
+                if (response.messages[i]) 
+                {
+                    var cid = response.messages[i].cid;
+                    var cidtype = response.messages[i].cidtype;
+                    var mzgdate = response.messages[i].date;
+                    var filecover = response.messages[i].filecover;
+                    var filethumb = response.messages[i].filethumb;
+                    var fromuserid = response.messages[i].fromuserid;
+                    var hashtags = response.messages[i].hashtags;
+                    var mentions = response.messages[i].mentions;
+                    var msg = response.messages[i].msg;
+                    var msgid = response.messages[i].msgid;
+                    
+                    var mzgtxt = response.messages[i].mzgtxt;
+                    var parentid = response.messages[i].parentid;
+                    var status = response.messages[i].status;
+                    var subject = response.messages[i].subject;
+                    var tags = response.messages[i].tags;
+                    var useravatar = response.messages[i].useravatar;
+                    var userfullname = response.messages[i].userfullname;
+                    var userheader = response.messages[i].userheader;
+                    var useriname = response.messages[i].useriname;
+                    
+                    if(response.messages[i].userthumb == "" || response.messages[i].userthumb == null ){
+                        var userthumb = "default-avatar.png";
+                    }
+                    else {
+                        var userthumb = fromuserid + "/" + response.messages[i].userthumb;
+                    }
+
+                    if (response.messages[i].msgstatus == 1) {
+                        var msgstatus = "Unread";
+                        userdata += "<div data-reply='0' data-attch='2' data-status='2' data-creator='" + fromuserid + "' data-streamid='" + msgid + "' class='media-box mail mail2 search-match media-box-loaded' id='pmsg" + msgid + "' style='margin: 0px;' data-wrapper-added='yes' data-set-overlay-for-hover-effect='yes'><div class='media-box-container' style='margin-left: 20px; margin-bottom: 20px; margin-right: 20px;'><div class='media-box-intro'><div class='m-status-lbl m1'><span>" + msgstatus + "</span></div><div class='m-date'>" + mzgdate + "</div></div><div class='media-box-content'><div class='iconn-row'><div class='iconn-col-xs-3'><div class='m-chck'><a href='#' data-id='" + msgid + "' data-hint='Select' class='imailcheck hint--top hint--info'><i class='icicon-square-o'></i></a></div><div class='m-view'><a onclick='previewmsg(" + msgid + ");' data-id='" + msgid + "' data-hint='Preview Message' class='imailview hint--top hint--info'><i class='icicon-search'></i></a></div><div class='m-reply '><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' data-hint='View Message' class='hint--top hint--info' target='_top'><i class='icicon-reply'></i></a></div><div class='m-star'><a onclick= 'msgproirty("+ msgid + ", 1);' data-id='" + msgid + "' data-hint='Mark Important' class='imailstar hint--top hint--info'><i class='icicon-star-o'></i></a></div></div><div class='iconn-col-xs-2'><div class='m-from-avatar'><div class='avtrsplit1'><a data-hint='" + userfullname + "' onclick='viewprofile(" + fromuserid + ");' class='hint--top hint--info'><img src='http://qeneqt.us/images/icprofiles/" + userthumb + "' class='icMiniAvatar'></a></div></div></div><div class='iconn-col-xs-3'><div class='m-from'><a onclick='viewprofile(" + fromuserid + ");' data-msgsenderid='" + fromuserid + "' class='isasendr'>@" + useriname + "</a></div><div class='m-from-sub'><small class='textleft'>" + userfullname + "</small></div></div><div class='iconn-col-xs-3'><div class='m-subject'>friendship</div><div class='m-text'><small>" + mzgtxt + "</small></div></div><div class='iconn-col-xs-1'></div></div></div><div style='display:none' class='ipreview" + msgid + "'><div class='fullmsg'><div class='fullmsgsubject'><span>Subject</span>friendship</div><div class='fullmsgtext'>" + msg + "</div><div style='display:block;' class='fullmsgopts'><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' class='ic-btn ic-btn-xs ic-btn-green loadrgt'><i class='icicon-mail-reply'></i>reply</a></div></div></div></div></div>";
+                    }
+                    if (response.messages[i].msgstatus == 2) {
+                        var msgstatus = "Read";
+                        userdata += "<div data-reply='0' data-attch='2' data-status='2' data-creator='" + fromuserid + "' data-streamid='" + msgid + "' class='media-box mail mail2 search-match media-box-loaded' id='pmsg" + msgid + "' style='margin: 0px;' data-wrapper-added='yes' data-set-overlay-for-hover-effect='yes'><div class='media-box-container' style='margin-left: 20px; margin-bottom: 20px; margin-right: 20px;'><div class='media-box-intro'><div class='m-status-lbl m2'><span>" + msgstatus + "</span></div><div class='m-date'>" + mzgdate + "</div></div><div class='media-box-content'><div class='iconn-row'><div class='iconn-col-xs-3'><div class='m-chck'><a href='#' data-id='" + msgid + "' data-hint='Select' class='imailcheck hint--top hint--info'><i class='icicon-square-o'></i></a></div><div class='m-view'><a onclick='previewmsg(" + msgid + ");' data-id='" + msgid + "' data-hint='Preview Message' class='imailview hint--top hint--info'><i class='icicon-search'></i></a></div><div class='m-reply '><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' data-hint='View Message' class='hint--top hint--info' target='_top'><i class='icicon-reply'></i></a></div><div class='m-star'><a onclick= 'msgproirty("+ msgid + ", 2);' data-id='" + msgid + "' data-hint='Mark Important' class='imailstar hint--top hint--info'><i class='icicon-star-o'></i></a></div></div><div class='iconn-col-xs-2'><div class='m-from-avatar'><div class='avtrsplit1'><a data-hint='" + userfullname + "' onclick='viewprofile(" + fromuserid + ");' class='hint--top hint--info'><img src='http://qeneqt.us/images/icprofiles/" + userthumb + "' class='icMiniAvatar'></a></div></div></div><div class='iconn-col-xs-3'><div class='m-from'><a onclick='viewprofile(" + fromuserid + ");' data-msgsenderid='" + fromuserid + "' class='isasendr'>@" + useriname + "</a></div><div class='m-from-sub'><small class='textleft'>" + userfullname + "</small></div></div><div class='iconn-col-xs-3'><div class='m-subject'>friendship</div><div class='m-text'><small>" + mzgtxt + "</small></div></div><div class='iconn-col-xs-1'></div></div></div><div style='display:none' class='ipreview" + msgid + "'><div class='fullmsg'><div class='fullmsgsubject'><span>Subject</span>friendship</div><div class='fullmsgtext'>" + msg + "</div><div style='display:block;' class='fullmsgopts'><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' class='ic-btn ic-btn-xs ic-btn-green loadrgt'><i class='icicon-mail-reply'></i>reply</a></div></div></div></div></div>";
+                    }
+                    if (response.messages[i].msgstatus == 3) {
+                        var msgstatus = "Important";
+                        userdata += "<div data-reply='0' data-attch='2' data-status='2' data-creator='" + fromuserid + "' data-streamid='" + msgid + "' class='media-box mail mail2 search-match media-box-loaded' id='pmsg" + msgid + "' style='margin: 0px;' data-wrapper-added='yes' data-set-overlay-for-hover-effect='yes'><div class='media-box-container' style='margin-left: 20px; margin-bottom: 20px; margin-right: 20px;'><div class='media-box-intro'><div class='m-status-lbl m3'><span>" + msgstatus + "</span></div><div class='m-date'>" + mzgdate + "</div></div><div class='media-box-content'><div class='iconn-row'><div class='iconn-col-xs-3'><div class='m-chck'><a href='#' data-id='" + msgid + "' data-hint='Select' class='imailcheck hint--top hint--info'><i class='icicon-square-o'></i></a></div><div class='m-view'><a onclick='previewmsg(" + msgid + ");' data-id='" + msgid + "' data-hint='Preview Message' class='imailview hint--top hint--info'><i class='icicon-search'></i></a></div><div class='m-reply '><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' data-hint='View Message' class='hint--top hint--info' target='_top'><i class='icicon-reply'></i></a></div><div class='m-star'><a onclick= 'msgproirty("+ msgid + ", 3);' data-id='" + msgid + "' data-hint='Mark Important' class='imailstar hint--top hint--info'><i class='icicon-star'></i></a></div></div><div class='iconn-col-xs-2'><div class='m-from-avatar'><div class='avtrsplit1'><a data-hint='" + userfullname + "' onclick='viewprofile(" + fromuserid + ");' class='hint--top hint--info'><img src='http://qeneqt.us/images/icprofiles/" + userthumb + "' class='icMiniAvatar'></a></div></div></div><div class='iconn-col-xs-3'><div class='m-from'><a onclick='viewprofile(" + fromuserid + ");' data-msgsenderid='" + fromuserid + "' class='isasendr'>@" + useriname + "</a></div><div class='m-from-sub'><small class='textleft'>" + userfullname + "</small></div></div><div class='iconn-col-xs-3'><div class='m-subject'>friendship</div><div class='m-text'><small>" + mzgtxt + "</small></div></div><div class='iconn-col-xs-1'></div></div></div><div style='display:none' class='ipreview" + msgid + "'><div class='fullmsg'><div class='fullmsgsubject'><span>Subject</span>friendship</div><div class='fullmsgtext'>" + msg + "</div><div style='display:block;' class='fullmsgopts'><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' class='ic-btn ic-btn-xs ic-btn-green loadrgt'><i class='icicon-mail-reply'></i>reply</a></div></div></div></div></div>";
+                    }
+                }
+            }
+            jQuery("#grid").html(userdata);
+        }
+    });
+}
+
+var previewmsg = function(msgid) {
+    var azx = ".ipreview" +  msgid;
+    jQuery(azx).css('display', 'block');
+}
+
+var msgproirty = function(msgid, proirty) {
+    var loginid = localStorage.getItem('id');
+    var formData = {
+        task: "setpriority",
+        loginid : loginid,
+        msgid: msgid,
+        proirty: proirty
+    }; 
+    jQuery.ajax({
+        type: "POST",
+        url: "http://qeneqt.us/index2.php?option=com_content&view=appcode",
+        data: formData,
+        dataType:"json",
+        success: function(response) 
+        {   
+            var total = response.total['id']   
+            var userdata = "";
+            for(var i=total; i>0; i--) {
+                if (response.messages[i]) 
+                {
+                    var cid = response.messages[i].cid;
+                    var cidtype = response.messages[i].cidtype;
+                    var mzgdate = response.messages[i].date;
+                    var filecover = response.messages[i].filecover;
+                    var filethumb = response.messages[i].filethumb;
+                    var fromuserid = response.messages[i].fromuserid;
+                    var hashtags = response.messages[i].hashtags;
+                    var mentions = response.messages[i].mentions;
+                    var msg = response.messages[i].msg;
+                    var msgid = response.messages[i].msgid;
+                    
+                    var mzgtxt = response.messages[i].mzgtxt;
+                    var parentid = response.messages[i].parentid;
+                    var status = response.messages[i].status;
+                    var subject = response.messages[i].subject;
+                    var tags = response.messages[i].tags;
+                    var useravatar = response.messages[i].useravatar;
+                    var userfullname = response.messages[i].userfullname;
+                    var userheader = response.messages[i].userheader;
+                    var useriname = response.messages[i].useriname;
+                    
+                    if(response.messages[i].userthumb == "" || response.messages[i].userthumb == null ){
+                        var userthumb = "default-avatar.png";
+                    }
+                    else {
+                        var userthumb = fromuserid + "/" + response.messages[i].userthumb;
+                    }
+
+                    if (response.messages[i].msgstatus == 1) {
+                        var msgstatus = "Unread";
+                        userdata += "<div data-reply='0' data-attch='2' data-status='2' data-creator='" + fromuserid + "' data-streamid='" + msgid + "' class='media-box mail mail2 search-match media-box-loaded' id='pmsg" + msgid + "' style='margin: 0px;' data-wrapper-added='yes' data-set-overlay-for-hover-effect='yes'><div class='media-box-container' style='margin-left: 20px; margin-bottom: 20px; margin-right: 20px;'><div class='media-box-intro'><div class='m-status-lbl m1'><span>" + msgstatus + "</span></div><div class='m-date'>" + mzgdate + "</div></div><div class='media-box-content'><div class='iconn-row'><div class='iconn-col-xs-3'><div class='m-chck'><a href='#' data-id='" + msgid + "' data-hint='Select' class='imailcheck hint--top hint--info'><i class='icicon-square-o'></i></a></div><div class='m-view'><a onclick='previewmsg(" + msgid + ");' data-id='" + msgid + "' data-hint='Preview Message' class='imailview hint--top hint--info'><i class='icicon-search'></i></a></div><div class='m-reply '><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' data-hint='View Message' class='hint--top hint--info' target='_top'><i class='icicon-reply'></i></a></div><div class='m-star'><a onclick= 'msgproirty("+ msgid + ", 1);' data-id='" + msgid + "' data-hint='Mark Important' class='imailstar hint--top hint--info'><i class='icicon-star-o'></i></a></div></div><div class='iconn-col-xs-2'><div class='m-from-avatar'><div class='avtrsplit1'><a data-hint='" + userfullname + "' onclick='viewprofile(" + fromuserid + ");' class='hint--top hint--info'><img src='http://qeneqt.us/images/icprofiles/" + userthumb + "' class='icMiniAvatar'></a></div></div></div><div class='iconn-col-xs-3'><div class='m-from'><a onclick='viewprofile(" + fromuserid + ");' data-msgsenderid='" + fromuserid + "' class='isasendr'>@" + useriname + "</a></div><div class='m-from-sub'><small class='textleft'>" + userfullname + "</small></div></div><div class='iconn-col-xs-3'><div class='m-subject'>friendship</div><div class='m-text'><small>" + mzgtxt + "</small></div></div><div class='iconn-col-xs-1'></div></div></div><div style='display:none' class='ipreview" + msgid + "'><div class='fullmsg'><div class='fullmsgsubject'><span>Subject</span>friendship</div><div class='fullmsgtext'>" + msg + "</div><div style='display:block;' class='fullmsgopts'><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' class='ic-btn ic-btn-xs ic-btn-green loadrgt'><i class='icicon-mail-reply'></i>reply</a></div></div></div></div></div>";
+                    }
+                    if (response.messages[i].msgstatus == 2) {
+                        var msgstatus = "Read";
+                        userdata += "<div data-reply='0' data-attch='2' data-status='2' data-creator='" + fromuserid + "' data-streamid='" + msgid + "' class='media-box mail mail2 search-match media-box-loaded' id='pmsg" + msgid + "' style='margin: 0px;' data-wrapper-added='yes' data-set-overlay-for-hover-effect='yes'><div class='media-box-container' style='margin-left: 20px; margin-bottom: 20px; margin-right: 20px;'><div class='media-box-intro'><div class='m-status-lbl m2'><span>" + msgstatus + "</span></div><div class='m-date'>" + mzgdate + "</div></div><div class='media-box-content'><div class='iconn-row'><div class='iconn-col-xs-3'><div class='m-chck'><a href='#' data-id='" + msgid + "' data-hint='Select' class='imailcheck hint--top hint--info'><i class='icicon-square-o'></i></a></div><div class='m-view'><a onclick='previewmsg(" + msgid + ");' data-id='" + msgid + "' data-hint='Preview Message' class='imailview hint--top hint--info'><i class='icicon-search'></i></a></div><div class='m-reply '><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' data-hint='View Message' class='hint--top hint--info' target='_top'><i class='icicon-reply'></i></a></div><div class='m-star'><a onclick= 'msgproirty("+ msgid + ", 2);' data-id='" + msgid + "' data-hint='Mark Important' class='imailstar hint--top hint--info'><i class='icicon-star-o'></i></a></div></div><div class='iconn-col-xs-2'><div class='m-from-avatar'><div class='avtrsplit1'><a data-hint='" + userfullname + "' onclick='viewprofile(" + fromuserid + ");' class='hint--top hint--info'><img src='http://qeneqt.us/images/icprofiles/" + userthumb + "' class='icMiniAvatar'></a></div></div></div><div class='iconn-col-xs-3'><div class='m-from'><a onclick='viewprofile(" + fromuserid + ");' data-msgsenderid='" + fromuserid + "' class='isasendr'>@" + useriname + "</a></div><div class='m-from-sub'><small class='textleft'>" + userfullname + "</small></div></div><div class='iconn-col-xs-3'><div class='m-subject'>friendship</div><div class='m-text'><small>" + mzgtxt + "</small></div></div><div class='iconn-col-xs-1'></div></div></div><div style='display:none' class='ipreview" + msgid + "'><div class='fullmsg'><div class='fullmsgsubject'><span>Subject</span>friendship</div><div class='fullmsgtext'>" + msg + "</div><div style='display:block;' class='fullmsgopts'><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' class='ic-btn ic-btn-xs ic-btn-green loadrgt'><i class='icicon-mail-reply'></i>reply</a></div></div></div></div></div>";
+                    }
+                    if (response.messages[i].msgstatus == 3) {
+                        var msgstatus = "Important";
+                        userdata += "<div data-reply='0' data-attch='2' data-status='2' data-creator='" + fromuserid + "' data-streamid='" + msgid + "' class='media-box mail mail2 search-match media-box-loaded' id='pmsg" + msgid + "' style='margin: 0px;' data-wrapper-added='yes' data-set-overlay-for-hover-effect='yes'><div class='media-box-container' style='margin-left: 20px; margin-bottom: 20px; margin-right: 20px;'><div class='media-box-intro'><div class='m-status-lbl m3'><span>" + msgstatus + "</span></div><div class='m-date'>" + mzgdate + "</div></div><div class='media-box-content'><div class='iconn-row'><div class='iconn-col-xs-3'><div class='m-chck'><a href='#' data-id='" + msgid + "' data-hint='Select' class='imailcheck hint--top hint--info'><i class='icicon-square-o'></i></a></div><div class='m-view'><a onclick='previewmsg(" + msgid + ");' data-id='" + msgid + "' data-hint='Preview Message' class='imailview hint--top hint--info'><i class='icicon-search'></i></a></div><div class='m-reply '><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' data-hint='View Message' class='hint--top hint--info' target='_top'><i class='icicon-reply'></i></a></div><div class='m-star'><a onclick= 'msgproirty("+ msgid + ", 3);' data-id='" + msgid + "' data-hint='Mark Important' class='imailstar hint--top hint--info'><i class='icicon-star'></i></a></div></div><div class='iconn-col-xs-2'><div class='m-from-avatar'><div class='avtrsplit1'><a data-hint='" + userfullname + "' onclick='viewprofile(" + fromuserid + ");' class='hint--top hint--info'><img src='http://qeneqt.us/images/icprofiles/" + userthumb + "' class='icMiniAvatar'></a></div></div></div><div class='iconn-col-xs-3'><div class='m-from'><a onclick='viewprofile(" + fromuserid + ");' data-msgsenderid='" + fromuserid + "' class='isasendr'>@" + useriname + "</a></div><div class='m-from-sub'><small class='textleft'>" + userfullname + "</small></div></div><div class='iconn-col-xs-3'><div class='m-subject'>friendship</div><div class='m-text'><small>" + mzgtxt + "</small></div></div><div class='iconn-col-xs-1'></div></div></div><div style='display:none' class='ipreview" + msgid + "'><div class='fullmsg'><div class='fullmsgsubject'><span>Subject</span>friendship</div><div class='fullmsgtext'>" + msg + "</div><div style='display:block;' class='fullmsgopts'><a href='/index.php?option=com_iconnect&amp;view=mailbox&amp;layout=thread&amp;id=" + msgid + "' class='ic-btn ic-btn-xs ic-btn-green loadrgt'><i class='icicon-mail-reply'></i>reply</a></div></div></div></div></div>";
+                    }
+                }
+            }
+            jQuery("#grid").html(userdata);
         }
     });
 }

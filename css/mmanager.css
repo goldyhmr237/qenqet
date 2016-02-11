@@ -1,0 +1,954 @@
+body #iconnect.ismailbox #grid {margin-bottom:20px!important;}
+
+body #iconnect.ismailbox #ifront.writingon #igrid{margin-bottom:60px!important;}
+
+body #iconnect.ismailbox #ifront.writingon #listmsgopts {display:none!important;}
+
+body #iconnect.ismailbox #ifront.writingon .mail .media-box-container {height:auto!important;min-height:460px!important}
+
+body #iconnect.ismailbox div#iconsearchtags {
+    padding-right: 0 !important;
+}
+body #iconnect.ismailbox  #s2id_icsearch .select2-container,
+body #iconnect.ismailbox  #searchfilters .select2-container {width: 33% !important;
+max-width: 33% !important;
+min-width: 33% !important;}
+
+
+body #ifront.lite .media-box.mail .media-box-container {
+background: #fff url(../img/mailhdr.png) 0 0 repeat-x;
+}
+body #ifront.lite .media-box.mail4 .media-box-container {
+background: #fff url(../img/mailhdr-draft.png) 0 0 repeat-x!important;
+}
+
+
+body #ifront.lite #msgCreator {padding-top:20px!important;
+background: #fff url(../img/mailhdr.png) 0 0 repeat-x;
+}
+
+body #ifront.dark #msgCreator {padding-top:20px!important;
+background: #1f1f1f url(../img/mailhdr.png) 0 0 repeat-x;
+box-shadow: 0 1px 0px rgba(255,255,255,0.1);
+}
+
+body #ifront.dark .media-box.mail .media-box-container {
+background: #1f1f1f url(../img/mailhdr.png) 0 0 repeat-x;
+}
+
+body #ifront #msgCreator #icPMessage {border:none!important}
+
+
+body #iconnect.ismailbox  div#filternav{left:0!important;min-height:600px!important}
+
+body #iconnect.ismailbox  div#filternav #icfilter > a.ic-btn-black i.isyellow,
+body #iconnect.ismailbox  div#filternav #icfilter > a.ic-btn i.isyellow {color:#ff9e06!important;}
+
+
+body #iconnect.ismailbox  div#filternav #icfilter > a.ic-btn-black i.isgreen,
+body #iconnect.ismailbox  div#filternav #icfilter > a.ic-btn i.isgreen {color:#16c716!important;}
+
+
+
+
+body #itagsnav {
+    display: block;
+    position: relative;
+    margin: 0 -15px 0 0!important;padding:15px!important;
+    height: 100% !important;min-height:600px;
+
+background-color:#5a5b5f;
+}
+
+
+body #iconnect.dark #itagsnav {background-color:#323539;
+}
+
+
+body #itagsnav.slim {
+    display: block;
+    position: relative;
+    margin: 0 !important;padding:15px!important;
+    height: 100% !important;min-height:600px;
+
+background-color:#5a5b5f;
+}
+body #itagsnav.slimer {
+    display: block;
+    position: relative;
+    margin: 0 !important;padding:15px!important;
+    height: 100% !important;min-height:600px;
+
+background-color:#5a5b5f;
+}
+
+body #itagsnav.slimer a { float:left;position:relative;margin: 70px 0 0 -65px;
+
+-moz-transform: rotate(-90deg);
+-webkit-transform: rotate(-90deg);
+-o-transform: rotate(-90deg);
+-ms-transform: rotate(-90deg);
+transform: rotate(-90deg);
+}
+
+
+
+.mailtagfilter {
+    position: relative;
+    display: block;
+    margin: 0px;
+    padding: 0px 40px 0px 10px;
+    clear: both;
+    height: 30px;
+}
+
+#iconnect.lite .mailtagfilter {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+body .mailtagfilter > i {
+    font-size: 12px !important;
+    line-height: 30px;
+    margin-right: 5px;
+
+}
+
+.mailtagfilter a {position:absolute;left:0;top:0;right:0;bottom:0;height:30px;padding: 0 50px 0 30px!important;
+    text-align: left;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+
+
+
+.mailtagfilter .tagcount {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;min-width:40px;
+    height: 30px;
+    padding: 0px;
+
+}
+
+body .newmtagsform {position:relative;display:block;width:100%;margin:7px 0;padding:5px!important;}
+
+body .newmtagsform >label.ifield{display:block;width:100%;margin:0;padding:0 36px 0 0!important;}
+body .newmtagsform >label.ifield input#newmtag {height:36px!important;line-height:30px!important;max-height:36px!important;padding:3px 5px 3px 35px!important;
+background:rgba(60,141,188,0.1)!important;border-color:rgba(60,141,188,0.3)!important;color:rgba(0,0,0,0.3);}
+
+body .newmtagsform >label.ifield.state-success input#newmtag,
+body .newmtagsform >label.ifield.state-success input#newmtag:focus {color:#A5D491;background:rgba(165,212,145,0.3)!important;border-color:#A5D491!important;}
+
+body .newmtagsform >label.ifield.state-error input#newmtag,
+body .newmtagsform >label.ifield.state-error input#newmtag:focus {color:#DE888A;background:rgba(222,136,138,0.3)!important;border-color:#DE888A!important;}
+
+body .newmtagsform >label.ifield input#newmtag:focus {color:#fff;background:rgba(60,141,188,0.2)!important;border-color:rgba(60,141,188,0.7)!important;}
+
+
+body .newmtagsform >label.ifield.prepend-icicon  label.ifield-icicon {line-height:36px!important;height:36px!important;width:30px!important;}
+
+body .newmtagsform a#addmtag {position:absolute;right:5px;top:4px;width:36px;height:38px;display:block;line-height:36px;text-align:center;border-left:none!important;padding:0!important;margin:0!important;
+}
+body .newmtagsform a#addmtag i {width:36px;height:38px;display:block;line-height:36px;padding:0!important;margin:0!important;}
+
+body .mailtagfilter .tagcount>span {color:#fff!important;min-width:40px!important;float:right;margin: 5px!important;}
+
+
+body #newmtagcheckok {width:100%;clear:both;color:#A5D491!important}
+body #newmtagcheckna {width:100%;clear:both;color:#DE888A!important}
+
+
+
+
+body #icTags {margin: 20px auto;display:block;}
+
+body #icTags .icTagsHdr {font-weight:500;font-size:16px;line-height:30px;color:#3c8dbc;text-shadow: 1px 1px 0 rgba(0,0,0,0.4);margin: 0 auto 8px auto;}
+
+
+body #itagsnav .ic-btn.iconnleft {position:relative;padding-left:50px!important;min-width:170px}
+body #itagsnav .ic-btn.iconnleft i {position:absolute;width:40px;height:100%;line-height:100%;text-align:center;padding:0;margin:0;left:0;top:0;bottom:0;display:block;border-right:1px solid rgba(255,255,255,0.2);box-shadow: 1px 0 0 rgba(0,0,0,0.3);margin: 0 auto;padding:8px 0!important}
+
+
+body #itagsnav .ic-btn.iconnleft:hover,
+body #itagsnav .ic-btn.iconnleft:hover i{color:#a4e355!important}
+
+body #icfilter .ic-btn.msgon i {color:#a54747!important;}
+
+
+body #icfilter .ic-btn span.msgcount {position:absolute;overflow:hidden;z-index:2;width:20px;height:20px;line-height:20px;font-size:10px;text-align:center;font-weight:bold;top:0px;right:0px;color:#16c716!important;}
+
+.ic-btn.icfull {display:block!important;}
+
+body .media-box.mail .isopen i {color:#AA4255!important}
+
+
+body .media-box.mail .media-box-intro {height:16px;max-height:16px;margin:0!important;z-index:1!important;}
+
+body .media-box.mail .media-box-intro .m-status-lbl {position:absolute;left:0px;margin: 0px;padding:0px;width:auto;height:16px;}
+body .media-box.mail .media-box-intro .m-status-lbl span {position:relative;display:block;height:16px;line-height:16px;font-size:10px;padding:0 5px 0 30px;}
+
+body .media-box.mail .media-box-intro .m-date {position:absolute;right:10px;top:4px;font-size:10px;height:16px;line-height:16px;color:#3c8dbc;font-weight:bold;background:#fff;border-radius: 4px 4px 0 0;padding: 2px 5px;}
+
+body #iconnect.dark .media-box.mail .media-box-intro .m-date {position:absolute;right:10px;top:4px;font-size:10px;height:16px;line-height:16px;color:#3c8dbc;font-weight:bold;background:#3f3f40;border-radius: 4px 4px 0 0;padding: 2px 5px;}
+
+
+body .media-box.mail .media-box-container {overflow:visible!important;}
+body .media-box.mail .media-box-content {padding:5px!important;height:50px!important;max-height:50px!important;min-height:50px!important;margin:0!important;}
+
+body div.media-box.mail.expanded .media-box-content {padding:5px!important;height:auto!important;max-height:auto!important;min-height:auto!important;margin:0!important;}
+
+
+body .media-box.mail .parentmail {display:block;clear:both;border:1px solid rgba(0,0,0,0.1);background: rgba(0,0,0,0.03);margin: 5px 0!important;border-radius:4px;}
+
+body .media-box.mail .parentmail .ippreview  {display:block;clear:both;border-top:1px solid rgba(0,0,0,0.1);margin: 0!important;padding: 5px!important;}
+body .media-box.mail .parentmail .ippreview .fullmsg,
+body .media-box.mail .parentmail .ippreview .fullmsgtext {margin: 0!important;padding: 0px!important;}
+
+body .media-box.mail .media-box-intro .m-status-lbl.m0 span {background:#58A4E2;color:#fff!important;}
+body .media-box.mail .media-box-intro .m-status-lbl.m1 span {background:#16c716;color:#fff!important;}
+body .media-box.mail .media-box-intro .m-status-lbl.m2 span {background:#b9b9b9;color:#fff!important;}
+body .media-box.mail .media-box-intro .m-status-lbl.m3 span {background:#ff9e06;color:#fff!important;}
+body .media-box.mail .media-box-intro .m-status-lbl.m4 span {background:#16c716;color:#fff!important;}
+body .media-box.mail .media-box-intro .m-status-lbl.m5 span {background:#888;color:#fff!important;}
+
+body .media-box.mail .media-box-intro .m-status-lbl.m6 span {background:#000;color:#eee!important;}
+
+body .media-box.mail .m-from-avatar>div,
+body .media-box.mail .m-from-avatar>div a,
+body .media-box.mail .m-from-avatar {max-height:40px;overflow:hidden;}
+body .media-box.mail .m-from-avatar img,
+body .media-box.mail img.icMiniAvatar {width:40px;height:40px;}
+
+body .media-box.mail .m-from-avatar>div {max-height:40px;width:40px;height:40px;}
+body .media-box.mail .m-from-avatar img {width:40px;height:40px;padding:0;margin:0!important;}
+
+
+
+
+body .media-box.mail .m-from {height:20px;line-height:20px;padding:0!important;max-height:20px;overflow:hidden;font-size:13px!important;color:rgba(0,0,0,0.4);}
+body .media-box.mail .m-from-sub {height:20px;line-height:20px;padding:0!important;max-height:20px;overflow:hidden;color:rgba(0,0,0,0.6);text-align:left;}
+body .media-box.mail .m-from-sub small,
+body .media-box.mail .m-text small {text-align:left!important;}
+body .media-box.mail .m-subject {height:20px;line-height:20px;padding:0!important;max-height:20px;overflow:hidden;font-size:13px!important;color:rgba(0,0,0,0.4);}
+body .media-box.mail .m-text {height:20px;line-height:20px;padding:0!important;max-height:20px;overflow:hidden;color:rgba(0,0,0,0.6);}
+
+
+body #grid.dark .media-box.mail .m-from {height:20px;line-height:20px;padding:0!important;max-height:20px;overflow:hidden;font-size:13px!important;color:#777);}
+body #grid.dark .media-box.mail .m-from-sub {height:20px;line-height:20px;padding:0!important;max-height:20px;overflow:hidden;color:#777;text-align:left;}
+body #grid.dark .media-box.mail .m-from-sub small,
+body #grid.dark .media-box.mail .m-text small {text-align:left!important;}
+body #grid.dark .media-box.mail .m-subject {height:20px;line-height:20px;padding:0!important;max-height:20px;overflow:hidden;font-size:13px!important;color:#eee;}
+body #grid.dark .media-box.mail .m-text {height:20px;line-height:20px;padding:0!important;max-height:20px;overflow:hidden;color:#eee;}
+
+
+body .media-box.mail .m-attch {position:relative;display:block;padding:0px!important;height:40px!important;max-height:40px!important;min-height:40px!important;margin:0!important;}
+body .media-box.mail .msgattchurl {position:relative;display:block;height:40px!important;max-height:40px!important;min-height:40px!important;width:40px;text-align:center;margin:0!important;float:right;line-height:40px!important;}
+body .media-box.mail .msgattchurl i {line-height:40px!important;text-align:center;font-size:16px;}
+
+
+body .media-box.mail .m-chck {position:absolute;display:block;padding:0px!important;height:40px!important;max-height:40px!important;min-height:40px!important;max-width:25%;width:25%;left:0;margin:0!important;}
+body .media-box.mail .m-chck i {line-height:40px!important;width:40px;text-align:center;font-size:16px;color:#3c8dbc;font-weight:400!important;margin: 0 0 0 5px!important;}
+
+body .media-box.mail .m-view {position:absolute;display:block;padding:0px!important;height:40px!important;max-height:40px!important;min-height:40px!important;max-width:25%;width:25%;left:25%;margin:0!important;}
+body .media-box.mail .m-view i {line-height:40px!important;width:40px;text-align:center;font-size:14px;color:#ccc;font-weight:400!important;margin: 0 0 0 5px!important;}
+
+
+body .media-box.mail.mail0 .m-chck {position:absolute;display:block;padding:0px!important;height:40px!important;max-height:40px!important;min-height:40px!important;max-width:33%!important;width:33%!important;left:0;margin:0!important;}
+
+body .media-box.mail .m-view.isopen i {color:#AA4255!important}
+
+body .media-box.mail .m-reply {position:absolute;display:block;padding:0px!important;height:40px!important;max-height:40px!important;min-height:40px!important;max-width:25%;width:25%;left:50%;margin:0!important;}
+
+body .media-box.mail.mail0 .m-reply {position:absolute;display:block;padding:0px!important;height:40px!important;max-height:40px!important;min-height:40px!important;max-width:33%;width:33%;left:33%;margin:0!important;}
+
+body .media-box.mail .m-reply i {line-height:40px!important;text-align:center;font-size:14px;color:#ccc;font-weight:400!important;margin: 0 0 0 5px!important;}
+body .media-box.mail .m-reply.isreply i {color:#a7dc74!important;}
+body .media-box.mail .m-reply.ireplied i {color:#c693fb!important;}
+
+body .media-box.mail .m-star {position:absolute;display:block;padding:0px!important;height:40px!important;max-height:40px!important;min-height:40px!important;max-width:25%;width:25%;right:0;margin:0!important;}
+
+body .media-box.mail.mail0 .m-star {position:absolute;display:block;padding:0px!important;height:40px!important;max-height:40px!important;min-height:40px!important;max-width:33%;width:33%;right:0;margin:0!important;}
+
+
+
+body .media-box.mail .m-star i {line-height:40px!important;width:40px;text-align:center;font-size:14px;font-weight:400!important;color:#ff9e06;margin: 0 0 0 5px!important;}
+
+
+
+
+
+.mailbox-intro-item {position:relative;display:block;width:100%;margin: 0px auto;border-bottom:1px solid rgba(0,0,0,0.15);height:50px;}
+.mailbox-intro-item:last-child {border:none!important;}
+
+.mailbox-intro-avatar {display:block;position:absolute;top:0;left:0;width:50px;height:50px;}
+.mailbox-intro-avatar a.iuthumburl {display:block;width:50px;height:50px;padding:5px;}
+.mailbox-intro-avatar img.iMiniThumb {display:block;width:40px;height:40px;padding:0px;margin:0;}
+.mailbox-intro {position:absolute;left:50px;right:40px;top:0;height:40px;padding:0px;margin:0;color:rgba(0,0,0,0.6);}
+.mailbox-intro-date {position:relative;display:block;height:20px;line-height:20px;max-height:20px;overflow:hidden;padding:0px;margin:0;text-align:left;font-size:11px;}
+.mailbox-intro-subject {position:relative;display:block;height:20px;line-height:20px;max-height:20px;overflow:hidden;padding:0px;margin:0;text-align:left;font-size:13px;color:rgba(0,0,0,0.8);}
+.mailbox-intro-read {position:absolute;top:0;right:0;width:50px;height:50px;padding:5px;margin:0;}
+.mailbox-intro-read a {display:block;width:40px;height:40px;padding:0px;margin:0;text-align:center;}
+.mailbox-intro-read i {display:block;width:40px;height:40px;line-height:40px;padding:0px;margin:0;text-align:center;font-size:16px}
+
+
+
+body .ipreview {display:block;position:relative;margin: 0; padding:0px; width:100%;border-top:2px dotted rgba(0,0,0,0.1);}
+
+body #grid.dark .ipreview {display:block;position:relative;margin: 0; padding:0px; width:100%;border-top:2px dotted rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);}
+
+body .fullmsg {display:block;position:relative;margin: 0; padding:10px;}
+
+body #iloadmoreact{
+left:50%!important;margin-left:-120px!important;
+    height: 26px!important;
+    min-height: 26px!important; }
+
+body #iloadmoreact span{
+    width: 270px!important;display:block;
+    position: relative;
+    margin: 0px !important;
+    padding: 0 30px 0 0!important;
+    clear: both;
+    height: 26px!important;
+    min-height: 26px!important;
+    line-height: 26px!important;
+    border: none !important;
+    box-shadow: none !important;
+    background: url("../img/scrollload.png") no-repeat 100% 0px transparent !important;
+    text-align: center !important;
+    float: none !important;
+    color: rgba(0, 0, 0, 0.25) !important;font-weight:bold!important;text-shadow: 1px 1px #fff;
+}
+
+body .icbulkarch,
+body .icbulkarch i {color:#fff!important}
+
+body .icbulkarch:hover,
+body .icbulkarch:hover i {color:#63BBFF!important}
+
+
+body .icbulktag:hover,
+body .icbulktag:hover i {color:#58E25F!important}
+
+
+body .icbulkdel:hover,
+body .icbulkdel:hover i {color:#FF6366!important}
+
+#iconnect.ismailbox .msg-etc {border-top: 1px solid rgba(0,0,0,0.1);padding:5px 5px 0 5px;}
+
+body form#bulkmsgopts {padding:0px;margin: 0!important;}
+#tagzr {display:block;width:100%;padding:0px;margin: 10px 0 0 0!important;}
+
+.tagzrinfo {display:block;padding:0px 5px;margin: 0 -5px!important;height:20px;line-height:20px;background-color:rgba(0,0,0,0.05);border-top:1px solid rgba(0,0,0,0.05);border-bottom:1px solid rgba(0,0,0,0.05);font-size:10px;color:rgba(0,0,0,0.25);font-weight:600;}
+
+
+.tagz {display:block;width:100%;padding:5px;margin: 0!important;} 
+
+.mailtaglink  {position:relative;min-height:20px;text-align: left; 
+	height:20px!important;
+	line-height:20px!important;
+	position:relative;
+	font-size:10px!important;
+margin:5px 10px 3px 6px;
+	padding:0 25px 0 8px!important;
+	background:#3c8dbc;
+	color:#fff;font-weight:normal;
+	text-decoration:none;
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;	
+	border-bottom-right-radius:4px;
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;	
+	border-top-right-radius:4px;	
+
+}
+
+.mailtaglink span {color:#fff;font-size: 10px;font-weight:normal!important;margin:0px; line-height: 20px;float:left;display:inline-block;}
+
+
+
+#iconnect.ismailbox .mailtaglink:before{
+	content:"";
+	float:left;
+	position:absolute;
+	top:0;
+	left:-10px;
+	width:0;
+	height:0;
+	border-color:transparent #3c8dbc transparent transparent;
+	border-style:solid;
+	border-width:10px 10px 10px 0;		
+	}
+
+#iconnect.ismailbox  .mailtaglink:after{
+	content:"";
+	position:absolute;
+	top:8px;
+	left:-2px;
+	float:left;
+	width:4px;
+	height:4px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	background:#fff;
+	-moz-box-shadow:-1px -1px 2px rgba(0,0,0,0.2);
+	-webkit-box-shadow:-1px -1px 2px rgba(0,0,0,0.2);
+	box-shadow:-1px -1px 2px rgba(0,0,0,0.2);
+	}
+
+
+
+body #iconnect.ismailbox .mailtaglink a {position:absolute;top:0;right:0;bottom:0;width:20px;height:20px;line-height:20px;padding:0;margin:0;text-align:center;background-color:rgba(0,0,0,0.3);border-radius: 0 4px 4px 0;}
+
+
+body #iconnect.ismailbox .mailtaglink a i{width:20px!important;height:20px!important;line-height:20px!important;margin:0!important;text-align:center!important;color:#3c8dbc;}
+#iconnect.ismailbox .mailtaglink:hover a i{color:#58E25F;}
+
+
+
+
+
+
+#iconnect.ismailbox .item-hashtags {position:relative;min-height:25px;text-align: left; }
+#iconnect.ismailbox .item-mentions  {position:relative;min-height:25px;text-align: left; }
+
+#iconnect.ismailbox .item-hashtags span,
+#iconnect.ismailbox .item-mentions span {font-size: 10px;font-weight:normal!important;margin-right:10px; line-height: 20px;float:left;display:inline-block;}
+
+#iconnect.ismailbox .item-hashtags .hashtaglink {float:left;
+	height:16px!important;
+	line-height:15px!important;
+	position:relative;
+	font-size:9px!important;}
+
+#iconnect.ismailbox .item-mentions .mentionlink {height:25px!important;
+	line-height:23px!important;
+	position:relative;
+	font-size:10px!important;
+position:relative;
+	margin:0px 3px 0px 3px!important;
+	padding:1px 5px 1px 15px!important;
+	color:#3c8dbc ;font-weight:normal;
+	text-decoration:none;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;	
+	border-radius:2px;
+}
+
+
+
+#iconnect.ismailbox .item-hashtags .hashtaglink {
+	margin:2px 3px 3px 10px;
+	padding:0 10px 0 8px!important;
+	background:#c8d7e5;
+	color:#3c8dbc ;font-weight:normal;
+	text-decoration:none;
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;	
+	border-bottom-right-radius:4px;
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;	
+	border-top-right-radius:4px;	
+	} 
+
+#iconnect.ismailbox .item-hashtags .hashtaglink:before{
+	content:"";
+	float:left;
+	position:absolute;
+	top:0;
+	left:-8px;
+	width:0;
+	height:0;
+	border-color:transparent #c8d7e5 transparent transparent;
+	border-style:solid;
+	border-width:8px 8px 8px 0;		
+	}
+
+#iconnect.ismailbox .item-hashtags .hashtaglink:after{
+	content:"";
+	position:absolute;
+	top:6px;
+	left:-2px;
+	float:left;
+	width:4px;
+	height:4px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	background:#fff;
+	-moz-box-shadow:-1px -1px 2px rgba(0,0,0,0.2);
+	-webkit-box-shadow:-1px -1px 2px rgba(0,0,0,0.2);
+	box-shadow:-1px -1px 2px rgba(0,0,0,0.2);
+	}
+
+#iconnect.ismailbox .item-hashtags .hashtaglink:hover{background:#3c8dbc ;color:#fff}	
+
+#iconnect.ismailbox .item-hashtags .hashtaglink:hover:before{border-color:transparent #3c8dbc transparent transparent;}
+
+
+
+
+#iconnect.ismailbox .item-mentions .mentionlink {
+background: rgb(255,255,255);
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+border:1px solid rgba(0,0,0,0.15);	} 
+
+
+#iconnect.ismailbox .item-mentions .mentionlink:hover{background:#3c8dbc ;color:#fff}	
+
+
+#iconnect.ismailbox .item-mentions .mentionlink i {position:absolute;left:2px !important;top:3px !important;}
+
+
+
+
+
+
+body .fullmsgsubject {background-color:rgba(0,0,0,0.05);color:rgba(0,0,0,0.35);text-shadow: 1px 1px #fff;padding: 2px 5px;font-size:14px;}
+
+body #iconnect.dark .fullmsgsubject,
+body #grid.dark .fullmsgsubject {background-color:rgba(255,255,255,0.1);color:#505055;text-shadow: 1px 1px #000;padding: 2px 5px;font-size:14px;}
+
+
+body .fullmsgsubject span {font-weight:bold;padding-right:10px;}
+
+body .fullmsgtext {padding:10px;display:block;font-size:12px;line-height:18px;margin: 10px auto 20px auto;}
+
+body .media-box.mail.isreply .fullmsgopts ,
+body .media-box.mail.isnew .fullmsgopts {display:none!important}
+
+
+body .fullmsgopts {height:30px;min-height:30px;padding: 0px;margin: 0 -9px -9px -9px;display:block;background-color: rgba(0,0,0,0.03);border-top:1px solid rgba(0,0,0,0.1);}
+body .fullmsgopts .ic-btn {margin: 3px!important;padding: 0 5px!important;font-size:11px!important;line-height:22px!important;text-transform:uppercase;}
+body .fullmsgopts .ic-btn i {padding-right:8px!important;}
+
+body .fullmsgopts .ic-btn:hover,
+body .fullmsgopts .ic-btn:hover i {color:#fff!important;}
+
+body .loadrgt {float:right;}
+
+body div#iconnect.ismailbox div#icPMessage {
+
+position: relative !important;
+right: auto!important;
+left: auto!important;
+top: auto!important;
+width: 98%!important;min-width: 98%!important;max-width: 98%!important;
+height: auto!important;min-height:300px!important;
+margin: 0px 1%!important;
+padding: 10px!important;
+border-radius: 0!important;
+overflow: visible!important;
+z-index: 1 !important;
+display: block;
+border:none!important;border-top:2px dashed rgba(0,0,0,0.15)!important;
+}
+
+
+body #pmpreview .dz-preview, body #pmpreview .dz-preview.dz-processing, body #pmpreview .dz-preview.dz-image-preview, body #pmpreview .dz-preview.dz-complete, body #pmpreview .dz-preview.dz-processing.dz-image-preview.dz-success.dz-complete
+{margin:0!important;}
+
+body div#iconnect.ismailbox div.media-box.mail.isnew div#icPMessage {border:none!important;}
+
+
+body div#iconnect.ismailbox div#icPMessage #tagpmspace {
+    position: relative !important;
+    display: block;
+    top: auto!important;
+    bottom: auto!important;
+    left: auto!important;
+    right: auto!important;
+    margin: 0px;
+    padding: 5px 10px !important;
+
+}
+
+body div#iconnect.ismailbox div#icPMessage .pmcontrols {
+    position: relative !important;
+bottom: auto!important;
+left: auto!important;
+right: auto!important;
+display: block;
+margin: 15px 0 0 0!important;
+clear: both;
+height: 35px;
+
+}
+
+body div#iconnect.ismailbox div#icPMessage #ipmsend,
+body div#iconnect.ismailbox div#icPMessage #ipmdraft,
+body div#iconnect.ismailbox div#icPMessage #ipmcancel {
+height: 32px !important;padding: 0  !important;margin:0 !important;
+line-height: 30px !important;font-weight:600!important; text-align:center;font-size:12px;
+}
+body div#iconnect.ismailbox div#icPMessage #ipmsend i,
+body div#iconnect.ismailbox div#icPMessage #ipmdraft i {
+height: 32px !important;float:left;margin:  0 0 0 5px!important;
+line-height: 30px !important; text-align:center;font-size:14px;
+}
+
+
+body div#iconnect.ismailbox div#icPMessage .textntags-wrapper textarea.taggable {
+    max-height: 100%!important; min-height: 72px!important;
+height:auto!important;
+}
+
+body div#iconnect.ismailbox #ifront.isthread #icPMessage .textntags-wrapper textarea.taggable {
+    height: auto !important;
+    max-height: 100% !important;
+    min-height: 100% !important;
+}
+body div#iconnect.ismailbox #ifront.isthread #icPMessage .textntags-beautifier > div {
+    height: auto !important;
+    max-height: 100% !important;
+    min-height: 100% !important;
+}
+
+body div#iconnect.ismailbox #icPMessage .textntags-wrapper .textntags-beautifier > div > strong.ismention {
+    font-weight: normal;
+    background: #D8DFEA !important;
+    line-height: 16px;
+}
+
+body div#iconnect.ismailbox #icPMessage .textntags-wrapper .textntags-beautifier > div > strong.ishashtag {
+    font-weight: normal;
+    background: #FFECCE !important;
+    line-height: 16px;
+}
+
+body div#iconnect.ismailbox div#icPMessage  #new-pm-form {margin:0px!important;}
+
+body div#iconnect #ifront.isthread {margin-top:15px!important;padding-left:0px!important;} 
+
+body div#iconnect #ifront.isthread .ipreview {border-top:1px solid rgba(0,0,0,0.2)!important}
+
+body div#iconnect #ifront.isthread .openmsgtxt {float:right;margin:10px 0 0 0!important}
+
+
+body div#iconnect .media-box.onthread {display:block!important;opacity:1!important;visibility:visible!important;width:100%!important}
+body div#iconnect .media-box.onthread .media-box-content  {display:block!important;float:none!important;clear:both;}
+
+body div#iconnect.dark .media-box.onthread .media-box-content  {display:block!important;float:none!important;clear:both;background-color:#3f3f40}
+
+body div#iconnect .media-box.onthread .m-from {padding-right:40px!important;}
+body div#iconnect .media-box.onthread .m-star {top:0!important;width:40px!important;max-width:40px!important;}
+body div#iconnect .media-box .m-to-avatar {padding-right:10px;}
+body div#iconnect .media-box .m-to-avatar>div>a {margin-right:5px;position:relative;display:inline-block;}
+
+body div#iconnect .media-box.onthread .threadlet {display:block!important;float:none!important;clear:both;width:100%!important}
+body div#iconnect.lite .media-box.onthread .threadlet .media-box-intro {background: #eee;}
+
+body div#iconnect.lite .media-box.onthread .threadlet .ipreview {border-top:1px solid rgba(0,0,0,0.07)!important}
+
+body div#iconnect.dark .media-box.onthread .threadlet .media-box-intro {background: #2a2b2c;}
+body div#iconnect.dark .media-box.onthread .threadlet .ipreview {border-top:1px solid rgba(0,0,0,0.07)!important}
+
+body div#iconnect .media-box.onthread .threadmsg .msg-etc.iconn-row {margin:0!important;}
+
+body .textleft {text-align:left!important;}
+body #sendtopm  {position:relative;padding:0px!important;margin:5px 5px 0 5px!important;min-height:50px;}
+
+body #sendtolist {position:relative;min-height:50px;padding:0px!important;}
+
+
+body #sendtolisting {position:relative;display:block!important;}
+body #sendtolisting >label {margin-top:5px;}
+
+
+body #sendtolisting>div.scroll-wrapper {display:none;position:absolute!important;top:48px;left:5px;right:5px;max-height:160px!important;min-height:40px!important;}
+body #lookupresults.scroll-content {display:block;position:relative!important;max-height:150px!important;width:100%;}
+
+
+body div#iconnect.lite  #sendtolisting div.scroll-wrapper {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cbcfe2 #c8cee7 #c4c7d7;border-top:none!important;
+    background-color: #fff!important;
+z-index:100000;
+}
+
+
+body div#iconnect.dark  #sendtolisting div.scroll-wrapper {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #2a2b2c #2f2f2f #3f3f3f;border-top:none!important;
+    background-color: #303030!important;
+z-index:100000;
+}
+
+
+#lookupinfo {display:block;padding:5px;min-height:40px!important;max-height:40px!important;height:40px!important;text-align:left;background:rgba(0,0,0,0.02);}
+#lookupinfo span {line-height:30px!important;}
+#lookupinfo a {display:block;padding:0!important;line-height:30px!important;height:30px!important;text-align:center;font-size:10px;max-width:90%!important;margin: 0 5%!important;}
+
+body #lookupres {
+    display: block;
+    position: relative;
+    z-index:100001;
+    padding: 0;
+    margin: 0 10px 0 0!important;
+
+}
+
+body #lookupres.extd + #lookupinfo{display:block;padding:5px;min-height:40px!important;margin: 10px 0 0 0!important;border-top:1px solid rgba(0,0,0,0.15);}
+
+body #lookupres>div { display: block }
+
+body #lookupres>div:first-child { margin-top: -1px }
+
+body #lookupres>div:first-child:before, body #lookupres>div:first-child:after {
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    border: 5px outset transparent;
+}
+
+body #lookupres>div:first-child:before {
+    border-bottom: 5px solid rgba(0,0,0,0.1);
+    top: -11px;
+}
+
+body #lookupres>div:first-child:after {
+    border-bottom: 5px solid rgba(0,0,0,0.05);
+    top: -10px;
+}
+body #lookupres>div:first-child:hover:before, body #lookupres>div:first-child:hover:after { display: none }
+
+body #lookupres>div:last-child { margin-bottom: -1px }
+
+body #lookupres>div a {
+    display: block;
+    position: relative;
+    margin: 0 -1px;
+    padding: 6px 40px 6px 10px;
+    color: #808394;
+    font-weight: 500;
+    text-shadow: 0 1px #fff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+body div#iconnect.dark #lookupres>div a  {    text-shadow: 0 1px #000!important;}
+
+
+body div#iconnect.dark .ic-btn-default.imdone  {background:#1f1f1f!important;border:1px solid #2f2f2f!important;box-shadow: 0 0 1px rgba(0,0,0,0.15);  text-shadow: 0 1px #000!important;}
+
+
+
+body #lookupres>div a span { font-weight: 200 }
+
+body #lookupres>div i {
+    content: '';
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -9px;
+}
+
+body #lookupres>div a:hover {
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+    border-color: #2380dd #2179d5 #1a60aa;
+    background-color: #338cdf;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #59aaf4), color-stop(100%, #338cdf));
+    background-image: -webkit-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: -moz-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: -ms-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: -o-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: linear-gradient(top, #59aaf4, #338cdf);
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    -ms-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    -o-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+}
+
+:-moz-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+::-webkit-input-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+.lt-ie9 .search input { line-height: 26px }
+
+body #listmsgopts>div {min-height:35px!important;}
+body #listmsgopts i {margin-right:8px!important;}
+
+body #lookupres .isfriend {display:block;width:100%;height:40px;max-height:40px;padding:5px!important;cursor:pointer;}
+body #lookupres .isfriend img {display:inline-block;width:30px;height:30px;margin-right:10px;}
+body #lookupres .isfriend span {display:inline-block;width:auto;height:30px;font-size:12px;line-height:30px;margin-right:5px;}
+
+
+body #sendtolist .isfriend {float:right;position: relative;display:inline-block;width:50px;margin: 3px!important;height:50px!important;max-height:50px;padding:5px!important;cursor:default!important;border-radius: 3px!important;border:1px solid rgba(0,0,0,0.15);}
+body #sendtolist .isfriend img {display:block;width:40px;height:40px;margin:0px;cursor:default!important;}
+body #sendtolist .isfriend span ,
+body #sendtolist .isfriend i {display:none!important}
+
+body div#iconnect.ismailbox .scroll-wrapper {
+overflow: hidden !important;
+padding: 0 !important;
+position: relative;
+}
+ 
+body div#iconnect.ismailbox .scroll-wrapper > .scroll-content {
+border: none !important;
+box-sizing: content-box !important;
+height: auto;
+left: 0;
+margin: 0;
+max-height: none !important;
+max-width: none !important;
+overflow: scroll !important;
+padding: 0;
+position: relative !important;
+top: 0;
+width: auto !important;
+}
+ 
+body div#iconnect.ismailbox .scroll-wrapper > .scroll-content::-webkit-scrollbar {
+height: 0;
+width: 0;
+}
+ 
+body div#iconnect.ismailbox .scroll-element {
+display: none;
+}
+body div#iconnect.ismailbox .scroll-element, .scroll-element div {
+box-sizing: content-box;
+}
+ 
+body div#iconnect.ismailbox .scroll-element.scroll-x.scroll-scrollx_visible,
+body div#iconnect.ismailbox .scroll-element.scroll-y.scroll-scrolly_visible {
+display: block;
+}
+ 
+body div#iconnect.ismailbox .scroll-element .scroll-bar,
+body div#iconnect.ismailbox .scroll-element .scroll-arrow {
+cursor: default;
+}
+ 
+body div#iconnect.ismailbox .scroll-textarea {
+border: 1px solid #cccccc;
+border-top-color: #999999;
+}
+body div#iconnect.ismailbox .scroll-textarea > .scroll-content {
+overflow: hidden !important;
+}
+body div#iconnect.ismailbox .scroll-textarea > .scroll-content > textarea {
+border: none !important;
+box-sizing: border-box;
+height: 100% !important;
+margin: 0;
+max-height: none !important;
+max-width: none !important;
+overflow: scroll !important;
+outline: none;
+padding: 2px;
+position: relative !important;
+top: 0;
+width: 100% !important;
+}
+body div#iconnect.ismailbox .scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {
+height: 0;
+width: 0;
+}
+ 
+  
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element,
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element div
+{
+border: none;
+margin: 0;
+padding: 0;
+position: absolute;
+z-index: 100001;
+}
+ 
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element div {
+display: block;
+height: 100%;
+left: 0;
+top: 0;
+width: 100%;
+}
+ 
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element.scroll-x {
+bottom: 2px;
+height: 8px;
+left: 0;
+width: 100%;
+}
+ 
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element.scroll-y {
+height: 100%;
+right: 2px;
+top: 0;
+width: 8px;
+}
+ 
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element .scroll-element_outer {
+overflow: hidden;
+}
+ 
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element .scroll-element_outer,
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element .scroll-element_track,
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element .scroll-bar {
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+}
+ 
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element .scroll-element_track,
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element .scroll-bar {
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+filter: alpha(opacity=40);
+opacity: 0.4;
+}
+ 
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element .scroll-element_track { background-color: #e0e0e0; }
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element .scroll-bar { background-color: #c2c2c2; }
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element:hover .scroll-bar { background-color: #919191; }
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element.scroll-draggable .scroll-bar { background-color: #919191; }
+ 
+ 
+/* update scrollbar offset if both scrolls are visible */
+ 
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track { left: -12px; }
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track { top: -12px; }
+ 
+ 
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size { left: -12px; }
+body div#iconnect.ismailbox .ic-scrollbar > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size { top: -12px; }
+
+body  hr {
+    height: 0px;
+    margin: 8px 0px;
+    border:none;
+    border-top: 1px solid rgba(255,255,255,0.15)!important;
+    box-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+    border-image: none;
+}
