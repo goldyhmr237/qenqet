@@ -132,3 +132,22 @@ body.bodyapp .isfront {
     border-top: 1px solid rgba(0, 0, 0, 0.15);
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
+
+.ic-btn.ic-btn-blue.isfull {
+    line-height: 30px;
+    width: 95%;
+}
+.ic-btn.ic-btn-red.isfull {
+    line-height: 30px;
+}
+body div#itagsnav {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+    margin-bottom: 30px !important;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    min-height: 0;
+    padding: 15px 0 !important;
+}
+body #itagsnav .ic-btn.ic-btn-blue.icfull.iconnleft {
+    width: 100%;
+}
