@@ -1964,7 +1964,7 @@ var viewmessageMainFunction = function() {
         dataType:"json",
         success: function(response) 
         {   
-            console.log(response);
+            // console.log(response);
             var cid = response.messages.cid;
             var cidtype = response.messages.cidtype;
             var mzgdate = response.messages.date;
@@ -2039,16 +2039,84 @@ var sendmessage = function() {
         success: function(response) 
         {   
             if(response == "Success") {
-                jQuery("#system-message-container").html("<h1 class='success'>Login Successful.</h1>");
+                jQuery("#system-message-container").html("<h1 class='success'>Message Sent Successful.</h1>");
                 window.location.assign("mailbox.html");
             }
             if(response == "Fail") {
-                jQuery("#system-message-container").html("<h1 class='error'>Login Successful.</h1>");
+                jQuery("#system-message-container").html("<h1 class='error'>Message Sent Unsuccessful.</h1>");
             }
         }
     });
 }
 
 var writemessage = function() {
-    alert("Working");
+    window.location.assign("writemessage.html");
 }
+var sendmainmessage = function() {
+    var loginid = localStorage.getItem('id');
+    // var touserid = localStorage.getItem('viewfromuserid');
+    var touserid = "1245";
+    var message = jQuery('#pmtext').val();
+    var subject = jQuery('ipmsubject').val();
+    
+    var formData = {
+        task: "sendmainmessage",
+        loginid : loginid,
+        message: message,
+        subject: subject,
+        touserid: touserid
+    }; 
+    jQuery.ajax({
+        type: "POST",
+        url: "http://qeneqt.us/index2.php?option=com_content&view=appcode",
+        data: formData,
+        success: function(response) 
+        {   
+            if(response == "Success") {
+                jQuery("#system-message-container").html("<h1 class='success'>Message Sent Successful.</h1>");
+                window.location.assign("mailbox.html");
+            }
+            if(response == "Fail") {
+                jQuery("#system-message-container").html("<h1 class='error'>Message Sent Unsuccessful.</h1>");
+            }
+        }
+    });
+}
+
+$(function(){    
+    var loginid = localStorage.getItem('id');
+    $("#lookup").keyup(function() { 
+        var searchid = $(this).val();
+        var dataString = 'task=searchusertosendmail&loginid='+loginid+'&search='+ searchid;
+        if(searchid!='')
+        {
+            $.ajax({
+                type: "POST",
+                url: "http://qeneqt.us/index2.php?option=com_content&view=appcode",
+                data: dataString,
+                cache: false,
+                success: function(html)
+                {
+                    $("#lookupres").html(html).show();
+                }
+            });
+        }
+        return false;    
+    });
+
+    jQuery("#lookupres").on("click",function(e){ 
+        var $clicked = $(e.target);
+        var $name = $clicked.find('.name').html();
+            var decoded = $("<div/>").html($name).text();
+        $('#lookup').val(decoded);
+    });
+    jQuery(document).live("click", function(e) { 
+        var $clicked = $(e.target);
+        if (! $clicked.hasClass("search")){
+            jQuery("#lookupres").fadeOut(); 
+        }
+    });
+    $('#lookup').click(function(){
+        jQuery("#lookupres").fadeIn();
+    });
+});
