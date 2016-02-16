@@ -151,3 +151,28 @@ body div#itagsnav {
 body #itagsnav .ic-btn.ic-btn-blue.icfull.iconnleft {
     width: 100%;
 }
+body #pm-dropzone1.dropzone {
+    border: 2px dashed rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    clear: both;
+    display: block;
+    float: none;
+    margin: 10px auto;
+    min-height: 50px;
+    padding: 5px;
+    position: relative;
+    vertical-align: top;
+    width: 100%;
+}
+body #pm-dropzone1.dropzone .dz-default1.dz-message1 {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+    height: 50px;
+    left: 0;
+    max-height: 50px;
+    min-height: 50px !important;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3 !important;
+}

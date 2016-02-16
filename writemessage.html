@@ -61,7 +61,6 @@
 							<div class="iconn-row">
 								<div id="icnav">
 									<ul class="iconnect-menu  ">
-										<!-- <li style="display: none;" class="showhide"><span class="icon"></span></li> -->
 										<li style="" class="item-739 iccurrent icactive icdeeper icparent">
 											<a href="timeline.html">
 												<img src="img/ic-timeline.png" alt="Timeline">
@@ -232,6 +231,8 @@
 
 												<div class="buttons" style="width:95%;">
 													<style>
+													.ic-box.padded0 { display: none; }
+														body #icPMessage .textntags-wrapper textarea.taggable { height: 220px !important; max-height: 220px !important; min-height: 220px !important; }
 														#fetchurl { float: left; }
 														.buttons div > input { width: 100%; }
 														.buttons-right > input { float: right; width: 45% !important; }
@@ -250,17 +251,18 @@
 														body #grid div.media-box.expanded.onthread.mail.mail2 { margin: 20px; width: 87% !important; } 
 														body #icPMessage { margin: 0!important; position: relative !important; }
 														.fullmsgeditor { margin-bottom: 20px !important; margin-left: 20px !important; margin-right: 20px !important; width: 88% !important; }
-														body #tagpmspace { top: 40% !important; }
+														body #tagpmspace { top: 0% !important; position: relative !important;}
 														.pmcontrols { left: 0 !important; position: relative !important; }
 														.ic-btn.ic-btn-blue.isfull { width: 100% !important; }
 														.iconn-col-sm-12.iconn-col-md-9 { margin-bottom: 2% !important; }
+														body #lookupres { background: #60d3f0 none repeat scroll 0 0; border: 1px solid; color: #ffffff !important; position: absolute; width: 100%; z-index: 11 !important; }
 													</style>
 													<div class='fullmsgeditor' id='msgCreator'>
 														<div style='display:block;' class='lite' id='icPMessage'>
 															<div class='iconn-row' id='sendtopm'>
 																<div class='iconnect-forms iconn-coll-sm-12 iconn-col-md-8 isrelative' id='sendtolisting'>
 																	<label class='icsearch ifield prepend-icicon'>
-																		<input type='text' placeholder='Send to' class='gui-input' name='lookup' id='lookup'>
+																		<input type='text' placeholder='Send to' class='gui-input' name='lookup' id='lookup' value="">
 																		<label for='sendtopm' class='ifield-icicon'>
 																			<i class='icicon-user'></i>
 																		</label>
@@ -273,10 +275,10 @@
 																			</span>
 																		</div>
 																	</div>
-																	<div class='dropzone dz-clickable' id='pm-dropzone'>
+																	<div class='dropzone dz-clickable' id='pm-dropzone1' onclick="getmzgPhoto(pictureSource.PHOTOLIBRARY);">
 																		<div class='pmload-intro'>attach an image or a file</div>
 																		<div class='dropzone-previews' id='pmpreview'></div>
-																		<div class='dz-default dz-message'>
+																		<div class='dz-default1 dz-message1'>
 																			<span></span>
 																		</div>
 																	</div>
