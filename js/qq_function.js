@@ -1,13 +1,13 @@
 var indexMainFunction = function() {
     var  localStorageId = localStorage.getItem('id');
     if(localStorageId) {
-        window.location.assign("writemessage.html");
+        window.location.assign("timeline.html");
     }
 }
 var choosePage = function() {
 	var  localStorageId = localStorage.getItem('id');
 	if(localStorageId) {
-		window.location.assign("writemessage.html");
+		window.location.assign("timeline.html");
 	} else {
 		window.location.assign("login.html");
 	}
@@ -19,6 +19,37 @@ var mainlogin = function() {
 
 
 var googlelogin = function () {
+    alert("working");
+    window.plugins.googleplus.login(
+        {
+          'scopes': '... ',
+          'offline': true,
+          'webApiKey': 'api of web app',
+          
+        },
+        function (obj) {
+          alert(JSON.stringify(obj)); 
+        },
+        function (msg) {
+          alert('error: ' + msg);
+        }
+    );
+
+// obj.email        // 'eddyverbruggen@gmail.com'
+// obj.userId       // user id
+// obj.displayName  // 'Eddy Verbruggen'
+// obj.imageUrl     // 'http://link-to-my-profilepic.google.com'
+// obj.idToken
+// obj.oauthToken
+
+// // these are only available on Android at the moment
+// obj.gender       // 'male' (other options are 'female' and 'unknown'
+// obj.givenName    // 'Eddy'
+// obj.middleName   // null (or undefined, depending on the platform)
+// obj.familyName   // 'Verbruggen'
+// obj.birthday     // '1977-04-22'
+// obj.ageRangeMin  // 21 (or null or undefined or a different number)
+// obj.ageRangeMax  // null (or undefined or a number)
 
 }
 
