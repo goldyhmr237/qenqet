@@ -286,7 +286,7 @@ var timelineContentFunction = function(url) {
             //  console.log(response);
             var total = response.total['id'];
             var userdata = "";
-            for(var i=total; i>0; i--) {
+            for(var i=total; i>434; i--) {
                 //console.log(i +") type=" + response[i].type +"\naction=" + response[i].action);
                 if (response[i]) 
                 {
@@ -2296,9 +2296,12 @@ var commentbox = function(cid, elementid) {
         dataType:"json",
         success: function(response) 
         {   
-            console.log(response);
+            //console.log(response);
             var total = response.total['id'];
             var userdata = "";
+            if (response.comment[0]) {
+                userdata += "";
+            } 
             for(var i=total; i>0; i--) {
                 if (response.comment[i]) 
                 {
@@ -2312,9 +2315,9 @@ var commentbox = function(cid, elementid) {
                     var commentparentelement = response.comment[i].commentparentelement;
                     var commentpublished = response.comment[i].commentpublished;
                     var commentuid = response.comment[i].commentuid;
-                    var fullname = response.profile.fullname;
-                    var iname = response.profile.iname;
-                    var userid = response.profile.userid;
+                    var fullname = response.profile[i].fullname;
+                    var iname = response.profile[i].iname;
+                    var userid = response.profile[i].userid;
                     
                     if(response.profile.thumb == "" || response.profile.thumb == null ){
                         var thumb = "default-avatar.png";
@@ -2322,8 +2325,13 @@ var commentbox = function(cid, elementid) {
                     else {
                         var thumb = userid + "/" + response.profile.thumb;
                     }
-
-                    userdata += "<div data-name='" + iname + "' data-cid='" + commentcid + "' data-comid='" + commentid + "' class='act-comment ismain isblock isrelative ispaddingnone isfloatnone' id='com-" + commentid + "'><div class='actcom-avatar isabsolute'><img src='http://qeneqt.us/images/icprofiles/" + thumb + "'></div><div class='actcom-fullcom isblock isrelative'><div class='actcom-header isblock isrelative ismarginnone ispaddingnone isfloatnone'><div class='actcom-info isrelative isblock'><a href='http://qeneqt.us/index.php?option=com_iconnect&amp;view=profile&amp;id=" + userid + "' class='ulink' title='" + fullname + "'>" + fullname + "</a><a data-uid='" + userid + "' class='inamelink' href='#'><span class='iname'>@" + iname + "</span></a> <div class='comdate isinlineblock isrelative isfloatright'><span class='iDateTag'></span></div> </div></div><div class='actcom-body isblock isrelative ismarginnone isfloatnone'><div class='actcom-text'>" + commentcomment + "</div></div><div class='actcom-subinfo isrelative isblock'><div class='isinlineblock isrelative isfloatright'><div class='isinlineblock isrelative'></div><div class='isinlineblock isrelative'><a class='actcom-reply' data-creatorid='" + userid + "' data-cid='" + commentid + "' data-origid='" + commentcid + "' data-action='reply' href='#'>reply</a> • </div><div class='isinlineblock isrelative '><a data-uid='" + loginid + "' data-cidtype='comment' data-cid='" + commentid + "' data-action='add' href='#' class='icomlikes'>like (<span>0</span>)</a> • </div><div class='isinlineblock isrelative'><a class='actcom-hide' data-creatorid='" + loginid + "' data-comtype='comm' data-cid='" + commentid + "' href='#'>hide <i class='icicon-close'></i></a></div></div></div></div></div>";
+                    if (loginid == userid){
+                        userdata += "<div data-name='" + iname + "' data-cid='" + commentcid + "' data-comid='" + commentid + "' class='act-comment ismain isblock isrelative ispaddingnone isfloatnone' id='com-" + commentid + "'><div class='actcom-avatar isabsolute'><img src='http://qeneqt.us/images/icprofiles/" + thumb + "'></div><div class='actcom-fullcom isblock isrelative'><div class='actcom-header isblock isrelative ismarginnone ispaddingnone isfloatnone'><div class='actcom-info isrelative isblock'><a href='http://qeneqt.us/index.php?option=com_iconnect&amp;view=profile&amp;id=" + userid + "' class='ulink' title='" + fullname + "'>" + fullname + "</a><a data-uid='" + userid + "' class='inamelink' href='#'><span class='iname'>@" + iname + "</span></a> <div class='comdate isinlineblock isrelative isfloatright'><span class='iDateTag'></span></div> </div></div><div class='actcom-body isblock isrelative ismarginnone isfloatnone'><div class='actcom-text'>" + commentcomment + "</div></div><div class='actcom-subinfo isrelative isblock' style='padding: 2px 10px 2px 2px !important;'><div class='isinlineblock isrelative isfloatright'><div class='isinlineblock isrelative'></div><div class='isinlineblock isrelative'><a class='actcom-reply' data-creatorid='" + userid + "' data-cid='" + commentid + "' data-origid='" + commentcid + "' data-action='reply' onclick='replycomment(" + commentid + ");'>reply</a> • </div><div class='isinlineblock isrelative '><a data-uid='" + loginid + "' data-cidtype='comment' data-cid='" + commentid + "' data-action='add' href='#' class='icomlikes'>like (<span>0</span>)</a> • </div><div class='isinlineblock isrelative'><a class='actcom-hide' data-creatorid='" + loginid + "' data-comtype='comm' data-cid='" + commentid + "' onclick='delectehidecomment(" + commentid + ",1);'>delete <i class='icicon-close'></i></a></div></div></div></div></div>";
+                    }
+                    else {
+                        userdata += "<div data-name='" + iname + "' data-cid='" + commentcid + "' data-comid='" + commentid + "' class='act-comment ismain isblock isrelative ispaddingnone isfloatnone' id='com-" + commentid + "'><div class='actcom-avatar isabsolute'><img src='http://qeneqt.us/images/icprofiles/" + thumb + "'></div><div class='actcom-fullcom isblock isrelative'><div class='actcom-header isblock isrelative ismarginnone ispaddingnone isfloatnone'><div class='actcom-info isrelative isblock'><a href='http://qeneqt.us/index.php?option=com_iconnect&amp;view=profile&amp;id=" + userid + "' class='ulink' title='" + fullname + "'>" + fullname + "</a><a data-uid='" + userid + "' class='inamelink' href='#'><span class='iname'>@" + iname + "</span></a> <div class='comdate isinlineblock isrelative isfloatright'><span class='iDateTag'></span></div> </div></div><div class='actcom-body isblock isrelative ismarginnone isfloatnone'><div class='actcom-text'>" + commentcomment + "</div></div><div class='actcom-subinfo isrelative isblock' style='padding: 2px 10px 2px 2px !important;'><div class='isinlineblock isrelative isfloatright'><div class='isinlineblock isrelative'></div><div class='isinlineblock isrelative'><a class='actcom-reply' data-creatorid='" + userid + "' data-cid='" + commentid + "' data-origid='" + commentcid + "' data-action='reply' onclick='replycomment(" + commentid + ");'>reply</a> • </div><div class='isinlineblock isrelative '><a data-uid='" + loginid + "' data-cidtype='comment' data-cid='" + commentid + "' data-action='add' href='#' class='icomlikes'>like (<span>0</span>)</a> • </div><div class='isinlineblock isrelative'><a class='actcom-hide' data-creatorid='" + loginid + "' data-comtype='comm' data-cid='" + commentid + "' onclick='delectehidecomment(" + commentid + ",2);'>hide <i class='icicon-close'></i></a></div></div></div></div></div>";
+                    }
+                    
                 }
             }
             jQuery("#allcomments").html(userdata);
@@ -2336,6 +2344,8 @@ var docomments = function () {
     var cid = localStorage.getItem('commentcid');
     var elementid = localStorage.getItem('elementid');
     var commentdes = jQuery('#icomment').val();
+    var parentcid = localStorage.getItem('parentcid');
+    var parentelement = localStorage.getItem('parentelement');
     if (elementid == '1') {
         element = "profile";
     }
@@ -2362,6 +2372,8 @@ var docomments = function () {
         loginid : loginid,
         cid: cid,
         commentdes: commentdes,
+        parentcid : parentcid,
+        parentelement : parentelement,
         element : element
     }; 
     jQuery.ajax({
@@ -2371,11 +2383,98 @@ var docomments = function () {
         success: function(response) 
         {   
             if(response == "Success") {
-                alert("success");
-            }
-            else {
-                alert("fail");
+                localStorage.setItem('parentcid', '');
+                localStorage.setItem('parentelement', '');
+                commentbox(cid, elementid);
             }
         }
     });
+}
+
+var delectehidecomment = function(commentid, option){
+    var loginid = localStorage.getItem('id');
+    var cid = localStorage.getItem('commentcid');
+    var formData = {
+        task: "delectehidecomment",
+        loginid : loginid,
+        commentid: commentid,
+        commentoption: option,
+        cid: cid
+    }; 
+    jQuery.ajax({
+        type: "POST",
+        url: "http://qeneqt.us/index2.php?option=com_content&view=appcode",
+        data: formData,
+        dataType:"json",
+        success: function(response) 
+        {   
+            var total = response.total['id'];
+            var userdata = "";
+            if (response.comment[0]) {
+                userdata += "";
+            } 
+            for(var i=total; i>0; i--) {
+                if (response.comment[i]) 
+                {
+                    var commentcid = response.comment[i].commentcid;
+                    var commentcomment = response.comment[i].commentcomment;
+                    var commentdate = response.comment[i].commentdate;
+                    var commentelement = response.comment[i].commentelement;
+                    var commentid = response.comment[i].commentid;
+                    var commentparams = response.comment[i].commentparams;
+                    var commentparentcid = response.comment[i].commentparentcid;
+                    var commentparentelement = response.comment[i].commentparentelement;
+                    var commentpublished = response.comment[i].commentpublished;
+                    var commentuid = response.comment[i].commentuid;
+                    var fullname = response.profile[i].fullname;
+                    var iname = response.profile[i].iname;
+                    var userid = response.profile[i].userid;
+                    
+                    if(response.profile.thumb == "" || response.profile.thumb == null ){
+                        var thumb = "default-avatar.png";
+                    }
+                    else {
+                        var thumb = userid + "/" + response.profile.thumb;
+                    }
+                    if (loginid == userid){
+                        userdata += "<div data-name='" + iname + "' data-cid='" + commentcid + "' data-comid='" + commentid + "' class='act-comment ismain isblock isrelative ispaddingnone isfloatnone' id='com-" + commentid + "'><div class='actcom-avatar isabsolute'><img src='http://qeneqt.us/images/icprofiles/" + thumb + "'></div><div class='actcom-fullcom isblock isrelative'><div class='actcom-header isblock isrelative ismarginnone ispaddingnone isfloatnone'><div class='actcom-info isrelative isblock'><a href='http://qeneqt.us/index.php?option=com_iconnect&amp;view=profile&amp;id=" + userid + "' class='ulink' title='" + fullname + "'>" + fullname + "</a><a data-uid='" + userid + "' class='inamelink' href='#'><span class='iname'>@" + iname + "</span></a> <div class='comdate isinlineblock isrelative isfloatright'><span class='iDateTag'></span></div> </div></div><div class='actcom-body isblock isrelative ismarginnone isfloatnone'><div class='actcom-text'>" + commentcomment + "</div></div><div class='actcom-subinfo isrelative isblock' style='padding: 2px 10px 2px 2px !important;'><div class='isinlineblock isrelative isfloatright'><div class='isinlineblock isrelative'></div><div class='isinlineblock isrelative'><a class='actcom-reply' data-creatorid='" + userid + "' data-cid='" + commentid + "' data-origid='" + commentcid + "' data-action='reply' onclick='replycomment(" + commentid + ");'>reply</a> • </div><div class='isinlineblock isrelative '><a data-uid='" + loginid + "' data-cidtype='comment' data-cid='" + commentid + "' data-action='add' href='#' class='icomlikes'>like (<span>0</span>)</a> • </div><div class='isinlineblock isrelative'><a class='actcom-hide' data-creatorid='" + loginid + "' data-comtype='comm' data-cid='" + commentid + "' onclick='delectehidecomment(" + commentid + ",1);'>delete <i class='icicon-close'></i></a></div></div></div></div></div>";
+                    }
+                    else {
+                        userdata += "<div data-name='" + iname + "' data-cid='" + commentcid + "' data-comid='" + commentid + "' class='act-comment ismain isblock isrelative ispaddingnone isfloatnone' id='com-" + commentid + "'><div class='actcom-avatar isabsolute'><img src='http://qeneqt.us/images/icprofiles/" + thumb + "'></div><div class='actcom-fullcom isblock isrelative'><div class='actcom-header isblock isrelative ismarginnone ispaddingnone isfloatnone'><div class='actcom-info isrelative isblock'><a href='http://qeneqt.us/index.php?option=com_iconnect&amp;view=profile&amp;id=" + userid + "' class='ulink' title='" + fullname + "'>" + fullname + "</a><a data-uid='" + userid + "' class='inamelink' href='#'><span class='iname'>@" + iname + "</span></a> <div class='comdate isinlineblock isrelative isfloatright'><span class='iDateTag'></span></div> </div></div><div class='actcom-body isblock isrelative ismarginnone isfloatnone'><div class='actcom-text'>" + commentcomment + "</div></div><div class='actcom-subinfo isrelative isblock' style='padding: 2px 10px 2px 2px !important;'><div class='isinlineblock isrelative isfloatright'><div class='isinlineblock isrelative'></div><div class='isinlineblock isrelative'><a class='actcom-reply' data-creatorid='" + userid + "' data-cid='" + commentid + "' data-origid='" + commentcid + "' data-action='reply' onclick='replycomment(" + commentid + ");'>reply</a> • </div><div class='isinlineblock isrelative '><a data-uid='" + loginid + "' data-cidtype='comment' data-cid='" + commentid + "' data-action='add' href='#' class='icomlikes'>like (<span>0</span>)</a> • </div><div class='isinlineblock isrelative'><a class='actcom-hide' data-creatorid='" + loginid + "' data-comtype='comm' data-cid='" + commentid + "' onclick='delectehidecomment(" + commentid + ",2);'>hide <i class='icicon-close'></i></a></div></div></div></div></div>";
+                    }
+                    
+                }
+            }
+            jQuery("#allcomments").html(userdata);
+        }
+    });
+}
+
+var replycomment= function(commentid) {
+    var parentcid = localStorage.setItem('parentcid', commentid);
+    var elementid = localStorage.getItem('elementid');
+    if (elementid == '1') {
+        element = "profile";
+    }
+    if (elementid == '2') {
+        element = "video";
+    }
+    if (elementid == '3') {
+        element = "photo";
+    }
+    if (elementid == '4') {
+        element = "link";
+    }
+    if (elementid == '5') {
+        element = "board";
+    }
+    if (elementid == '6') {
+        element = "circle";
+    }
+    if (elementid == '7') {
+        element = "status";
+    }
+    localStorage.setItem('parentelement', element);
+
+    docomments();
 }
