@@ -247,7 +247,59 @@
 								</div>
 							</section>
 						</div>
-						<div id="comwrapr" class="lite"></div>
+						<div id="comwrapr" class="lite iconn-animated zoomInRight" style="display: none;">
+							<div class="isrelative isblock" id="iCommentBox">
+								<a onclick="closecommentbox();" class="isabsolute ic-btn ic-btn-red" id="iCommentClose">
+									<i class="icicon-times"></i>close
+								</a>
+								<div id="commentbox" class="activity-comment">
+									<div class="scroll-wrapper ic-scrollbar" style="position: relative;">
+										<div id="commentscroll" class="ic-scrollbar scroll-content" style="margin-bottom: -17px; margin-right: -17px; max-height: 425px;">
+											<div class="comment-inner">
+												<div id= "allcomments" class="comment-body">
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="add-comment-box">
+									<div class="dropzone dz-clickable" id="comment-dropzone">
+										<div class="dropzone-previews" id="compreview"></div>
+										<div class="comload-intro">attach an image or a file</div>
+										<div class="dz-default dz-message">
+											<span></span>
+										</div>
+									</div>
+									<form class="iconnect-forms" id="comment-box" novalidate="novalidate">
+										<div class="com-section">
+											<label class="ifield">
+												<div class="scroll-wrapper gui-textarea textarea-scrollbar iscommentbox ic-scrollbar scroll-textarea" style="position: relative;">
+													<div class="scroll-content scroll-scrolly_visible" style="margin-bottom: -17px; margin-right: -17px; height: 78px;">
+														<textarea placeholder="add comment..." name="icomment" id="icomment" class="gui-textarea textarea-scrollbar iscommentbox ic-scrollbar"></textarea>
+													</div>
+													<div class="scroll-element scroll-x scroll-scrolly_visible">
+														<div class="scroll-element_outer">
+															<div class="scroll-element_size"></div>
+															<div class="scroll-element_track"></div>
+															<div class="scroll-bar" style="width: 89px;"></div>
+														</div>
+													</div>
+													<div class="scroll-element scroll-y scroll-scrolly_visible">
+														<div class="scroll-element_outer">
+															<div class="scroll-element_size"></div>
+															<div class="scroll-element_track"></div>
+															<div class="scroll-bar" style="height: 55px; top: 0px;"></div>
+														</div>
+													</div>
+												</div>
+											</label>
+										</div>
+										<button type="button" class="ic-btn ic-btn-blue" id="commadd" onclick="docomments();">COMMENT NOW</button>
+									</form>
+								</div>
+							</div>
+						</div>
 					</div>
 					<script src="js/iniload.js"></script>
 					<script src="js/istream.js"></script>
