@@ -43,6 +43,7 @@ $commentoption = $_REQUEST['commentoption'];
 $commentuserid = $_REQUEST['commentuserid'];
 $followuser = $_REQUEST['followuser'];
 $useraddtocircle = $_REQUEST['useraddtocircle'];
+$statusupdate = $_REQUEST['statusupdate'];
 
 
 if($_REQUEST['parentcid']) {
@@ -203,7 +204,12 @@ switch ($task) {
         touserdetails($loginid, $touserid);
         break;
     case 'executeprivatemessage':
-    executeprivatemessage($loginid, $message, $touserid, $subject, $attch2, $date);
+	    executeprivatemessage($loginid, $message, $touserid, $subject, $attch2, $date);
+	    break;
+    case 'updateStatus':
+        updateStatus($loginid, $statusupdate,$date);
+        break;
+
     default:  	
         break;
 }
@@ -2332,28 +2338,23 @@ function executeprivatemessage($loginid, $message, $touserid, $subject, $attch2,
 	$attch1 = ltrim($attch2, '"');
 	$attch = rtrim($attch1, '"');
 
-	// foreach ($touserid as $key => $receiver) {
-		$sendmailto = $touserid;
+	$sendmailto = $touserid;
 
-		$query = "INSERT INTO #__iconnect_messages (parentid, fromuserid, touserid, attch, subject, msg, tags, hashtags, mentions, status, date, cid, cidtype) VALUES ('0','".$loginid."','".$sendmailto."', '".$attch."', '".$subject."', '".$message."', '', '', '', '0', '".$date."' , '0', '')";
+	$query = "INSERT INTO #__iconnect_messages (parentid, fromuserid, touserid, attch, subject, msg, tags, hashtags, mentions, status, date, cid, cidtype) VALUES ('0','".$loginid."','".$sendmailto."', '".$attch."', '".$subject."', '".$message."', '', '', '', '0', '".$date."' , '0', '')";
+	$db->setQuery($query);
+	if($db->query()) {
+		$msgid = $db->insertid();
+
+		$query = "INSERT INTO #__iconnect_message_status (msgid, uid, status, date) VALUES ('".$msgid."','".$sendmailto."', '1', '".$date."')";
 		$db->setQuery($query);
+
 		if($db->query()) {
 			$msgid = $db->insertid();
 
-			$query = "INSERT INTO #__iconnect_message_status (msgid, uid, status, date) VALUES ('".$msgid."','".$sendmailto."', '1', '".$date."')";
+			$query = "INSERT INTO #__iconnect_notifications (uid, target, content, type, element, cid, status, created) VALUES ('".$loginid."','".$sendmailto."','0', 'info', '', '0', '7', '".$date."')";
 			$db->setQuery($query);
-
-			if($db->query()) {
-				$msgid = $db->insertid();
-
-				$query = "INSERT INTO #__iconnect_notifications (uid, target, content, type, element, cid, status, created) VALUES ('".$loginid."','".$sendmailto."','0', 'info', '', '0', '7', '".$date."')";
-				$db->setQuery($query);
-				if ($db->query()) {
-					echo "Success";
-				}
-				else {
-					echo "Fail";
-				}
+			if ($db->query()) {
+				echo "Success";
 			}
 			else {
 				echo "Fail";
@@ -2362,8 +2363,28 @@ function executeprivatemessage($loginid, $message, $touserid, $subject, $attch2,
 		else {
 			echo "Fail";
 		}
-	// }
+	}
+	else {
+		echo "Fail";
+	}
+
 	exit;
 }
 
-?>
+function updateStatus($loginid, $statusupdate, $date) {
+	
+	$db =& JFactory::getDBO();
+	$query = $db->getQuery(true);
+
+	$query = "INSERT INTO `#__iconnect_status` (`catid`, `userid`, `acl`, `accesstype`, `accessfee`, `accesspreview`, `date`, `location`, `hashtags`, `mentions`, `text`, `published`, `featured`, `circleid`, `wallid`) VALUES ('0','".$loginid."','f0','0','0','','".$date."','','','','".$statusupdate."','1','0','0','0')";
+	$db->setQuery($query);
+
+	if ($db->query()) {
+		echo "Success";
+	}
+	else {
+		echo "Fail";
+	}
+
+	exit;	 
+}
