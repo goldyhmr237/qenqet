@@ -176,3 +176,7 @@ body #pm-dropzone1.dropzone .dz-default1.dz-message1 {
     width: 100%;
     z-index: 3 !important;
 }
+
+textarea#acttext.taggable {
+    margin: -38px 0 0 !important;
+}

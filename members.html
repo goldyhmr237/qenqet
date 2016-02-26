@@ -231,7 +231,15 @@
 													// });
 												</script>
 
-												<div style="display: none;" class="lite iconn-stream-post" id="iconn-stream"><div class="itabs lite itabs-amount-8 itabs-pos-top-justify  itabs-anim-fade itabs-response-to-icon " id="itabs"><input type="radio" class="icstatus" checked="" id="icstatusf" name="itabs"><label for="icstatusf"><span><span><i class="icicon-comments"></i></span></span></label><input type="radio" class="icphoto" id="icphotof" name="itabs"><label for="icphotof"><span><span><i class="icicon-photo"></i></span></span></label><input type="radio" class="icvideo" id="icvideof" name="itabs"><label for="icvideof"><span><span><i class="icicon-film"></i></span></span></label><input type="radio" class="iclink" id="iclinkf" name="itabs"><label for="iclinkf"><span><span><i class="icicon-link"></i></span></span></label><input type="radio" class="icmusic" id="icmusicf" name="itabs"><label for="icmusicf"><span><span><i class="icicon-music"></i></span></span></label><input type="radio" class="icupload" id="icuploadf" name="itabs"><label for="icuploadf"><span><span><i class="icicon-cloud-upload"></i></span></span></label><input type="radio" class="icmap" id="icmapf" name="itabs"><label for="icmapf"><span><span><i class="icicon-calendar"></i></span></span></label><ul><li class="icstatus"><div class="padded5"></div></li><li class="icphoto"><div class="typography"><div id="actPhoto"><div id="pixform">
+												<div style="display: none;" class="lite iconn-stream-post" id="iconn-stream"><div class="itabs lite itabs-amount-8 itabs-pos-top-justify  itabs-anim-fade itabs-response-to-icon " id="itabs">
+												<input type="radio" class="icstatus" checked="" id="icstatusf" name="itabs"><label for="icstatusf"><span><span><i class="icicon-comments"></i></span></span></label>
+												<input type="radio" class="icphoto" id="icphotof" name="itabs"><label for="icphotof"><span><span><i class="icicon-photo"></i></span></span></label>
+												<input type="radio" class="icvideo" id="icvideof" name="itabs"><label for="icvideof"><span><span><i class="icicon-film"></i></span></span></label>
+												<!--input type="radio" class="iclink" id="iclinkf" name="itabs"><label for="iclinkf"><span><span><i class="icicon-link"></i></span></span></label>
+												<input type="radio" class="icmusic" id="icmusicf" name="itabs"><label for="icmusicf"><span><span><i class="icicon-music"></i></span></span></label>
+												<input type="radio" class="icupload" id="icuploadf" name="itabs"><label for="icuploadf"><span><span><i class="icicon-cloud-upload"></i></span></span></label>
+												<input type="radio" class="icmap" id="icmapf" name="itabs"><label for="icmapf"><span><span><i class="icicon-calendar"></i></span></span></label-->
+												<ul><li class="icstatus"><div class="padded5"></div></li><li class="icphoto"><div class="typography"><div id="actPhoto"><div id="pixform">
 												<div class="pixform-left">
 													<input class="ic-btn ic-btn-md ic-btn-round ic-btn-blue customButtons getphoto" type="button" value="BROWSE"  onclick="getPhoto(pictureSource.PHOTOLIBRARY);">
 													<img class="ajax-loader-img getphoto" src="img/ajax-loader.gif" style="display:none;">
@@ -349,6 +357,78 @@
 					<script src="js/inimemload.js"></script>
 					
 					<script src="js/filefunctions.js"></script>
+
+					<div id="icPMessage" class="lite" style="display: none;" data-sendtoid="">
+						<div id="pm-receiver">
+							
+						</div>
+						<div class="clearall" id="tagpmspace">
+							<div class="dropzone dz-clickable" id="pm-dropzone" onclick="getmzgPhoto(pictureSource.PHOTOLIBRARY);">
+								<div class="pmload-intro">attach an image or a file</div>
+								<div class="dropzone-previews" id="pmpreview"></div>
+								<div class="dz-default dz-message">
+									<span></span>
+								</div>
+							</div>
+							<form novalidate="novalidate" class="iconnect-forms" id="new-pm-form">
+								<div id="add-pm-box">
+									<label class="ifield prepend-icicon">
+										<input type="text" placeholder="Subject" value="" name="ipmsubject" id="ipmsubject" class="gui-input loadme">
+										<label class="ifield-icicon" for="ipmsubject">
+											<i class="icicon-comment"></i>
+										</label>
+									</label>
+									<label class="ifield">
+										<div class="textntags-wrapper" style="visibility: visible;">
+											<div class="textntags-beautifier">
+												<div style="min-height: 18px;">­</div>
+											</div>
+											<style>
+												.textntags-wrapper .textntags-wrapper .textntags-beautifier { display: none; }
+											</style>
+											<textarea placeholder="Write Something" name="pmtext" id="pmtext" class="taggable" style="height: 0px; min-height: 18px;"></textarea>
+											<div class="textntags-tag-list"></div>
+										</div>
+									</label>
+								</div>
+								<div class="pmcontrols">
+									<button type="button" onclick="executeprivatemessage();" class="ic-btn ic-btn-blue" id="pmsend">
+										<i class="icicon-envelope"></i>
+										SEND
+									</button>
+								</div>
+							</form>
+						</div>
+						<a class="ic-btn ic-btn-red" id="pmcancel" onclick="cancelprivatemessage();">CANCEL</a>
+					</div>
+					
+					<div style="" class="drop-area" id="drop-area">
+						<div class="mini" id="closetrigger">
+							<a data-hint="close" class=" hint--left" onclick="closecmpopup();" id="closegrid">
+								<i class="icicon-close"></i>
+							</a>
+						</div>
+						<div class="scroll-wrapper ic-scrollbar" style="position: relative;">
+							<div class="ic-scrollbar scroll-content" id="dropline" style="margin-bottom: -17px; margin-right: -17px; height: 257px;">
+								
+							</div>
+							<div class="scroll-element scroll-x">
+								<div class="scroll-element_outer">
+									<div class="scroll-element_size"></div>
+									<div class="scroll-element_track"></div>
+									<div class="scroll-bar" style="width: 96px;"></div>
+								</div>
+							</div>
+							<div class="scroll-element scroll-y">
+								<div class="scroll-element_outer">
+									<div class="scroll-element_size"></div>
+									<div class="scroll-element_track"></div>
+									<div class="scroll-bar" style="height: 96px;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
 					
 					<link rel="stylesheet" href="css/icommBox.css">
 					<link rel="stylesheet" href="css/sweet-alert.css">

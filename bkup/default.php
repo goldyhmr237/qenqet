@@ -42,6 +42,7 @@ $commentid = $_REQUEST['commentid'];
 $commentoption = $_REQUEST['commentoption'];
 $commentuserid = $_REQUEST['commentuserid'];
 $followuser = $_REQUEST['followuser'];
+$useraddtocircle = $_REQUEST['useraddtocircle'];
 
 
 if($_REQUEST['parentcid']) {
@@ -192,6 +193,17 @@ switch ($task) {
     case 'makefriend':
     	makefriend($loginid, $followuser, $date); 
         break;
+    case 'loggedusercircles':
+        loggedusercircles($loginid, $useraddtocircle);
+        break;
+    case 'addusertocircle':
+        addusertocircle($loginid, $useraddtocircle, $circleid);
+        break;
+    case 'touserdetails':
+        touserdetails($loginid, $touserid);
+        break;
+    case 'executeprivatemessage':
+    executeprivatemessage($loginid, $message, $touserid, $subject, $attch2, $date);
     default:  	
         break;
 }
@@ -592,10 +604,6 @@ function profileCover($loginid) {
 	$db->query();
 	$numFollowing = $db->getNumRows();
 	$response['following'] = $numFollowing;
-	
-	// echo "<br /> Friends = ".$numFriends."<br /> Followers = ".$numFollowers."<br /> Circles = ".$numCircles."<br /> Likes = ".$numLikes;
-	// echo "<pre>";
-	// print_r($numFollowers);
 
 	echo json_encode($response);
 	exit;
@@ -653,14 +661,6 @@ function imageupload($loginid, $date){
 	}
 	$path_to_file = 'images/icphotos/'.$loginid. '/'.$new_image_name;
 	move_uploaded_file($tmp_name, $path_to_file);
-
-	// $new_image_name1 = "thumb-".$randomString."-".$_FILES['image']['name'];
-	// $path_to_file1 = 'images/icphotos/'.$loginid. '/'.$new_image_name1;
-	// move_uploaded_file($tmp_name, $path_to_file1);
-
-	// $new_image_name2 = "stream-".$randomString."-".$_FILES['image']['name'];	
-	// $path_to_file2 = 'images/icphotos/'.$loginid. '/'.$new_image_name2;
-	// move_uploaded_file($tmp_name, $path_to_file2);
 
 	$photo = '{"photo":"'.$new_image_name.'","thumb":"'.$new_image_name.'"}';
 	$published = '1';
@@ -1041,6 +1041,9 @@ function searchFront($loginid, $date, $type) {
 function membersContent($loginid) {
  	$db =& JFactory::getDBO();
 	$query = $db->getQuery(true);
+	$likestatus = "1";
+	$published = "1";
+	$supportstatus = "1";
 		
 	$dbemail = 'SELECT * FROM `#__iconnect_profiles` ORDER BY'.$db->quoteName('id').' DESC';
 	$db->setQuery($dbemail);
@@ -1049,7 +1052,26 @@ function membersContent($loginid) {
 	$response = array();
 
 	foreach($results as $result){		
-		$response[$result->id] = array('id' => $result->id, 'profiletype' => $result->profiletype, 'iname' => $result->iname, 'fullname' => $result->fullname, 'avatar' => $result->avatar, 'header' => $result->header, 'thumb' => $result->thumb, 'userid' => $result->userid, 'online' => $circleData->online, 'logindate' => $result->logindate, 'status' => $result->status, 'wallacl' => $result->wallacl, 'motto' => $result->motto,'featured' => $result->featured ); 
+
+		$likes = 'SELECT * FROM `#__iconnect_likes` WHERE `cid` ="'.$result->userid.'" AND `like` = "'.$likestatus.'" ORDER BY id DESC';
+		$db->setQuery($likes);
+		$postLike = $db->loadObjectList();
+		$db->query();
+		$like = $db->getNumRows();
+
+		$comments = 'SELECT * FROM `#__iconnect_comments` WHERE `cid` ="'.$result->userid.'" AND `published` = "'.$published.'" ORDER BY id DESC';
+		$db->setQuery($comments);
+		$postComment = $db->loadObjectList();
+		$db->query();
+		$comment = $db->getNumRows();
+
+		$supports = 'SELECT * FROM `#__iconnect_support` WHERE `cid` ="'.$result->userid.'" AND `support` = "'.$supportstatus.'" ORDER BY id DESC';
+		$db->setQuery($supports);
+		$postSupport = $db->loadObjectList();
+		$db->query();
+		$support = $db->getNumRows();
+
+		$response[$result->id] = array('id' => $result->id, 'profiletype' => $result->profiletype, 'iname' => $result->iname, 'fullname' => $result->fullname, 'avatar' => $result->avatar, 'header' => $result->header, 'thumb' => $result->thumb, 'userid' => $result->userid, 'online' => $circleData->online, 'logindate' => $result->logindate, 'status' => $result->status, 'wallacl' => $result->wallacl, 'motto' => $result->motto,'featured' => $result->featured,'like' => $like, 'comment' => $comment, 'support' => $support ); 
 	}
 
 	$lastidquery = 'SELECT id FROM `#__iconnect_profiles` ORDER BY id DESC LIMIT 1';
@@ -2135,7 +2157,7 @@ function followuser($loginid, $followuser, $date) {
 			$query = "INSERT INTO #__iconnect_notifications (uid, target, content, type, element, cid, status, created) VALUES ('".$loginid."','".$followuser."','0', 'info', '', '0', '4', '".$date."')";
 			$db->setQuery($query);
 			if ($db->query()) {
-				echo "Success";
+				echo "Follow";
 			}
 		}
 	}
@@ -2150,7 +2172,7 @@ function followuser($loginid, $followuser, $date) {
 				$query = "INSERT INTO #__iconnect_notifications (uid, target, content, type, element, cid, status, created) VALUES ('".$loginid."','".$followuser."','0', 'info', '', '0', '4', '".$date."')";
 				$db->setQuery($query);
 				if ($db->query()) {
-					echo "Success";
+					echo "Follow";
 				}
 			}
 		}
@@ -2158,7 +2180,7 @@ function followuser($loginid, $followuser, $date) {
 			$userfollow = "UPDATE #__iconnect_followers SET `status`= '0' WHERE id='".$followid."'";
 			$db->setQuery($userfollow);
 			if($db->query()) {
-				echo "Success";
+				echo "Unfollow";
 			}
 		}
 	}
@@ -2186,7 +2208,7 @@ function makefriend($loginid, $frienduser, $date) {
 			$query = "INSERT INTO #__iconnect_notifications (uid, target, content, type, element, cid, status, created) VALUES ('".$loginid."','".$followuser."','0', 'info', '', '0', '2', '".$date."')";
 			$db->setQuery($query);
 			if ($db->query()) {
-				echo "Success";
+				echo "friend";
 			}
 		}
 	}
@@ -2201,7 +2223,7 @@ function makefriend($loginid, $frienduser, $date) {
 				$query = "INSERT INTO #__iconnect_notifications (uid, target, content, type, element, cid, status, created) VALUES ('".$loginid."','".$followuser."','0', 'info', '', '0', '2', '".$date."')";
 				$db->setQuery($query);
 				if ($db->query()) {
-					echo "Success";
+					echo "friend";
 				}
 			}
 		}
@@ -2209,18 +2231,139 @@ function makefriend($loginid, $frienduser, $date) {
 			$userfriend = "UPDATE #__iconnect_friends SET `status`= '0' WHERE id='".$friendid."'";
 			$db->setQuery($userfriend);
 			if($db->query()) {
-				echo "Success";
+				echo "Unfriend";
 			}
 		}
 	}
 	exit;
 }
 
+function loggedusercircles($loginid, $useraddtocircle) {
+
+	$db = JFactory::getDbo();
+	$query = $db->getQuery(true);
+	$published = "1";
 
 
+	$query = 'SELECT * FROM `#__iconnect_circles` WHERE `userid` = "'.$loginid.'" AND `published` = "'.$published.'" ORDER BY id DESC';
+	$db->setQuery($query);
+	$results = $db->loadObjectList();
+	$db->query();
+	$circles = $db->getNumRows();
 
+	$response = array();
 
+	foreach ($results as $key => $result) {
 
+		$circleid= $result->id;
+		$circleuserid= $result->userid;
+		$circletitle= $result->title;
+		$circlethumb= $result->thumb;
+		$circletype= $result->type;
 
+		$query = 'SELECT * FROM `#__iconnect_circle_access` WHERE `circleid` = "'.$circleid.'" AND `profileid` = "'.$useraddtocircle.'" ORDER BY id DESC';
+		$db->setQuery($query);
+		$total = $db->loadObjectList();
+		$db->query();
+		$useridtocircle = $db->getNumRows();
+
+		$response['circles'][$circleid] = array('circleid' => $circleid, 'circleuserid' => $circleuserid, 'circletitle' => $circletitle, "circlethumb" => $circlethumb, 'circletype' => $circletype, 'useridtocircle' => $useridtocircle );
+
+	}
+	$lastidquery = 'SELECT id FROM `#__iconnect_circles` ORDER BY id DESC LIMIT 1';
+
+	$db->setQuery($lastidquery);
+	$lastid = $db->loadObjectList();
+	$response['total'] = $lastid['0'];
+
+	echo json_encode($response);
+	exit;
+}
+
+function addusertocircle($loginid, $useraddtocircle, $circleid) {
+	$db = JFactory::getDbo();
+	$query = $db->getQuery(true);
+
+	$query = 'SELECT * FROM `#__iconnect_circle_access` WHERE `circleid` = "'.$circleid.'" AND `profileid` = "'.$useraddtocircle.'" ORDER BY id DESC';
+	$db->setQuery($query);
+	$total = $db->loadObjectList();
+	$db->query();
+	$useridtocircle = $db->getNumRows();
+
+	if($useridtocircle == 0){
+		$query = "INSERT INTO #__iconnect_circle_access (circleid, profileid, status) VALUES ('".$circleid."','".$useraddtocircle."', '1')";
+		$db->setQuery($query);
+		if($db->query()){
+			echo "success";
+		}
+	}
+	else {
+
+		$query = 'DELETE FROM `#__iconnect_circle_access` WHERE `circleid` = "'.$circleid.'" AND `profileid` = "'.$useraddtocircle.'"';
+
+		$db->setQuery($query);
+		if($db->query()){
+			echo "success";
+		}
+	}
+	exit;
+ }
+
+function touserdetails($loginid, $touserid) {
+	$db = JFactory::getDbo();
+	$query = $db->getQuery(true);
+
+	$dbprofile = 'SELECT * FROM `#__iconnect_profiles` WHERE userid ='.$touserid;
+	$db->setQuery($dbprofile);
+	$profileData = $db->loadObjectList();
+	
+	$iname = $profileData[0]->iname;
+	$thumb= $profileData[0]->thumb;
+	$response = array('iname' => $iname, 'thumb' => $thumb);
+	
+	echo json_encode($response);
+	exit;
+}
+
+function executeprivatemessage($loginid, $message, $touserid, $subject, $attch2, $date) {
+	$db =& JFactory::getDBO();
+	$query = $db->getQuery(true);
+
+	$attch1 = ltrim($attch2, '"');
+	$attch = rtrim($attch1, '"');
+
+	// foreach ($touserid as $key => $receiver) {
+		$sendmailto = $touserid;
+
+		$query = "INSERT INTO #__iconnect_messages (parentid, fromuserid, touserid, attch, subject, msg, tags, hashtags, mentions, status, date, cid, cidtype) VALUES ('0','".$loginid."','".$sendmailto."', '".$attch."', '".$subject."', '".$message."', '', '', '', '0', '".$date."' , '0', '')";
+		$db->setQuery($query);
+		if($db->query()) {
+			$msgid = $db->insertid();
+
+			$query = "INSERT INTO #__iconnect_message_status (msgid, uid, status, date) VALUES ('".$msgid."','".$sendmailto."', '1', '".$date."')";
+			$db->setQuery($query);
+
+			if($db->query()) {
+				$msgid = $db->insertid();
+
+				$query = "INSERT INTO #__iconnect_notifications (uid, target, content, type, element, cid, status, created) VALUES ('".$loginid."','".$sendmailto."','0', 'info', '', '0', '7', '".$date."')";
+				$db->setQuery($query);
+				if ($db->query()) {
+					echo "Success";
+				}
+				else {
+					echo "Fail";
+				}
+			}
+			else {
+				echo "Fail";
+			}
+		}
+		else {
+			echo "Fail";
+		}
+	// }
+	exit;
+}
 
 ?>

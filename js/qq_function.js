@@ -271,7 +271,7 @@ var timelineContentFunction = function(url) {
             //  console.log(response);
             var total = response.total['id'];
             var userdata = "";
-            for(var i=total; i>0; i--) {
+            for(var i=total; i>432; i--) {
                 //console.log(i +") type=" + response[i].type +"\naction=" + response[i].action);
                 if (response[i]) 
                 {
@@ -2681,4 +2681,29 @@ var executeprivatemessage = function() {
             }
         }
     });
+}
+
+var updateStatus = function() {
+    var loginid = localStorage.getItem('id');
+    var statusupdate = jQuery('#acttext').val();
+   if(statusupdate != "") {
+        var formData = {
+            task: "updateStatus",
+            loginid : loginid,
+            statusupdate: statusupdate
+        }; 
+        jQuery.ajax({
+            type: "POST",
+            url: "http://qeneqt.us/index2.php?option=com_content&view=appcode",
+            data: formData,
+            success: function(response) 
+            {   
+                window.location.reload();
+            }
+        });
+   }
+   else {
+        window.location.reload();
+   }
+    
 }
