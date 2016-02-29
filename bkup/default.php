@@ -45,6 +45,8 @@ $followuser = $_REQUEST['followuser'];
 $useraddtocircle = $_REQUEST['useraddtocircle'];
 $statusupdate = $_REQUEST['statusupdate'];
 $postid = $_REQUEST['postid'];
+$checkedvalue = $_REQUEST['checkedvalue'];
+$sharetext =$_REQUEST['sharetext'];
 
 if($_REQUEST['parentcid']) {
 	$parentcid = $_REQUEST['parentcid'];
@@ -211,6 +213,9 @@ switch ($task) {
         break;
     case 'shareit':
         shareit($loginid, $postid);
+        break;
+    case 'shareitnow':
+        shareitnow($loginid, $postid, $checkedvalue, $sharetext, $date);
         break;
 
     default:  	
@@ -2508,5 +2513,43 @@ function shareit($loginid, $postid) {
 	}
 
 	echo json_encode($response);
+	exit;
+}
+
+function shareitnow($loginid, $postid, $checkedvalue, $sharetext, $date) {
+	$db =& JFactory::getDBO();
+	$query = $db->getQuery(true);
+	$published = "1";
+
+	$activities = 'SELECT * FROM `#__iconnect_activities` WHERE `id` ='.$postid;
+	$db->setQuery($activities);
+	$activity = $db->loadObjectList();
+	$db->query();
+
+	$postuserid = $activity[0]->user_id;
+	$posttype = $activity[0]->type;
+	$postcid = $activity[0]->cid;
+
+	if($checkedvalue == "1") {
+		
+		$query0 = "INSERT INTO #__iconnect_activities (`user_id`, `published`, `type`, `action`, `item`, `location`, `acl`, `cid`, `date`, `accesstype`, `accesspreview`, `text`, `hashtags`, `circleid`, `wallid`) VALUES ('".$loginid."','".$published."','".$posttype."', 'shared', '', '', 'f0', '".$postcid."', '".$date."', '0', '', '".$sharetext."', '', '0', '0')";
+			$db->setQuery($query0);
+			if($db->query()) {
+				echo "success";
+			}
+	}
+
+	if($checkedvalue == "2") {
+		
+		$query0 = "INSERT INTO #__iconnect_activities (`user_id`, `published`, `type`, `action`, `item`, `location`, `acl`, `cid`, `date`, `accesstype`, `accesspreview`, `text`, `hashtags`, `circleid`, `wallid`) VALUES ('".$loginid."','".$published."','".$posttype."', 'shared', '', '', 'u".$postuserid."', '".$postcid."', '".$date."', '0', '', '".$sharetext."', '', '0', '".$postuserid."')";
+			$db->setQuery($query0);
+			if($db->query()) {
+				echo "success";
+			}
+	}
+
+	if($checkedvalue == "3") {
+		echo "<br /><br />3".$sharetext;
+	}
 	exit;
 }
