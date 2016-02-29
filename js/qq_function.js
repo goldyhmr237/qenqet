@@ -271,7 +271,7 @@ var timelineContentFunction = function(url) {
             // console.log(response);
             var total = response.total['id'];
             var userdata = "";
-            for(var i=total; i>432; i--) {
+            for(var i=total; i>0; i--) {
                 //console.log(i +") type=" + response[i].type +"\naction=" + response[i].action);
                 if (response[i]) 
                 {
@@ -2799,7 +2799,7 @@ var shareit = function(postid) {
             
             
 
-            userdata = "<div class='dockmodal no-footer' style='transition: right 0.4s ease 0s, left 0.4s ease 0s, top 0.4s ease 0s, bottom 0.4s ease 0s, height 0.4s ease 0s, width 0.4s ease 0s; width: 360px; height: 70%; left: auto; top: auto; bottom: 0px; right: 0px;'><div class='dockmodal-header'><a title='Close' class='header-action action-close' id='closeshareit' id='maxmizeshareit' onclick='closeshareit();'><i class='icon-dockmodal-close'></i></a><a title='Pop-out' class='header-action action-popout' id='maximizeshareit' onclick='maxmizeshareit();'><i class='icon-dockmodal-popout'></i></a><a title='Pop-in' class='header-action action-popout' id='restoremaxshareit' onclick='restoremaxshareit();'><i class='icon-dockmodal-popout'></i></a><a title='Minimize' class='header-action action-minimize' id='minimizeshareit' onclick='minimizeshareit();'><i class='icon-dockmodal-minimize'></i></a><a title='Restore' class='header-action action-minimize' id='restoreminishareit' onclick='restoreminishareit();'><i class='icon-dockmodal-minimize'></i></a><div class='title-text'>Share</div></div><div class='dockmodal-body'><div class='lite' id='isharemodal' data-formsid='" + postid + "'><div id='sharebox' class='activity-share ismedia'><div class='shared-preview'><div class='shared-title'><a onclick='viewprofile(" + postuserdetailsuserid + ");' class='ulink' title='" + postuserdetailsfullname + "'>" + postuserdetailsfullname + "</a><a data-uid='" + postuserdetailsuserid + "' class='inamelink' href='#'><span class='iname'>@" + postuserdetailsiname + "</span></a> posted <a href='#' target='_top' class='ifulllink'>" + posttype + "</a></div><div class='shared-img'><img src='" + postphotopostphoto + "' class='ishare-img'></div></div><div class='share-inner'><form class='iconnect-forms' role='form' id='ishare-form' novalidate='novalidate'><div class='form-body iconn-row'><p class='small-text fine-grey'>SHARE OPTIONS: choose how to share</p><div class='option-group ifield'><label data-hint='Set sharing option below' class='option hint--top hint--info'><input type='radio' value='1' checked='' name='ishareopt' id='sh1'><span class='radio'></span>on Timeline</label><label data-hint='Set friend below' class='option hint--top hint--info'><input type='radio' value='2' name='ishareopt' id='sh2'><span class='radio'></span>on a Wall</label><label data-hint='Set message recipient below' class='option hint--left hint--info'><input type='radio' value='3' name='ishareopt' id='sh3'><span class='radio'></span>in a message</label></div><div class='clearall' id='tagrespace'><label class='ifield prepend-icon'><div class='textntags-wrapper' style='visibility: visible;'><div class='textntags-beautifier'><div style='min-height: 18px;'></div></div><textarea placeholder='Share something...' name='actretext' id='actretext' class='taggable' style='height: 0px; min-height: 18px;'></textarea><div class='textntags-tag-list'></div></div><span class='input-hint'><strong><i class='icicon-comments'></i> Mention </strong>your friends by starting their name with @...</span></label></div></div><div class='form-footer iconn-row'><div class='controls' id='isreacl'><div class='input-group'><span data-hint='Share with' class='input-group-element hint--right hint--info'><i class='icicon-share-alt'></i></span><div class='select2-container select2-container-multi statusreshareacl' id='s2id_preshareacl' style='display: inline-block;'><ul class='select2-choices'><li class='select2-search-choice'><div>Public</div><a tabindex='-1' class='select2-search-choice-close' href='#'></a></li><li class='select2-search-field'><label class='select2-offscreen' for='s2id_autogen15'></label><input type='text' class='select2-input' spellcheck='false' autocapitalize='off' autocorrect='off' autocomplete='off' id='s2id_autogen15' style='width: 10px;' placeholder=''></li></ul><div class='select2-drop select2-drop-multi select2-display-none'><div class='scroll-wrapper select2-results' style='position: relative;'><ul class='select2-results scroll-content' style='margin-bottom: -17px; margin-right: -17px;'><li class='select2-no-results'>No matches found</li><li class='select2-no-results'>No matches found</li><li class='select2-no-results'>No matches found</li></ul><div class='scroll-element scroll-x'><div class='scroll-element_outer'><div class='scroll-element_size'></div><div class='scroll-element_track'></div><div class='scroll-bar' style=''></div></div></div><div class='scroll-element scroll-y'><div class='scroll-element_outer'><div class='scroll-element_size'></div><div class='scroll-element_track'></div><div class='scroll-bar' style=''></div></div></div></div></div></div><select multiple='multiple' class='statusreshareacl' name='preshareacl' id='preshareacl' style='display: none;' tabindex='-1'><option value=''></option><optgroup label='CONNECTIONS' class='ishcons'><option value='f0'>Public</option><option value='f1'>Site Members</option><option value='f2'>My Friends</option><option value='f3'>My Followers</option><option value='f4'>People I Follow</option><option value='f5'>Just Me</option></optgroup></select></div></div></div><div class='shbuttonwrap'><button class='ic-btn ic-btn-blue resubbtn' type='button'><i class='icicon-retweet'></i>share</button></div></form></div></div></div></div></div>";
+            userdata = "<div class='dockmodal no-footer' style='transition: right 0.4s ease 0s, left 0.4s ease 0s, top 0.4s ease 0s, bottom 0.4s ease 0s, height 0.4s ease 0s, width 0.4s ease 0s; width: 360px; height: 70%; left: auto; top: auto; bottom: 0px; right: 0px;'><div class='dockmodal-header'><a title='Close' class='header-action action-close' id='closeshareit' id='maxmizeshareit' onclick='closeshareit();'><i class='icon-dockmodal-close'></i></a><a title='Pop-out' class='header-action action-popout' id='maximizeshareit' onclick='maxmizeshareit();'><i class='icon-dockmodal-popout'></i></a><a title='Pop-in' class='header-action action-popout' id='restoremaxshareit' onclick='restoremaxshareit();'><i class='icon-dockmodal-popout'></i></a><a title='Minimize' class='header-action action-minimize' id='minimizeshareit' onclick='minimizeshareit();'><i class='icon-dockmodal-minimize'></i></a><a title='Restore' class='header-action action-minimize' id='restoreminishareit' onclick='restoreminishareit();'><i class='icon-dockmodal-minimize'></i></a><div class='title-text'>Share</div></div><div class='dockmodal-body'><div class='lite' id='isharemodal' data-formsid='" + postid + "'><div id='sharebox' class='activity-share ismedia'><div class='shared-preview'><div class='shared-title'><a onclick='viewprofile(" + postuserdetailsuserid + ");' class='ulink' title='" + postuserdetailsfullname + "'>" + postuserdetailsfullname + "</a><a data-uid='" + postuserdetailsuserid + "' class='inamelink' href='#'><span class='iname'>@" + postuserdetailsiname + "</span></a> posted <a href='#' target='_top' class='ifulllink'>" + posttype + "</a></div><div class='shared-img'><img src='" + postphotopostphoto + "' class='ishare-img'></div></div><div class='share-inner'><form class='iconnect-forms' role='form' id='ishare-form' novalidate='novalidate'><div class='form-body iconn-row'><p class='small-text fine-grey'>SHARE OPTIONS: choose how to share</p><div class='option-group ifield'><label data-hint='Set sharing option below' class='option hint--top hint--info'><input type='radio' value='1' checked='' name='ishareopt' id='sh1'><span class='radio'></span>on Timeline</label><label data-hint='Set friend below' class='option hint--top hint--info'><input type='radio' value='2' name='ishareopt' id='sh2'><span class='radio'></span>on a Wall</label></div><div class='clearall' id='tagrespace'><label class='ifield prepend-icon'><div class='textntags-wrapper' style='visibility: visible;'><div class='textntags-beautifier'><div style='min-height: 18px;'></div></div><textarea placeholder='Share something...' name='actretext' id='actretext' class='taggable' style='height: 0px; min-height: 18px;'></textarea><div class='textntags-tag-list'></div></div><span class='input-hint'><strong><i class='icicon-comments'></i> Mention </strong>your friends by starting their name with @...</span></label></div></div><div class='shbuttonwrap'><button class='ic-btn ic-btn-blue resubbtn' type='button' onclick='shareitnow(" + postid + ");'><i class='icicon-retweet'></i>share</button></div></form></div></div></div></div></div>";
             jQuery(".shareitdivshow").html(userdata);
         }
     });
@@ -2808,50 +2808,26 @@ var shareit = function(postid) {
 
 }
 
-var shareitnow = function(cid ) {
+var shareitnow = function(postid ) {
     var loginid = localStorage.getItem('id');
-    var elementid = localStorage.getItem('elementid');
-    if (elementid == '1') {
-        element = "profile";
-    }
-    if (elementid == '2') {
-        element = "video";
-    }
-    if (elementid == '3') {
-        element = "photo";
-    }
-    if (elementid == '4') {
-        element = "link";
-    }
-    if (elementid == '5') {
-        element = "board";
-    }
-    if (elementid == '6') {
-        element = "circle";
-    }
-    if (elementid == '7') {
-        element = "status";
-    }
-
+    var checkedvalue = jQuery('input[name="ishareopt"]:checked').val();
+    var sharetext = jQuery("actretext").val();
+    
     var formData = {
-        task: "shareit",
+        task: "shareitnow",
         loginid : loginid,
-        element: element,
-        cid: cid
-    }; 
+        postid: postid,
+        checkedvalue: checkedvalue,
+        sharetext: sharetext
+    };  
     jQuery.ajax({
         type: "POST",
         url: "http://qeneqt.us/index2.php?option=com_content&view=appcode",
         data: formData,
         success: function(response) 
         {   
-            var strsuccess = response.slice(0,7);
-            var strfail = response.slice(0,7);
-            if(strsuccess == "Success" || strfail != "Fail") {
-                window.location.assign("timeline.html");
-            }
-            if(response == "Fail" || strsuccess != "Success") {
-                alert("Message Sent Unsuccessful.");
+            if(response == "success") {
+                window.location.reload();
             }
         }
     });
