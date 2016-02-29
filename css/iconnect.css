@@ -180,3 +180,12 @@ body #pm-dropzone1.dropzone .dz-default1.dz-message1 {
 textarea#acttext.taggable {
     margin: -38px 0 0 !important;
 }
+#restoremaxshareit .icon-dockmodal-popout {
+    background-position: 0 -40px;
+}
+#restoreminishareit .icon-dockmodal-minimize {
+    background-position: 0 -80px;
+}
+#restoremaxshareit, #restoreminishareit {
+    display: none;
+}

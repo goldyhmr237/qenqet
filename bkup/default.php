@@ -44,7 +44,7 @@ $commentuserid = $_REQUEST['commentuserid'];
 $followuser = $_REQUEST['followuser'];
 $useraddtocircle = $_REQUEST['useraddtocircle'];
 $statusupdate = $_REQUEST['statusupdate'];
-
+$postid = $_REQUEST['postid'];
 
 if($_REQUEST['parentcid']) {
 	$parentcid = $_REQUEST['parentcid'];
@@ -208,6 +208,9 @@ switch ($task) {
 	    break;
     case 'updateStatus':
         updateStatus($loginid, $statusupdate,$date);
+        break;
+    case 'shareit':
+        shareit($loginid, $postid);
         break;
 
     default:  	
@@ -438,8 +441,13 @@ function timelineContent() {
 			$response[$result->id] = array('type' => $result->type, 'action' => $result->action, 'id' => $result->id, 'userid' => $result->user_id, 'cid' => $result->cid, 'title' => $boardData->title, 'description' => $boardData->description, 'cover' => $boardData->cover, 'thumb' => $boardData->thumb, 'fullname' => $result->fullname, 'iname' => $result->iname, 'avatar' => $result->avatar, 'avatarm' => $result->avatarm, 'header' => $result->header, 'text' => $result->text, 'like' => $like, 'comment' => $comment, 'support' => $support  );
 
 		}
+		// else if($result->action =="shared") 
+		// {
+		// 	echo "<br /><br /><br />type => ".$result->type."<br />action =>".$result->action."<br />id=> ".$result->id;
+		// }
 		else
 		{
+
 			$dbboard = 'SELECT title, description, cover, thumb FROM `#__iconnect_boards` WHERE userid ="'.$result->user_id.'" AND id ="'.$result->cid.'" ORDER BY id DESC';
 
 			$db->setQuery($dbboard);
@@ -448,6 +456,8 @@ function timelineContent() {
 			$boardData= $otherD['0'];
 
 			$response[$result->id] = array('type' => $result->type, 'action' => $result->action, 'id' => $result->id, 'userid' => $result->user_id, 'cid' => $result->cid, 'fullname' => $result->fullname, 'iname' => $result->iname, 'avatar' => $result->avatar, 'avatarm' => $result->avatarm, 'header' => $result->header, 'text' => $result->text, 'like' => $like, 'comment' => $comment, 'support' => $support  );
+
+			
 		}
 	}
 	$lastidquery = 'SELECT id FROM `#__iconnect_activities` ORDER BY id DESC LIMIT 1';
@@ -2387,4 +2397,116 @@ function updateStatus($loginid, $statusupdate, $date) {
 	}
 
 	exit;	 
+}
+
+function shareit($loginid, $postid) {
+	$db =& JFactory::getDBO();
+	$query = $db->getQuery(true);
+
+	$loggedprofiles = 'SELECT `iname`, `fullname` FROM `#__iconnect_profiles` WHERE `userid` ='.$loginid;
+	$db->setQuery($loggedprofiles);
+	$loggedprofile = $db->loadObjectList();
+	$db->query();
+
+	$response["loggeduserdetails"] = array('iname' => $loggedprofile['0']->iname, 'fullname' => $loggedprofile['0']->fullname, 'userid' => $loginid);
+
+	$activities = 'SELECT * FROM `#__iconnect_activities` WHERE `id` ='.$postid;
+	$db->setQuery($activities);
+	$activity = $db->loadObjectList();
+	$db->query();
+
+	foreach ($activity as $result) {
+		$response["datatype"] = array('posttype' => $result->type);
+		$postuser_id = $result->user_id;
+		$postcid = $result->cid;
+
+		$profiles = 'SELECT `iname`, `fullname` FROM `#__iconnect_profiles` WHERE `userid` ='.$postuser_id;
+		$db->setQuery($profiles);
+		$profile = $db->loadObjectList();
+		$db->query();
+
+		if($result->type == "photos" && $result->action =="posted")
+		{
+			$photos = 'SELECT * FROM `#__iconnect_photos` WHERE `id` ='.$postcid;
+			$db->setQuery($photos);
+			$photo = $db->loadObjectList();
+			$db->query();
+			$dephoto = json_decode($photo['0']->photo);
+			$postphoto = $dephoto->photo;
+
+			$response["postphoto"] = array('postphoto' => $postphoto );
+		}
+		else if($result->type == "circle" && $result->action =="posted")
+		{
+			$circles = 'SELECT * FROM `#__iconnect_circles` WHERE `id` ='.$postcid;
+			$db->setQuery($circles);
+			$circle = $db->loadObjectList();
+			$db->query();
+			$cover = $circle['0']->cover;
+
+			$response["postphoto"] = array('postphoto' => $cover );
+		}
+		else if($result->type == "profile" && ($result->action =="newcover" || $result->action =="newavatar" || $result->action =="newprofile"))
+		{
+			$postprofiles = 'SELECT * FROM `#__iconnect_profiles` WHERE `userid` ='.$postuser_id;
+			$db->setQuery($postprofiles);
+			$postprofile = $db->loadObjectList();
+			$db->query();
+			$header = $postprofile['0']->header;
+			
+			$response["postphoto"] = array('postphoto' => $header );
+
+		}
+		else if(($result->type == "localvideo" || $result->type == "video" ) && $result->action =="posted")
+		{
+			$postvideos = 'SELECT * FROM `#__iconnect_videos` WHERE `id` ='.$postcid;
+			$db->setQuery($postvideos);
+			$postvideo = $db->loadObjectList();
+			$db->query();
+			$dephoto = json_decode($postvideo['0']->video);
+			$photo = $dephoto->image;			
+
+			$response["postphoto"] = array('postphoto' => $photo ); 
+		}
+		else if($result->type == "link" && $result->action =="posted")
+		{
+			$postlinks = 'SELECT * FROM `#__iconnect_links` WHERE `id` ='.$postcid;
+			$db->setQuery($postlinks);
+			$postlink = $db->loadObjectList();
+			$db->query();
+			$dephoto = json_decode($postlink['0']->link);
+			$photo = $dephoto->image;
+
+			$response["postphoto"] = array('postphoto' => $photo ); 
+		}
+		else if($result->type == "board" && $result->action =="posted")
+		{
+			$postboards = 'SELECT * FROM `#__iconnect_boards` WHERE `id` ='.$postcid;
+			$db->setQuery($postboards);
+			$postboard = $db->loadObjectList();
+			$db->query();
+			$photo = json_decode($postboard['0']->cover);
+
+			$response["postphoto"] = array('postphoto' => $photo ); 
+
+		}
+		else
+		{
+			$poststatuses = 'SELECT * FROM `#__iconnect_status` WHERE `id` ='.$postcid;
+			$db->setQuery($poststatuses);
+			$poststatus = $db->loadObjectList();
+			$db->query();
+			$photo = $poststatus['0']->text;
+
+			$response["postphoto"] = array('postphoto' => $photo ); 
+
+		}
+
+
+		$response["postuserdetails"] = array('iname' => $profile['0']->iname, 'fullname' => $profile['0']->fullname, 'userid' => $postuser_id);
+		
+	}
+
+	echo json_encode($response);
+	exit;
 }
