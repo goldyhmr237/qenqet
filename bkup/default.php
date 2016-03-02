@@ -42,11 +42,15 @@ $commentid = $_REQUEST['commentid'];
 $commentoption = $_REQUEST['commentoption'];
 $commentuserid = $_REQUEST['commentuserid'];
 $followuser = $_REQUEST['followuser'];
+$frienduser = $_REQUEST['frienduser'];
 $useraddtocircle = $_REQUEST['useraddtocircle'];
 $statusupdate = $_REQUEST['statusupdate'];
 $postid = $_REQUEST['postid'];
 $checkedvalue = $_REQUEST['checkedvalue'];
 $sharetext =$_REQUEST['sharetext'];
+$matchupid =$_REQUEST['matchupid'];
+$matchupqasid = $_REQUEST['matchupqasid'];
+$matchupqasqid = $_REQUEST['matchupqasqid'];
 
 if($_REQUEST['parentcid']) {
 	$parentcid = $_REQUEST['parentcid'];
@@ -194,7 +198,7 @@ switch ($task) {
     	followuser($loginid, $followuser, $date); 
         break;  
     case 'makefriend':
-    	makefriend($loginid, $followuser, $date); 
+    	makefriend($loginid, $frienduser, $date); 
         break;
     case 'loggedusercircles':
         loggedusercircles($loginid, $useraddtocircle);
@@ -216,8 +220,15 @@ switch ($task) {
         break;
     case 'shareitnow':
         shareitnow($loginid, $postid, $checkedvalue, $sharetext, $date);
+        break;   
+    case 'viewmatchup':
+        viewmatchup($matchupid, $loginid);
         break;
-
+    case 'answermatchup':
+        answermatchup($matchupqasid, $matchupqasqid, $loginid);
+        break;
+    case 'answeredmatchupMainFunction':
+    answeredmatchupMainFunction($matchupid, $loginid, $matchupqasid, $matchupqasqid);
     default:  	
         break;
 }
@@ -596,10 +607,14 @@ function profileCover($loginid) {
 	$profileData = $db->loadObjectList();
 	$response['profile'] = $profileData[0];
 
-	$dbfriends = 'SELECT * FROM `#__iconnect_friends` WHERE user_id ='.$loginid.' AND status = 1';
+	$dbfriends = 'SELECT * FROM `#__iconnect_friends` WHERE (user_id ='.$loginid.' OR `friend_id` = '.$loginid.') AND status = 1';
 	$db->setQuery($dbfriends);
+	$friendData = $db->loadObjectList();
 	$db->query();
 	$numFriends = $db->getNumRows();
+
+	// echo "<pre>";
+	// print_r($friendData);
 	$response['friends'] = $numFriends;
 
 	$dbfollowers = 'SELECT * FROM `#__iconnect_followers` WHERE follower_id ='.$loginid.' AND status = 1';
@@ -2551,5 +2566,140 @@ function shareitnow($loginid, $postid, $checkedvalue, $sharetext, $date) {
 	if($checkedvalue == "3") {
 		echo "<br /><br />3".$sharetext;
 	}
+	exit;
+}
+
+function viewmatchup($matchupid, $loginid) {
+	$db =& JFactory::getDBO();
+	$query = $db->getQuery(true);
+	$published = "1";
+
+	$matchups = 'SELECT * FROM `#__iconnect_matchups` WHERE `id` ='.$matchupid;
+	$db->setQuery($matchups);
+	$matchup = $db->loadObjectList();
+	$db->query();
+	$response['matchup'] = array('id' => $matchup['0']->id, 'title' => $matchup['0']->title, 'description' => $matchup['0']->description, 'cover' => $matchup['0']->cover, 'thumb' => $matchup['0']->thumb, 'userid' => $matchup['0']->userid, 'acl' => $matchup['0']->acl, 'date' => $matchup['0']->date, 'catids' => $matchup['0']->catids, 'qlist' => $matchup['0']->qlist, 'featured' => $matchup['0']->featured, 'published' => $matchup['0']->published );
+
+	$matchupprofiles = 'SELECT * FROM `#__iconnect_profiles` WHERE `userid` ='.$matchup['0']->userid;
+	$db->setQuery($matchupprofiles);
+	$matchupprofile = $db->loadObjectList();
+	$db->query();
+
+	$response['profile'] = array('iname' => $matchupprofile['0']->iname, 'fullname' => $matchupprofile['0']->fullname, 'avatar' => $matchupprofile['0']->avatar);
+
+	$matchupqases = 'SELECT * FROM `#__iconnect_matchupqas` WHERE `qid` ='.$matchupid.' AND `published` = '.$published;
+	$db->setQuery($matchupqases);
+	$matchupqas = $db->loadObjectList();
+	$db->query();
+	
+	if (count($matchupqas) == 0){
+		$response['matchupqas']['0'] = "0";
+	}
+	foreach ($matchupqas as $qas => $result) {		
+		$response['matchupqas'][$result->id] = array('id' => $result->id, 'title' => $result->title, 'description' => $result->description, 'cover' => $result->cover, 'thumb' => $result->thumb, 'userid' => $result->userid, 'qid' => $result->qid );
+	}
+
+	$profilematchups = 'SELECT * FROM `#__iconnect_profile_matchups` WHERE `matchupid` ='.$matchupid;//.' AND `uid` = '.$loginid;
+	$db->setQuery($profilematchups);
+	$profilematchup = $db->loadObjectList();
+	$db->query();
+	$totpromatup = $db->getNumRows();
+	$response['totpromatup'] = array('tot' => $totpromatup);
+	
+	$lastidquery = 'SELECT id FROM `#__iconnect_matchupqas` ORDER BY id DESC LIMIT 1';
+	$db->setQuery($lastidquery);
+	$lastid = $db->loadObjectList();
+	$response['total'] = $lastid['0'];
+
+	echo json_encode($response);
+	exit;
+}
+
+function answermatchup($matchupqasid, $matchupqasqid, $loginid) {
+	$db =& JFactory::getDBO();
+	$query = $db->getQuery(true);
+	$published = "1";
+
+	$matchups = 'SELECT * FROM `#__iconnect_profile_matchups` WHERE `uid` ='.$loginid.' AND `matchupid` ='.$matchupqasqid;
+	$db->setQuery($matchups);
+	$matchup = $db->loadObjectList();
+	$db->query();
+	$totmatchup = $db->getNumRows();
+	$promatid = $matchup['0']->id;
+	
+	if($totmatchup > 0) {
+		$query = "UPDATE #__iconnect_profile_matchups SET `cid`= '".$matchupqasid."' WHERE id='".$promatid."'";
+		$db->setQuery($query);
+		if($db->query()) {
+			echo "Success";
+		}
+	}
+	else {
+		$query = "INSERT INTO #__iconnect_profile_matchups (matchupid, uid, cid) VALUES ('".$matchupqasqid."', '".$loginid."', '".$matchupqasid."')";
+		$db->setQuery($query);
+		if ($db->query()) {
+			echo "Success";
+		}
+	}
+	exit;
+}
+
+function answeredmatchupMainFunction($matchupid, $loginid, $matchupqasid, $matchupqasqid) {
+	$db =& JFactory::getDBO();
+	$query = $db->getQuery(true);
+	$published = "1";
+
+	$matchupprofilematch = 'SELECT * FROM `#__iconnect_profile_matchups` WHERE `uid` ='.$loginid.' AND `matchupid` ='.$matchupqasqid;
+	$db->setQuery($matchupprofilematch);
+	$matchupanswered = $db->loadObjectList();
+	$db->query();
+	$totmatchup = $db->getNumRows();
+	$matchupansweredid = $matchupanswered['0']->cid;
+	$response['ansewered'] = array('promatid' => $matchupansweredid);
+
+	$matchups = 'SELECT * FROM `#__iconnect_matchups` WHERE `id` ='.$matchupid;
+	$db->setQuery($matchups);
+	$matchup = $db->loadObjectList();
+	$db->query();
+	$response['matchup'] = array('id' => $matchup['0']->id, 'title' => $matchup['0']->title, 'description' => $matchup['0']->description, 'cover' => $matchup['0']->cover, 'thumb' => $matchup['0']->thumb, 'userid' => $matchup['0']->userid, 'acl' => $matchup['0']->acl, 'date' => $matchup['0']->date, 'catids' => $matchup['0']->catids, 'qlist' => $matchup['0']->qlist, 'featured' => $matchup['0']->featured, 'published' => $matchup['0']->published );
+
+	$matchupprofiles = 'SELECT * FROM `#__iconnect_profiles` WHERE `userid` ='.$matchup['0']->userid;
+	$db->setQuery($matchupprofiles);
+	$matchupprofile = $db->loadObjectList();
+	$db->query();
+
+	$response['profile'] = array('iname' => $matchupprofile['0']->iname, 'fullname' => $matchupprofile['0']->fullname, 'avatar' => $matchupprofile['0']->avatar);
+
+	$matchupqases = 'SELECT * FROM `#__iconnect_matchupqas` WHERE `qid` ='.$matchupid.' AND `published` = '.$published;
+	$db->setQuery($matchupqases);
+	$matchupqas = $db->loadObjectList();
+	$db->query();
+	
+	if (count($matchupqas) == 0){
+		$response['matchupqas']['0'] = "0";
+	}
+	foreach ($matchupqas as $qas => $result) {	
+		$profilematchups = 'SELECT * FROM `#__iconnect_profile_matchups` WHERE `cid` ='.$result->id;
+		$db->setQuery($profilematchups);
+		$profilematchup = $db->loadObjectList();
+		$db->query();
+		$totpromatup = $db->getNumRows();
+
+		$response['matchupqas'][$result->id] = array('id' => $result->id, 'title' => $result->title, 'description' => $result->description, 'cover' => $result->cover, 'thumb' => $result->thumb, 'userid' => $result->userid, 'qid' => $result->qid, 'answeredmatchupqas' => $totpromatup );
+	}
+
+	$profilematchups = 'SELECT * FROM `#__iconnect_profile_matchups` WHERE `matchupid` ='.$matchupid;
+	$db->setQuery($profilematchups);
+	$profilematchup = $db->loadObjectList();
+	$db->query();
+	$totpromatup = $db->getNumRows();
+	$response['totpromatup'] = array('tot' => $totpromatup);
+	
+	$lastidquery = 'SELECT id FROM `#__iconnect_matchupqas` ORDER BY id DESC LIMIT 1';
+	$db->setQuery($lastidquery);
+	$lastid = $db->loadObjectList();
+	$response['total'] = $lastid['0'];
+
+	echo json_encode($response);
 	exit;
 }
